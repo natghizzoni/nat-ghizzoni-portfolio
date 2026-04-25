@@ -45,12 +45,8 @@ export default function HeroSection() {
               De problemas complejos a soluciones que las personas aman usar
             </h1>
             <p className="text-[#EFF2FE]/70 text-lg md:text-xl leading-relaxed">
-              Diseño{" "}
-              <strong className="text-[#EFF2FE] font-semibold">ecosistemas digitales</strong>{" "}
-              donde las personas, el negocio y la tecnología se conectan de forma{" "}
-              <strong className="text-[#EFF2FE] font-semibold">natural</strong>,{" "}
-              <strong className="text-[#EFF2FE] font-semibold">respetuosa</strong> y{" "}
-              <strong className="text-[#EFF2FE] font-semibold">sostenible</strong>.
+              <strong className="text-[#EFF2FE] font-semibold">Diseño ecosistemas digitales donde las personas, el negocio y la tecnología se conectan.</strong>{" "}
+              Estoy formada en diseño industrial y mi foco está puesto en sistemas de productos digitales.
             </p>
           </div>
         </div>

@@ -10,8 +10,8 @@ const valueProps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
       </svg>
     ),
-    title: "Visión integral del proceso de diseño",
-    desc: "Ciencia y técnica + pensamiento crítico y foco en el negocio.",
+    title: "Sistemas antes que pantallas",
+    desc: "El diseño industrial me enseñó a entender el sistema antes de resolver el problema.",
   },
   {
     icon: (
@@ -19,8 +19,8 @@ const valueProps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
       </svg>
     ),
-    title: "Diseño end-to-end",
-    desc: "Research, definición, diseño e iteración con datos.",
+    title: "Diseño que cambia comportamientos",
+    desc: "Aplico modelos de behavioral design para generar cambio real, no solo engagement.",
   },
   {
     icon: (
@@ -28,8 +28,8 @@ const valueProps = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     ),
-    title: "Mejora continua e impacto positivo",
-    desc: "El diseño puede (y debe) mejorar la vida de las personas.",
+    title: "Liderazgo sin soltar el producto",
+    desc: "Definí cultura, procesos y roadmap de equipos. Al mismo tiempo, también seguí diseñando.",
   },
 ];
 
@@ -52,9 +52,8 @@ export default function StrategicSection() {
             Product Designer | UX Lead
           </p>
           <h2 className="font-['Inter'] font-extrabold text-4xl md:text-5xl text-[#1A1240] leading-tight">
-            Combino visión estratégica
-            <br />
-            <span className="font-normal">con diseño de experiencias escalables</span>
+            Diseño sistemas.{" "}
+            <span className="font-normal">Construyo experiencias.</span>
           </h2>
           <p className="text-[#6B7280] mt-4 text-sm">
             <span className="font-semibold text-[#1A1240]">¿Poco tiempo?</span> Te cuento en 30 segundos quién soy
@@ -84,8 +83,8 @@ export default function StrategicSection() {
                 />
                 <div />
                 <div className="relative z-10">
-                  <p className="font-['Inter'] font-extrabold text-[120px] leading-none text-white">15</p>
-                  <p className="text-white/70 text-base">años diseñando para industria</p>
+                  <p className="font-['Inter'] font-extrabold text-[120px] leading-none text-white">+5</p>
+                  <p className="text-white/70 text-base">años diseñando productos digitales</p>
                 </div>
                 <button
                   onClick={() => setOpen(true)}
