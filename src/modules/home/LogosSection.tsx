@@ -41,7 +41,7 @@ export default function LogosSection() {
           style={{ background: `linear-gradient(to left, ${BG}, transparent)` }}
         />
 
-        <div className="animate-marquee flex items-center gap-10 md:gap-16 w-max">
+        <div className="animate-marquee flex items-center gap-[16px] md:gap-10 w-max">
           {track.map((logo, i) => (
             <div
               key={i}

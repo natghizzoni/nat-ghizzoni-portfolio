@@ -191,7 +191,7 @@ export default function StrategicSection() {
                 </div>
                 <div className="flex flex-col gap-0.5 flex-1 min-w-0">
                   <p
-                    className="font-bold text-[#1a1433] text-[18px] md:text-[24px] leading-[24px] md:leading-[30px]"
+                    className="font-bold text-[#1a1433] text-[18px] md:text-[24px] leading-[22px] md:leading-[28px]"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
                     {title}

@@ -11,22 +11,6 @@ const IMG_ALARM       = "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-
 const IMG_WALLET      = "https://www.figma.com/api/mcp/asset/9b519038-2bbd-4202-bc5b-512a184de5e1";
 const IMG_TELECOM     = "https://www.figma.com/api/mcp/asset/98f13723-e14a-4045-aaf9-d89fc57b444b";
 
-// ── Shared CTA button ─────────────────────────────────────────────
-function CaseButton({ href, label = "Ver caso" }: { href: string; label?: string }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center gap-[12px] bg-[#1a1433] border-2 border-[#4036a4] text-white text-[12px] md:text-[14px] font-black pl-[14px] md:pl-[18px] pr-[10px] md:pr-[14px] py-[7px] md:py-[8px] rounded-[10px] hover:bg-[#2d2560] transition-colors w-fit"
-      style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.084px" }}
-    >
-      {label}
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-      </svg>
-    </Link>
-  );
-}
-
 // ── Floating badge pill ───────────────────────────────────────────
 function Badge({ label }: { label: string }) {
   return (
@@ -157,8 +141,10 @@ export default function ProjectsSection() {
         </p>
 
         {/* ── Featured card ─────────────────────────────────────── */}
-        <div className="border-[5px] border-[#4036a4] rounded-[24px] overflow-hidden flex flex-col md:flex-row">
-
+        <Link
+          href="/casos/solenium"
+          className="group border-[5px] border-[#4036a4] hover:border-[#6b61c8] rounded-[24px] overflow-hidden flex flex-col md:flex-row transition-colors"
+        >
           {/* Left: image — badges in flex flow on desktop (items-end), absolute on mobile */}
           <div className="bg-[#8ec862] relative flex flex-col items-end min-h-[260px] md:min-h-0 md:flex-1 overflow-hidden md:pr-[40px] md:pt-[40px]">
             {/* Phone image fills the area */}
@@ -167,7 +153,7 @@ export default function ProjectsSection() {
                 src={IMG_FEATURED}
                 alt="Solenium app mockups"
                 fill
-                className="object-cover object-left-top"
+                className="object-cover object-left-top transition-transform duration-300 group-hover:scale-[1.03]"
                 unoptimized
                 priority
               />
@@ -177,7 +163,7 @@ export default function ProjectsSection() {
               <span className="bg-[#f3f4f6] border border-[#1a1433] text-[#1a1433] text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.35px] px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap">
                 App Móvil
               </span>
-              <span className="bg-[#1a1433] border border-[#1a1433] text-white text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.35px] px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap">
+              <span className="bg-[#4036a4] border border-[#4036a4] text-white text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.35px] px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap">
                 Proyecto Destacado
               </span>
             </div>
@@ -197,13 +183,22 @@ export default function ProjectsSection() {
               </p>
               <div className="border-t border-[rgba(64,54,164,0.2)] pt-3 md:pt-4">
                 <p className="font-bold text-[#101828] text-[12px] md:text-[14px] leading-snug">
-                  -23% consumo energético • 85% retención • +15k usuarios activos
+                  -32% consumo energético • 89% retención • 3 comunidades
                 </p>
               </div>
             </div>
-            <CaseButton href="/casos/solenium" />
+            {/* Visual CTA — no nested <a>, card itself is the link */}
+            <div
+              className="inline-flex items-center gap-[12px] bg-[#1a1433] border-2 border-[#4036a4] text-white text-[12px] md:text-[14px] font-black pl-[14px] md:pl-[18px] pr-[10px] md:pr-[14px] py-[7px] md:py-[8px] rounded-[10px] group-hover:bg-[#2d2560] transition-colors w-fit"
+              style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.084px" }}
+            >
+              Ver caso
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* ── Project cards carousel ────────────────────────────── */}
         <div className="flex flex-col gap-5">
@@ -227,9 +222,10 @@ export default function ProjectsSection() {
               }}
             >
               {cards.map((card, i) => (
-                <div
+                <Link
                   key={i}
-                  className="bg-white border-2 border-[#6b61c8] rounded-2xl overflow-hidden flex flex-col p-[2px] w-[300px] sm:w-[360px] md:w-[420px] shrink-0"
+                  href={card.href}
+                  className="group bg-white border-2 border-[#6b61c8] hover:border-[#4036a4] rounded-2xl overflow-hidden flex flex-col p-[2px] w-[300px] sm:w-[360px] md:w-[420px] shrink-0 transition-colors"
                   style={{ scrollSnapAlign: "start" }}
                 >
                   {/* Top: image */}
@@ -238,7 +234,7 @@ export default function ProjectsSection() {
                       src={card.img}
                       alt={card.badges[0]}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
                       unoptimized
                     />
                     {/* Badges top-right */}
@@ -267,9 +263,18 @@ export default function ProjectsSection() {
                         </p>
                       </div>
                     </div>
-                    <CaseButton href={card.href} />
+                    {/* Visual CTA — no nested <a>, card itself is the link */}
+                    <div
+                      className="inline-flex items-center gap-[12px] bg-[#1a1433] border-2 border-[#4036a4] text-white text-[12px] md:text-[14px] font-black pl-[14px] md:pl-[18px] pr-[10px] md:pr-[14px] py-[7px] md:py-[8px] rounded-[10px] group-hover:bg-[#2d2560] transition-colors w-fit"
+                      style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.084px" }}
+                    >
+                      Ver caso
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
               {/* Trailing spacer — lets last card scroll fully to left edge */}
               <div ref={spacerRef} className="shrink-0" aria-hidden="true" />

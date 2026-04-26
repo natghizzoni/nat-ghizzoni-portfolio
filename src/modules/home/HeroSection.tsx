@@ -42,11 +42,11 @@ export default function HeroSection() {
           <div className="max-w-2xl md:order-first">
             <h1
               className="font-black text-[#dddbe4] leading-[1.1] tracking-[-0.02em] mb-8"
-              style={{ fontFamily: "var(--font-hanken-grotesk)", fontSize: "clamp(36px, 5vw, 64px)" }}
+              style={{ fontFamily: "var(--font-hanken-grotesk)", fontSize: "clamp(32px, 5vw, 64px)" }}
             >
               De problemas complejos a soluciones que las personas aman usar
             </h1>
-            <p className="text-[rgba(221,219,228,0.9)] text-lg md:text-xl leading-relaxed">
+            <p className="text-[rgba(221,219,228,0.9)] text-[14px] lg:text-xl leading-relaxed">
               <strong className="font-bold">Diseño ecosistemas digitales donde las personas, el negocio y la tecnología se conectan</strong>
               {". "}
               <span className="font-light">Estoy formada en diseño industrial y mi foco está puesto en sistemas de productos digitales.</span>
