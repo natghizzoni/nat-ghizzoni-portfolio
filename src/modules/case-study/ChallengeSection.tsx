@@ -10,8 +10,8 @@ export default function ChallengeSection({ caseStudy }: { caseStudy: CaseStudy }
     {
       label: t.caseStudy.problem,
       items: caseStudy.challenge.problem,
-      color: "bg-[#EDE9FF] border-[#5B3FFF]/20",
-      dot: "bg-[#5B3FFF]",
+      color: "bg-[rgba(64,54,164,0.1)] border-[rgba(64,54,164,0.2)]",
+      dot: "bg-[#4036a4]",
     },
     {
       label: t.caseStudy.hypothesis,
@@ -30,10 +30,10 @@ export default function ChallengeSection({ caseStudy }: { caseStudy: CaseStudy }
   return (
     <section className="bg-[#F9FAFB] py-20 px-6">
       <div className="max-w-4xl mx-auto">
-        <p className="text-[#5B3FFF] text-sm font-semibold uppercase tracking-widest mb-3">
+        <p className="text-[#4036a4] text-sm font-semibold uppercase tracking-widest mb-3">
           {t.caseStudy.challenge}
         </p>
-        <h2 className="font-heading text-3xl font-bold text-[#1A1240] mb-10">
+        <h2 className="font-heading text-3xl font-bold text-[#1a1433] mb-10">
           {t.caseStudy.challenge}
         </h2>
 
@@ -45,7 +45,7 @@ export default function ChallengeSection({ caseStudy }: { caseStudy: CaseStudy }
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className={`w-2.5 h-2.5 rounded-full ${col.dot}`} aria-hidden="true" />
-                <p className="font-heading font-semibold text-[#1A1240] text-sm uppercase tracking-wide">
+                <p className="font-heading font-semibold text-[#1a1433] text-sm uppercase tracking-wide">
                   {col.label}
                 </p>
               </div>

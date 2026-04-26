@@ -27,7 +27,7 @@ export default function AccordionItem({
         aria-expanded={open}
       >
         <div>
-          <p className="font-heading font-semibold text-[#1A1240] text-base">{title}</p>
+          <p className="font-heading font-semibold text-[#1a1433] text-base">{title}</p>
           {subtitle && (
             <p className="text-[#6B7280] text-sm mt-0.5">
               {subtitle}

@@ -1,40 +1,46 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand Colors - Natalia Ghizzoni Portfolio */
-  --color-bg-dark: #120E2B;
-  --color-bg-dark-2: #1C1640;
-  --color-bg-light: #F5F4FF;
-  --color-bg-white: #FFFFFF;
+  /* ── Background layers ─────────────────────────────────────────── */
+  --color-bg-darkest: #1a1433;     /* footer / navbar */
+  --color-bg-dark: #2a2560;        /* projects section */
+  --color-bg-mid: #352e76;         /* blog section */
+  --color-bg-light: #dddbe4;       /* logos section / light bg */
+  --color-bg-white: #ffffff;
 
-  --color-primary: #5B3FFF;
-  --color-primary-light: #7B6AFF;
-  --color-primary-dark: #3D24E0;
+  /* ── Brand purple scale ────────────────────────────────────────── */
+  --color-primary: #4036a4;        /* main brand purple */
+  --color-primary-light: #574be0;  /* hover / links */
+  --color-primary-muted: rgba(87,75,224,0.3);  /* button bg */
 
-  --color-secondary: #A78BFA;
+  /* ── Accent ────────────────────────────────────────────────────── */
+  --color-accent-yellow: #efb803;  /* section labels / logo */
   --color-accent-green: #22C55E;
-  --color-accent-yellow: #FACC15;
   --color-accent-orange: #FB923C;
   --color-accent-pink: #F472B6;
   --color-accent-cyan: #22D3EE;
 
-  --color-card-purple: #2D1F6E;
-  --color-card-light: #EDEAFF;
-  --color-card-white: #FFFFFF;
-
-  --color-text-primary: #1A1240;
+  /* ── Text ──────────────────────────────────────────────────────── */
+  --color-text-primary: #101828;   /* body text on light bg */
+  --color-text-body: #eff2fe;      /* body text on dark bg */
+  --color-text-lavender: #b4a7ff;  /* headings on dark bg */
   --color-text-secondary: #6B7280;
-  --color-text-light: #FFFFFF;
   --color-text-muted: #9CA3AF;
+  --color-text-light: #ffffff;
 
+  /* ── Borders ───────────────────────────────────────────────────── */
   --color-border-light: #E5E7EB;
-  --color-border-purple: #3D2D8F;
+  --color-border-purple: #4036a4;
 
-  /* Typography */
+  /* ── Cards ─────────────────────────────────────────────────────── */
+  --color-card-light: #ecebf6;
+  --color-card-white: #ffffff;
+
+  /* ── Typography ────────────────────────────────────────────────── */
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-heading: var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-hanken-grotesk), var(--font-inter), system-ui, sans-serif;
 
-  /* Spacing & Radii */
+  /* ── Radii ─────────────────────────────────────────────────────── */
   --radius-card: 1rem;
   --radius-pill: 9999px;
   --radius-btn: 0.5rem;
@@ -55,8 +61,8 @@ html {
 
 /* Selection color */
 ::selection {
-  background-color: #5B3FFF33;
-  color: #1A1240;
+  background-color: rgba(64,54,164,0.2);
+  color: #1a1433;
 }
 
 /* Logos marquee */

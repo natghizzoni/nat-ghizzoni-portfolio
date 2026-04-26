@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-// Medium icon SVG
+// ── Icons ─────────────────────────────────────────────────────────
 function MediumIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -13,7 +13,6 @@ function MediumIcon() {
   );
 }
 
-// LinkedIn icon SVG
 function LinkedInIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -22,7 +21,6 @@ function LinkedInIcon() {
   );
 }
 
-// Globe icon
 function GlobeIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -32,34 +30,60 @@ function GlobeIcon() {
   );
 }
 
-export default function Navbar({ dark = false }: { dark?: boolean }) {
+function ChevronDownIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
+
+export default function Navbar() {
   const { language, toggle } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const bg = dark
-    ? "bg-[#1A1433] border-b border-[#574BE0]/40"
-    : "bg-white/95 backdrop-blur-sm border-b border-[#E5E7EB]";
-
-  const textColor = dark ? "text-[#EFF2FE]" : "text-[#1A1240]";
-  const hoverColor = dark ? "hover:text-white" : "hover:text-[#5B3FFF]";
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 20);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 ${bg}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[rgba(26,20,51,0.65)] backdrop-blur-xl"
+          : "bg-[#1a1433]"
+      }`}
+      style={{
+        borderBottom: scrolled
+          ? "0.833px solid rgba(87,75,224,0.25)"
+          : "0.833px solid rgba(87,75,224,0.5)",
+      }}
+    >
       <nav className="max-w-[1346px] mx-auto px-6 h-[80px] flex items-center justify-between">
-        {/* Logo */}
+
+        {/* Logo: "Nat" Bold + "Ghizzoni" Regular — both #efb803 */}
         <Link
           href="/"
-          className="font-['Inter'] font-bold text-2xl text-[#EFB803] shrink-0"
+          className="shrink-0 text-[#efb803] text-[24px] leading-[32px]"
+          style={{ fontFamily: "var(--font-hanken-grotesk)" }}
         >
-          Nat Ghizzoni
+          <span className="font-bold">Nat </span>
+          <span className="font-normal">Ghizzoni</span>
         </Link>
 
-        {/* Desktop links */}
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Sobre mi */}
+
+          {/* Sobre mi — underlined */}
           <Link
             href="/cv"
-            className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${textColor} ${hoverColor}`}
+            className="px-3 py-2 text-[#eff2fe] text-[14px] font-bold underline decoration-solid transition-colors hover:text-white"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
           >
             Sobre mi
           </Link>
@@ -69,7 +93,8 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
             href="https://medium.com/@nat.ghizzoni"
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#574BE0]/30 ${textColor} hover:bg-[#574BE0]/50`}
+            className="flex items-center gap-2 bg-[rgba(87,75,224,0.3)] hover:bg-[rgba(87,75,224,0.5)] text-[#eff2fe] h-9 pl-4 pr-5 rounded-[8px] transition-colors"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "14px", letterSpacing: "0.4px" }}
           >
             <MediumIcon />
             Medium
@@ -80,7 +105,8 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
             href="https://linkedin.com/in/nataliaghizzoni"
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#574BE0]/30 ${textColor} hover:bg-[#574BE0]/50`}
+            className="flex items-center gap-2 bg-[rgba(87,75,224,0.3)] hover:bg-[rgba(87,75,224,0.5)] text-[#eff2fe] h-9 pl-4 pr-5 rounded-[8px] transition-colors"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "14px", letterSpacing: "0.4px" }}
           >
             <LinkedInIcon />
             LinkedIn
@@ -89,20 +115,25 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
           {/* Language toggle */}
           <button
             onClick={toggle}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium bg-[#574BE0]/50 border border-[#EFB803]/20 text-[#EFF2FE] hover:bg-[#574BE0]/70 transition-colors"
+            className="flex items-center gap-2 bg-[rgba(87,75,224,0.5)] hover:bg-[rgba(87,75,224,0.7)] text-[#eff2fe] h-9 pl-3 pr-2 rounded-[10px] transition-colors"
+            style={{
+              fontFamily: "var(--font-hanken-grotesk)",
+              fontWeight: 900,
+              fontSize: "14px",
+              letterSpacing: "0.4px",
+              border: "0.833px solid rgba(239,184,3,0.2)",
+            }}
             aria-label={`Switch to ${language === "es" ? "English" : "Español"}`}
           >
             <GlobeIcon />
-            <span>{language.toUpperCase()}</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <span className="uppercase">{language}</span>
+            <ChevronDownIcon />
           </button>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className={`md:hidden ${textColor}`}
+          className="md:hidden text-[#eff2fe]"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Menu"
           aria-expanded={menuOpen}
@@ -119,17 +150,38 @@ export default function Navbar({ dark = false }: { dark?: boolean }) {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className={`md:hidden px-6 pb-6 pt-2 flex flex-col gap-3 ${dark ? "bg-[#1A1433]" : "bg-white border-b border-[#E5E7EB]"}`}>
-          <Link href="/cv" className={`text-sm font-medium ${textColor}`} onClick={() => setMenuOpen(false)}>
+        <div className={`md:hidden px-6 pb-6 pt-2 flex flex-col gap-3 border-t border-[rgba(87,75,224,0.3)] ${scrolled ? "bg-[rgba(26,20,51,0.65)] backdrop-blur-xl" : "bg-[#1a1433]"}`}>
+          <Link
+            href="/cv"
+            className="text-[14px] font-bold text-[#eff2fe] underline"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
+            onClick={() => setMenuOpen(false)}
+          >
             Sobre mi
           </Link>
-          <Link href="https://medium.com/@nat.ghizzoni" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 text-sm font-medium ${textColor}`}>
+          <Link
+            href="https://medium.com/@nat.ghizzoni"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-[14px] font-black text-[#eff2fe]"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
+          >
             <MediumIcon /> Medium
           </Link>
-          <Link href="https://linkedin.com/in/nataliaghizzoni" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-2 text-sm font-medium ${textColor}`}>
+          <Link
+            href="https://linkedin.com/in/nataliaghizzoni"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-[14px] font-black text-[#eff2fe]"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
+          >
             <LinkedInIcon /> LinkedIn
           </Link>
-          <button onClick={toggle} className="self-start flex items-center gap-1.5 text-sm font-medium text-[#EFF2FE]">
+          <button
+            onClick={toggle}
+            className="self-start flex items-center gap-1.5 text-[14px] font-black text-[#eff2fe]"
+            style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
+          >
             <GlobeIcon />
             {language === "es" ? "Switch to EN" : "Cambiar a ES"}
           </button>

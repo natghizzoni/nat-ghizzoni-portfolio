@@ -18,13 +18,13 @@ type Props = ButtonProps | LinkProps;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#5B3FFF] text-white hover:bg-[#3D24E0] active:scale-[0.98] shadow-sm",
+    "bg-[#4036a4] text-white hover:bg-[#574be0] active:scale-[0.98] shadow-sm",
   outline:
-    "border-2 border-[#5B3FFF] text-[#5B3FFF] hover:bg-[#5B3FFF] hover:text-white active:scale-[0.98]",
+    "border-2 border-[#4036a4] text-[#4036a4] hover:bg-[#4036a4] hover:text-white active:scale-[0.98]",
   ghost:
-    "text-[#5B3FFF] hover:bg-[#EDE9FF] active:scale-[0.98]",
+    "text-[#4036a4] hover:bg-[rgba(64,54,164,0.1)] active:scale-[0.98]",
   dark:
-    "bg-white text-[#1A1240] hover:bg-[#F5F4FF] active:scale-[0.98] shadow-sm",
+    "bg-[#1a1433] border-2 border-[#4036a4] text-white hover:bg-[#2d2560] active:scale-[0.98]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

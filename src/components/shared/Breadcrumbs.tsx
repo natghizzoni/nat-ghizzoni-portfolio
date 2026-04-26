@@ -19,11 +19,11 @@ export default function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
         <span key={i} className="flex items-center gap-2">
           {i > 0 && <span aria-hidden="true">/</span>}
           {crumb.href && i < allCrumbs.length - 1 ? (
-            <Link href={crumb.href} className="hover:text-[#5B3FFF] transition-colors">
+            <Link href={crumb.href} className="hover:text-[#4036a4] transition-colors">
               {crumb.label}
             </Link>
           ) : (
-            <span className={i === allCrumbs.length - 1 ? "text-[#1A1240] font-medium" : ""}>
+            <span className={i === allCrumbs.length - 1 ? "text-[#1a1433] font-medium" : ""}>
               {crumb.label}
             </span>
           )}

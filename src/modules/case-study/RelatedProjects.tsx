@@ -13,10 +13,10 @@ export default function RelatedProjects({ caseStudy }: { caseStudy: CaseStudy })
   return (
     <section className="bg-white py-20 px-6">
       <div className="max-w-4xl mx-auto">
-        <p className="text-[#5B3FFF] text-sm font-semibold uppercase tracking-widest mb-3">
+        <p className="text-[#4036a4] text-sm font-semibold uppercase tracking-widest mb-3">
           {t.caseStudy.others}
         </p>
-        <h2 className="font-heading text-3xl font-bold text-[#1A1240] mb-10">
+        <h2 className="font-heading text-3xl font-bold text-[#1a1433] mb-10">
           {t.caseStudy.others}
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
