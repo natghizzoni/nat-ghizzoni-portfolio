@@ -22,10 +22,10 @@ export default function CaseStudyHero({ caseStudy }: Props) {
         />
 
         <div className="mt-8">
-          <p className="text-[#5B3FFF] text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#4036a4] text-sm font-semibold uppercase tracking-widest mb-3">
             {caseStudy.subtitle}
           </p>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1240] leading-tight mb-6 max-w-3xl">
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a1433] leading-tight mb-6 max-w-3xl">
             {caseStudy.title}
           </h1>
           <p className="text-[#6B7280] text-lg leading-relaxed mb-10 max-w-2xl">
@@ -34,25 +34,25 @@ export default function CaseStudyHero({ caseStudy }: Props) {
 
           {/* Meta row */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            <div className="bg-[#F5F4FF] rounded-xl p-4">
+            <div className="bg-[#ecebf6] rounded-xl p-4">
               <p className="text-xs font-semibold text-[#9CA3AF] uppercase mb-1">Rol</p>
-              <p className="text-[#1A1240] font-medium text-sm">{caseStudy.role}</p>
+              <p className="text-[#1a1433] font-medium text-sm">{caseStudy.role}</p>
             </div>
-            <div className="bg-[#F5F4FF] rounded-xl p-4">
+            <div className="bg-[#ecebf6] rounded-xl p-4">
               <p className="text-xs font-semibold text-[#9CA3AF] uppercase mb-1">Herramientas</p>
-              <p className="text-[#1A1240] font-medium text-sm">
+              <p className="text-[#1a1433] font-medium text-sm">
                 {caseStudy.technologies.slice(0, 2).join(", ")}
               </p>
             </div>
-            <div className="bg-[#F5F4FF] rounded-xl p-4">
+            <div className="bg-[#ecebf6] rounded-xl p-4">
               <p className="text-xs font-semibold text-[#9CA3AF] uppercase mb-1">Proceso</p>
-              <p className="text-[#1A1240] font-medium text-sm">
+              <p className="text-[#1a1433] font-medium text-sm">
                 {caseStudy.process.slice(0, 2).join(", ")}
               </p>
             </div>
-            <div className="bg-[#F5F4FF] rounded-xl p-4">
+            <div className="bg-[#ecebf6] rounded-xl p-4">
               <p className="text-xs font-semibold text-[#9CA3AF] uppercase mb-1">Tipo</p>
-              <p className="text-[#1A1240] font-medium text-sm">{caseStudy.subtitle}</p>
+              <p className="text-[#1a1433] font-medium text-sm">{caseStudy.subtitle}</p>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ export default function CaseStudyHero({ caseStudy }: Props) {
             {caseStudy.heroStats.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-[#1C1640] rounded-2xl p-5 text-center"
+                className="bg-[#2a2560] rounded-2xl p-5 text-center"
               >
                 <p className="font-heading text-3xl font-bold text-white">{stat.value}</p>
                 <p className="text-white/60 text-xs mt-1">{stat.label}</p>

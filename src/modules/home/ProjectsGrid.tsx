@@ -17,7 +17,7 @@ const projects = [
     category: "Aeroportuario",
     categoryColor: "bg-[#CFFAFE] text-[#0E7490]",
     tags: ["WEB RESPONSIVO"],
-    tagColors: ["bg-[#EDE9FF] text-[#5B3FFF]"],
+    tagColors: ["bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]"],
     title: "De 35 sitios dispersos a una experiencia unificada",
     desc: "Lideré el rediseño del ecosistema digital de Aeropuertos, coordinando equipos multidisciplinarios y mediando entre stakeholders técnicos y de negocio para crear una plataforma escalable que alcanzó WCAG AAA.",
     stats: "+5M búsquedas • +42% engagement • De 35 en 1 sistema",
@@ -29,7 +29,7 @@ const projects = [
     category: "Sistema de Alarmas IoT",
     categoryColor: "bg-[#FFEDD5] text-[#C2410C]",
     tags: ["APP HÍBRIDA", "BACKOFFICE"],
-    tagColors: ["bg-[#EDE9FF] text-[#5B3FFF]", "bg-[#DCFCE7] text-[#15803D]"],
+    tagColors: ["bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]", "bg-[#DCFCE7] text-[#15803D]"],
     title: "Ecosistema completo de alarmas para miles de hogares",
     desc: "Durante 2 años transformamos la experiencia mediante validación continua con usuarios reales, un sistema de diseño cohesivo, y la adopción de metodologías UX que escalaron tanto el producto como la organización.",
     stats: "+10k descargas • 2 años iteración • Rating duplicado",
@@ -41,7 +41,7 @@ const projects = [
     category: "Wallet digital para emprendedoras",
     categoryColor: "bg-[#DCFCE7] text-[#15803D]",
     tags: ["PWA", "BACKOFFICE"],
-    tagColors: ["bg-[#EDE9FF] text-[#5B3FFF]", "bg-[#DCFCE7] text-[#15803D]"],
+    tagColors: ["bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]", "bg-[#DCFCE7] text-[#15803D]"],
     title: "Billetera fintech escalable a 3 países",
     desc: "Diseñé una billetera fintech que escaló a 3 mercados (Argentina, Brasil, México), alcanzando +1M de transacciones y NPS 75. Lideré 26 testeos de usabilidad para garantizar inclusión financiera.",
     stats: "+1M transacciones • NPS 75 • 3 países",
@@ -53,7 +53,7 @@ const projects = [
     category: "Telecomunicaciones",
     categoryColor: "bg-[#FCE7F3] text-[#BE185D]",
     tags: ["PWA", "BACKOFFICE"],
-    tagColors: ["bg-[#EDE9FF] text-[#5B3FFF]", "bg-[#DCFCE7] text-[#15803D]"],
+    tagColors: ["bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]", "bg-[#DCFCE7] text-[#15803D]"],
     title: "Ecosistema de eSIM",
     desc: "Diseñé un ecosistema integrado que permitió gestionar los servicios de eSIM en distintos mercados, reduciendo el time-to-market.",
     stats: "13 operadores • 3 países",
@@ -106,14 +106,14 @@ export default function ProjectsGrid() {
                   ))}
                 </div>
 
-                <h3 className="font-['Inter'] font-bold text-[#1A1240] text-sm leading-snug mb-2 group-hover:text-[#574BE0] transition-colors">
+                <h3 className="font-['Inter'] font-bold text-[#1a1433] text-sm leading-snug mb-2 group-hover:text-[#574be0] transition-colors">
                   {p.title}
                 </h3>
                 <p className="text-[#6B7280] text-xs leading-relaxed mb-3 flex-1 line-clamp-3">
                   {p.desc}
                 </p>
                 <p className="text-[#9CA3AF] text-xs mb-4">{p.stats}</p>
-                <span className="text-[#574BE0] text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="text-[#574be0] text-xs font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
                   Ver caso de estudio completo
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />

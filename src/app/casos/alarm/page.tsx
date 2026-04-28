@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { caseStudies } from "@/data/caseStudies";
-import CaseStudyPage from "@/modules/case-study/CaseStudyPage";
+import AlarmCaseStudy from "@/modules/case-study/AlarmCaseStudy";
 
 export const metadata: Metadata = {
   title: "Alarm — Ecosistema IoT para el hogar | Natalia Ghizzoni",
   description:
-    "Case study: Diseño de sistema de alarma doméstica IoT para familias. 4.8/5 rating, setup en 2 minutos.",
+    "Case study: Ecosistema completo de alarmas IoT para familias. 2x rating en stores, +10k descargas, 92% task completion.",
 };
 
 export default function AlarmPage() {
-  return <CaseStudyPage caseStudy={caseStudies.alarm} />;
+  return <AlarmCaseStudy />;
 }

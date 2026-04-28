@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 
-// Figma asset: Natalia illustration
-const NAT_AVATAR = "https://www.figma.com/api/mcp/asset/0ebad813-b648-410d-afb8-b991e9b1de74";
+const NAT_AVATAR = "https://www.figma.com/api/mcp/asset/f73e3381-e4b5-4125-9945-f38ca9e08ac6";
 
 export default function HeroSection() {
   return (
@@ -25,8 +24,8 @@ export default function HeroSection() {
           {/* Avatar — above title on mobile/tablet, right column on desktop */}
           <div className="flex justify-center mt-6 md:mt-0 md:order-last">
             <div
-              className="relative rounded-full overflow-hidden shrink-0 w-[140px] h-[140px] md:w-[300px] md:h-[300px]"
-              style={{ background: "radial-gradient(circle, #EFB803 0%, #D4A000 100%)" }}
+              className="relative rounded-full overflow-hidden shrink-0 w-[160px] h-[160px] md:w-[320px] md:h-[320px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]"
+              style={{ border: "7.5px solid rgba(255,255,255,0.2)" }}
             >
               <Image
                 src={NAT_AVATAR}
@@ -41,16 +40,16 @@ export default function HeroSection() {
 
           {/* Text */}
           <div className="max-w-2xl md:order-first">
-            <h1 className="font-['Inter'] font-extrabold text-[44px] md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight mb-8">
+            <h1
+              className="font-black text-[#dddbe4] leading-[1.1] tracking-[-0.02em] mb-8"
+              style={{ fontFamily: "var(--font-hanken-grotesk)", fontSize: "clamp(32px, 5vw, 64px)" }}
+            >
               De problemas complejos a soluciones que las personas aman usar
             </h1>
-            <p className="text-[#EFF2FE]/70 text-lg md:text-xl leading-relaxed">
-              Diseño{" "}
-              <strong className="text-[#EFF2FE] font-semibold">ecosistemas digitales</strong>{" "}
-              donde las personas, el negocio y la tecnología se conectan de forma{" "}
-              <strong className="text-[#EFF2FE] font-semibold">natural</strong>,{" "}
-              <strong className="text-[#EFF2FE] font-semibold">respetuosa</strong> y{" "}
-              <strong className="text-[#EFF2FE] font-semibold">sostenible</strong>.
+            <p className="text-[rgba(221,219,228,0.9)] text-[14px] lg:text-xl leading-relaxed">
+              <strong className="font-bold">Diseño ecosistemas digitales donde las personas, el negocio y la tecnología se conectan</strong>
+              {". "}
+              <span className="font-light">Estoy formada en diseño industrial y mi foco está puesto en sistemas de productos digitales.</span>
             </p>
           </div>
         </div>

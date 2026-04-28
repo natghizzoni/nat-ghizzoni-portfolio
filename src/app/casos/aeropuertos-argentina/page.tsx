@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { caseStudies } from "@/data/caseStudies";
-import CaseStudyPage from "@/modules/case-study/CaseStudyPage";
+import AeropuertosCaseStudy from "@/modules/case-study/AeropuertosCaseStudy";
 
 export const metadata: Metadata = {
   title: "Aeropuertos Argentina — Experiencia unificada | Natalia Ghizzoni",
@@ -9,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function AeropuertosPage() {
-  return <CaseStudyPage caseStudy={caseStudies["aeropuertos-argentina"]} />;
+  return <AeropuertosCaseStudy />;
 }

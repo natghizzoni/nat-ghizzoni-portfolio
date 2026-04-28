@@ -2,40 +2,50 @@
 
 import Image from "next/image";
 
-// Figma assets — exact logos from node 47:34
+// ── Figma assets — node 340-7389 ──────────────────────────────────
 const LOGOS = [
-  { src: "https://www.figma.com/api/mcp/asset/d7111d7f-67e5-4345-8ae9-f9c2b5e14258", alt: "+Mujeres en UX",             w: 168 },
-  { src: "https://www.figma.com/api/mcp/asset/9ebdf40c-4a6b-4b96-9f76-d6ae88af89ac", alt: "Coderhouse",                 w: 210 },
-  { src: "https://www.figma.com/api/mcp/asset/133f1d42-a409-4fd3-afdb-248b449a9ff2", alt: "Gamific",                     w: 154 },
-  { src: "https://www.figma.com/api/mcp/asset/5f888b26-4f98-431b-a54c-4abc517bf82f", alt: "Interaction Design Foundation", w: 238 },
-  { src: "https://www.figma.com/api/mcp/asset/6be3b885-6348-4d14-8642-1edcf294a098", alt: "Puerta 18",                   w: 154 },
-  { src: "https://www.figma.com/api/mcp/asset/4cf5b708-fd1b-4beb-9754-f8fce3a139bd", alt: "Solenium",                    w: 168 },
-  { src: "https://www.figma.com/api/mcp/asset/73de6ce3-e97e-4391-adae-547e16a4faae", alt: "Steplix",                     w: 140 },
+  { src: "https://www.figma.com/api/mcp/asset/b067db4d-0232-497e-8c0f-6d80b70d24c3", alt: "+Mujeres en UX",              w: 168 },
+  { src: "https://www.figma.com/api/mcp/asset/d983b466-4da4-4b0d-aea2-9512faf47446", alt: "Coderhouse",                  w: 210 },
+  { src: "https://www.figma.com/api/mcp/asset/2c774f91-c917-464c-95be-91c2b9f2ff4b", alt: "Gamific",                      w: 154 },
+  { src: "https://www.figma.com/api/mcp/asset/4ab02f6c-3461-471c-9bca-e6225a0253f9", alt: "Interaction Design Foundation", w: 238 },
+  { src: "https://www.figma.com/api/mcp/asset/019641f8-7c28-4a27-9676-130e891b0fd8", alt: "Puerta 18",                    w: 154 },
+  { src: "https://www.figma.com/api/mcp/asset/0620fa84-6227-4a3e-b80e-5d7c4bfeabf4", alt: "Solenium",                     w: 168 },
+  { src: "https://www.figma.com/api/mcp/asset/b190a64c-041f-48bc-b81a-9d3b11b659d6", alt: "Steplix",                      w: 140 },
 ];
 
+const BG = "#dddbe4";
+
 export default function LogosSection() {
-  // Duplicate logos so the seam is seamless when looping
+  // Duplicate for seamless marquee loop
   const track = [...LOGOS, ...LOGOS];
 
   return (
-    <section className="bg-[#E8E4F0] py-12 overflow-hidden">
-      <p className="text-center text-[#9CA3AF] text-xs font-semibold uppercase tracking-[0.2em] mb-8 px-6">
+    <section
+      className="bg-[#dddbe4] pt-[40px] pb-[56px] md:pt-[56px] md:pb-[80px] overflow-hidden"
+      style={{ borderTop: "0.833px solid #e5e7eb", borderBottom: "0.833px solid #e5e7eb" }}
+    >
+      {/* Label */}
+      <p className="text-center text-[#1a1433] text-[11px] md:text-[14px] font-semibold uppercase tracking-[0.3px] mb-6 md:mb-10 px-6">
         Empresas y organizaciones con las que trabajé
       </p>
 
-      {/* Marquee track — full width, no wrapping */}
+      {/* Marquee track */}
       <div className="relative w-full overflow-hidden">
         {/* Fade edges */}
-        <div className="absolute inset-y-0 left-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #E8E4F0, transparent)" }} />
-        <div className="absolute inset-y-0 right-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #E8E4F0, transparent)" }} />
+        <div
+          className="absolute inset-y-0 left-0 w-16 md:w-24 z-10 pointer-events-none"
+          style={{ background: `linear-gradient(to right, ${BG}, transparent)` }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-16 md:w-24 z-10 pointer-events-none"
+          style={{ background: `linear-gradient(to left, ${BG}, transparent)` }}
+        />
 
-        <div className="animate-marquee flex items-center gap-16 w-max">
+        <div className="animate-marquee flex items-center gap-[16px] md:gap-10 w-max">
           {track.map((logo, i) => (
             <div
               key={i}
-              className="relative h-14 shrink-0 grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+              className="relative h-8 md:h-12 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300"
               style={{ width: logo.w }}
             >
               <Image

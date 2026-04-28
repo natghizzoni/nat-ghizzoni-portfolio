@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { caseStudies } from "@/data/caseStudies";
-import CaseStudyPage from "@/modules/case-study/CaseStudyPage";
+import SoleniumCaseStudy from "@/modules/case-study/SoleniumCaseStudy";
 
 export const metadata: Metadata = {
   title: "Solenium — Gamificación para hábitos energéticos | Natalia Ghizzoni",
@@ -9,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function SoleniumPage() {
-  return <CaseStudyPage caseStudy={caseStudies.solenium} />;
+  return <SoleniumCaseStudy />;
 }

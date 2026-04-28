@@ -12,7 +12,7 @@ const tagColorMap: Record<number, string> = {
 };
 
 const colorVariants: Record<string, string> = {
-  purple: "bg-[#EDE9FF] text-[#5B3FFF]",
+  purple: "bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]",
   cyan: "bg-[#CFFAFE] text-[#0E7490]",
   green: "bg-[#DCFCE7] text-[#15803D]",
   orange: "bg-[#FFEDD5] text-[#C2410C]",
@@ -30,7 +30,7 @@ export default function ProjectCard({ project, variant = "grid" }: ProjectCardPr
     return (
       <Link
         href={project.link}
-        className="group block bg-white rounded-2xl overflow-hidden border border-[#E5E7EB] hover:border-[#5B3FFF]/30 hover:shadow-lg transition-all duration-300"
+        className="group block bg-white rounded-2xl overflow-hidden border border-[#E5E7EB] hover:border-[#4036a4]/30 hover:shadow-lg transition-all duration-300"
       >
         {/* Image placeholder */}
         <div
@@ -48,10 +48,10 @@ export default function ProjectCard({ project, variant = "grid" }: ProjectCardPr
           <p className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-wide mb-2">
             {project.category}
           </p>
-          <h3 className="font-heading font-semibold text-[#1A1240] text-base leading-snug mb-3 group-hover:text-[#5B3FFF] transition-colors">
+          <h3 className="font-heading font-semibold text-[#1a1433] text-base leading-snug mb-3 group-hover:text-[#4036a4] transition-colors">
             {project.title}
           </h3>
-          <span className="text-[#5B3FFF] text-sm font-semibold hover:underline">
+          <span className="text-[#4036a4] text-sm font-semibold hover:underline">
             {t.caseStudy.viewCase} →
           </span>
         </div>
@@ -62,7 +62,7 @@ export default function ProjectCard({ project, variant = "grid" }: ProjectCardPr
   return (
     <Link
       href={project.link}
-      className="group block bg-white rounded-2xl overflow-hidden border border-[#E5E7EB] hover:border-[#5B3FFF]/30 hover:shadow-xl transition-all duration-300"
+      className="group block bg-white rounded-2xl overflow-hidden border border-[#E5E7EB] hover:border-[#4036a4]/30 hover:shadow-xl transition-all duration-300"
     >
       {/* Image area */}
       <div
@@ -77,7 +77,7 @@ export default function ProjectCard({ project, variant = "grid" }: ProjectCardPr
         </div>
         {/* Category tag */}
         <div className="absolute top-4 left-4">
-          <span className="bg-white/90 backdrop-blur-sm text-[#1A1240] text-xs font-semibold px-3 py-1 rounded-full">
+          <span className="bg-white/90 backdrop-blur-sm text-[#1a1433] text-xs font-semibold px-3 py-1 rounded-full">
             {project.category}
           </span>
         </div>
@@ -85,7 +85,7 @@ export default function ProjectCard({ project, variant = "grid" }: ProjectCardPr
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="font-heading font-semibold text-[#1A1240] text-lg leading-snug mb-2 group-hover:text-[#5B3FFF] transition-colors">
+        <h3 className="font-heading font-semibold text-[#1a1433] text-lg leading-snug mb-2 group-hover:text-[#4036a4] transition-colors">
           {project.title}
         </h3>
         <p className="text-[#6B7280] text-sm leading-relaxed mb-4 line-clamp-2">

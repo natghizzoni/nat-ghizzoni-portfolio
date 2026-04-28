@@ -38,7 +38,7 @@ export default function FeaturedProject() {
                 </p>
 
                 {/* Stats */}
-                <p className="text-white/50 text-sm mb-8">
+                <p className="text-white/50 text-xs md:text-sm mb-8">
                   <span className="text-white/80">-23% consumo energético</span>
                   {" • "}
                   <span className="text-white/80">85% retención</span>
@@ -49,7 +49,7 @@ export default function FeaturedProject() {
 
               <Link
                 href="/casos/solenium"
-                className="inline-flex items-center gap-2 bg-white text-[#1A1240] font-semibold text-sm px-6 py-3 rounded-xl hover:bg-[#F5F4FF] transition-colors self-start group"
+                className="inline-flex items-center gap-2 bg-white text-[#1a1433] font-semibold text-sm px-6 py-3 rounded-xl hover:bg-[#ecebf6] transition-colors self-start group"
               >
                 Ver caso de estudio completo
                 <svg

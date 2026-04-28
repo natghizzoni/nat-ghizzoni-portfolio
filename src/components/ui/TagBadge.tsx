@@ -7,7 +7,7 @@ interface TagBadgeProps {
 }
 
 const colorMap: Record<string, string> = {
-  purple: "bg-[#EDE9FF] text-[#5B3FFF]",
+  purple: "bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]",
   green: "bg-[#DCFCE7] text-[#15803D]",
   cyan: "bg-[#CFFAFE] text-[#0E7490]",
   orange: "bg-[#FFEDD5] text-[#C2410C]",

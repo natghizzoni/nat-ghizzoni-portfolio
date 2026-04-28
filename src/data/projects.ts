@@ -10,7 +10,7 @@ export const projects: Project[] = [
     tags: ["UX Research", "Product Design", "Gamification", "Mobile"],
     category: "Energía solar",
     imagePlaceholder: "solenium",
-    accent: "#5B3FFF",
+    accent: "#4036a4",
     featured: true,
     stats: [
       { value: "89%", label: "Retención" },
