@@ -159,7 +159,7 @@ export default function BlogSection() {
             Artículos
           </p>
           <h2
-            className="text-white text-[24px] md:text-[36px] leading-tight md:leading-[56px]"
+            className="text-white text-[24px] md:text-[32px] leading-tight md:leading-[44px]"
             style={{ fontFamily: "var(--font-hanken-grotesk)" }}
           >
             <span className="font-bold">Reflexiones sobre </span>

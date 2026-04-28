@@ -54,7 +54,7 @@ export default function StrategicSection() {
           <p className="text-[#5c6378] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
             Product Designer | UX LEAD
           </p>
-          <h2 className="font-['Inter'] text-[26px] leading-[34px] md:text-[36px] md:leading-[56px] text-[#1a1433]">
+          <h2 className="font-['Inter'] text-[24px] leading-[32px] md:text-[32px] md:leading-[44px] text-[#1a1433]">
             <span className="font-bold">Diseño sistemas. </span>
             <span className="font-normal">Construyo experiencias.</span>
           </h2>
@@ -78,10 +78,11 @@ export default function StrategicSection() {
             >
               {/* ── Front face ── */}
               <div
-                className="absolute inset-0 rounded-[24px] px-7 py-8 md:px-10 md:py-10 xl:px-16 xl:py-16 text-white flex flex-col justify-between overflow-hidden border-2 border-[#1a1433] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] cursor-pointer"
+                className="absolute inset-0 rounded-[24px] px-7 py-8 md:px-10 md:py-10 xl:px-16 xl:py-16 text-white flex flex-col justify-between overflow-hidden border-2 border-[#1a1433] shadow-[0px_20px_40px_-8px_rgba(64,54,164,0.45),0px_8px_16px_-4px_rgba(64,54,164,0.25)] hover:shadow-[0px_28px_48px_-8px_rgba(64,54,164,0.6),0px_12px_24px_-4px_rgba(64,54,164,0.35)] transition-shadow duration-300 cursor-pointer"
                 style={{
                   backfaceVisibility: "hidden",
                   background: "linear-gradient(144.68deg, #352e76 32%, rgba(64,54,164,0.9) 100%)",
+                  pointerEvents: open ? "none" : "auto",
                 }}
                 onClick={() => setOpen(true)}
               >
@@ -136,7 +137,7 @@ export default function StrategicSection() {
               {/* ── Back face ── */}
               <div
                 className="absolute inset-0 rounded-[24px] px-7 py-8 md:px-10 md:py-10 xl:px-16 xl:py-16 text-white flex flex-col justify-between overflow-hidden border-2 border-[#1a1433] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)]"
-                style={{
+                style={{ pointerEvents: open ? "auto" : "none",
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
                   background: "linear-gradient(144.68deg, #352e76 32%, rgba(64,54,164,0.9) 100%)",
@@ -181,7 +182,7 @@ export default function StrategicSection() {
             {valueProps.map(({ icon, title, desc }) => (
               <div
                 key={title}
-                className="bg-white rounded-[20px] md:rounded-[24px] px-5 py-5 md:px-[32px] md:py-[24px] flex items-center gap-4 md:gap-[24px] shadow-[0px_10px_15px_0px_rgba(0,0,0,0.1),0px_4px_6px_0px_rgba(0,0,0,0.1)]"
+                className="bg-white rounded-[20px] md:rounded-[24px] px-5 py-5 md:px-[32px] md:py-[24px] flex items-center gap-4 md:gap-[24px]"
               >
                 <div
                   className="flex-shrink-0 w-14 h-14 md:w-[80px] md:h-[80px] rounded-[10px] md:rounded-[14px] flex items-center justify-center text-[#4036a4]"
@@ -212,7 +213,7 @@ export default function StrategicSection() {
           <Link
             href="/cv"
             className="self-start sm:self-auto flex-shrink-0 inline-flex items-center gap-3 bg-[#1a1433] text-white pl-4 pr-3 py-2 rounded-[10px] hover:bg-[#2a2560] transition-colors shadow-[0px_10px_15px_0px_rgba(0,0,0,0.1),0px_4px_6px_0px_rgba(0,0,0,0.1)]"
-            style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "16px", lineHeight: "28px", letterSpacing: "0.6px" }}
+            style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "14px", lineHeight: "28px", letterSpacing: "0.6px" }}
           >
             Ir a Sobre mí
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

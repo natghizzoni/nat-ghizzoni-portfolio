@@ -6,75 +6,75 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 
 // ── Figma assets ──────────────────────────────────────────────────
-const IMG_PHONES = "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c";
+const IMG_HERO     = "https://www.figma.com/api/mcp/asset/73cc0fc7-61c8-4826-833a-27f02103ad24";
 // TODO: replace with actual screenshots when available
-const IMG_HOME_SCREEN  = IMG_PHONES;
-const IMG_INSIGNIAS    = IMG_PHONES;
+const IMG_SOLUTION = IMG_HERO;
 
 // ── Tabler icons ─────────────────────────────────────────────────
-function IconChartBar({ className = "w-6 h-6" }: { className?: string }) {
+function IconSitemap({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M3 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
-      <path d="M9 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5z" />
-      <path d="M15 9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V9z" />
+      <rect x="3" y="15" width="6" height="4" rx="1" />
+      <rect x="15" y="15" width="6" height="4" rx="1" />
+      <rect x="9" y="5" width="6" height="4" rx="1" />
+      <path d="M12 9v3M6 15v-2a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v2" />
     </svg>
   );
 }
 
-function IconUser({ className = "w-6 h-6" }: { className?: string }) {
+function IconAccessibility({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="12" cy="7" r="4" />
-      <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+      <circle cx="12" cy="4" r="1.5" />
+      <path d="M7 9h10M12 9v6M9 21l3-6 3 6" />
     </svg>
   );
 }
 
-function IconRoute({ className = "w-6 h-6" }: { className?: string }) {
+function IconUsersGroup({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="6" cy="19" r="2" />
-      <circle cx="18" cy="5" r="2" />
-      <path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-8a3.5 3.5 0 0 1 0-7h3.5" />
+      <circle cx="7" cy="7" r="3" />
+      <circle cx="17" cy="7" r="3" />
+      <path d="M1 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+      <path d="M17 11a4 4 0 0 1 4 4v2" />
     </svg>
   );
 }
 
-function IconCalendarStats({ className = "w-6 h-6" }: { className?: string }) {
+function IconComponents({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M11.795 21H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" />
-      <path d="M18 14v4h4" />
-      <circle cx="18" cy="18" r="4" />
-      <path d="M15 3v4M7 3v4M3 11h16" />
+      <path d="M12 2l3.5 6h-7L12 2zM5 20a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19 20a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+      <path d="M12 8v8M5 17h14" />
     </svg>
   );
 }
 
-function IconBellRinging({ className = "w-6 h-6" }: { className?: string }) {
+function IconSearch({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3H4a4 4 0 0 0 2-3v-3a7 7 0 0 1 4-6" />
-      <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-      <path d="M21 6.727a11.05 11.05 0 0 0-2.794-3.727M3 6.727a11.05 11.05 0 0 1 2.792-3.727" />
+      <circle cx="11" cy="11" r="7" />
+      <path d="M21 21l-4.35-4.35" />
     </svg>
   );
 }
 
-function IconMedal({ className = "w-6 h-6" }: { className?: string }) {
+function IconListDetails({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="12" cy="15" r="5" />
-      <path d="M8.56 5.392L5 12h3l3.56-6.608M15.44 5.392L19 12h-3l-3.56-6.608M8 5h8" />
+      <path d="M13 5h8M13 9h5M13 15h8M13 19h5" />
+      <rect x="3" y="4" width="6" height="6" rx="1" />
+      <rect x="3" y="14" width="6" height="6" rx="1" />
     </svg>
   );
 }
 
-function IconZap({ className = "w-6 h-6" }: { className?: string }) {
+function IconPhone({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      <rect x="7" y="2" width="10" height="20" rx="2" />
+      <path d="M11 18h2" />
     </svg>
   );
 }
@@ -91,88 +91,96 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
 
 // ── Data ──────────────────────────────────────────────────────────
 const meta = [
-  { label: "Rol",          value: "Product Designer" },
+  { label: "Rol",          value: "UX Lead Designer" },
   { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Rubro",         value: "Energía Solar" },
-  { label: "Producto",      value: "App híbrida" },
+  { label: "Producto",     value: "Web Responsive" },
+  { label: "Rubro",        value: "Aeroportuario" },
 ];
 
 const heroStats = [
-  { value: "89%",     label: "Retención" },
-  { value: "-32%",    label: "Consumo" },
-  { value: "3",       label: "Comunidades" },
-  { value: "4 meses", label: "Duración" },
+  { value: "+5M",     label: "Usuarios anuales" },
+  { value: "+42%",    label: "Engagement" },
+  { value: "WCAG AA", label: "Accesibilidad" },
+  { value: "35 → 1",  label: "Sitios unificados" },
 ];
 
 const problem = [
-  "Los usuarios instalaban paneles solares pero no cambiaban sus hábitos de consumo.",
-  "Los dashboards de energía eran técnicos y poco motivadores.",
-  "Las comunidades no conocían los beneficios de un buen uso colectivo de la energía.",
+  "35 sitios con distintos contenidos, estilos y arquitecturas de información.",
+  "El 68% de los usuarios no encontraba el vuelo que buscaba en el primer intento.",
+  "Los servicios del aeropuerto no estaban conectados a la experiencia de búsqueda.",
+  "Experiencia completamente diferente en cada aeropuerto regional.",
+];
+
+const hypothesis = [
+  "Un sistema de diseño unificado reducirá la carga cognitiva del usuario.",
+  "Una arquitectura orientada a tareas mejorará la búsqueda de vuelos.",
+  "La accesibilidad WCAG AA ampliará el alcance a pasajeros con discapacidad.",
 ];
 
 const validation = [
-  "Encuesta a 96 usuarios actuales.",
-  "Benchmark de apps de energía y fitness con gamificación.",
-  "Test de usabilidad con 3 prototipos alternativos.",
+  "Auditoría completa de los 35 sitios con heurísticas de Nielsen.",
+  "Benchmarking de sitios de aeropuertos nacionales e internacionales.",
+  "Entrevistas con pasajeros frecuentes y con necesidades especiales.",
+  "Test de usabilidad comparativo antes y después del rediseño.",
 ];
 
 const process = [
   {
-    Icon: IconChartBar,
-    title: "Research cuantitativo",
-    desc: "Encuesta a usuarios actuales para entender motivaciones, preferencias de recompensa y perfiles de jugador. Los hallazgos definieron el tipo de gamificación viable para este contexto.",
+    Icon: IconSitemap,
+    title: "Arquitectura de información unificada",
+    desc: "Creé un mapa de contenido común para los 35 aeropuertos que respeta las diferencias regionales sin fragmentar la experiencia.",
   },
   {
-    Icon: IconUser,
-    title: "Player personas",
-    desc: "A partir de los datos, definí dos perfiles de usuario con motivaciones distintas. El sistema debía funcionar para ambos sin forzar el mismo recorrido.",
+    Icon: IconAccessibility,
+    title: "Accesibilidad desde el origen",
+    desc: "WCAG AA integrada desde el inicio del proceso, no como agregado final. Validada con auditorías y usuarios reales con discapacidad.",
   },
   {
-    Icon: IconRoute,
-    title: "Behavioral plan",
-    desc: "Diseñé la arquitectura motivacional en capas: mecánicas, dinámicas y estética. La motivación extrínseca como puerta de entrada; la intrínseca como objetivo.",
+    Icon: IconUsersGroup,
+    title: "Coordinación multidisciplinaria",
+    desc: "Lideré un equipo de 3 diseñadores y articulé con 2 frontends, 1 backend, 2 QAs, PO y stakeholders de negocio distribuidos.",
   },
 ];
 
 const solution = [
   {
-    Icon: IconCalendarStats,
-    title: "Desafíos personalizados",
-    desc: "Retos semanales adaptados al perfil de consumo de cada hogar.",
+    Icon: IconComponents,
+    title: "Design System",
+    desc: "Sistema de componentes escalable que mantiene la identidad visual y funcional en los 35 puntos de contacto.",
   },
   {
-    Icon: IconBellRinging,
-    title: "Feedback en tiempo real",
-    desc: "Notificaciones inteligentes que celebran los logros en el momento exacto.",
+    Icon: IconSearch,
+    title: "Buscador centralizado",
+    desc: "Motor de búsqueda de vuelos unificado que funciona igual en todos los sitios.",
   },
   {
-    Icon: IconMedal,
-    title: "Sistema de logros",
-    desc: "Insignias desbloqueables que documentan el progreso del usuario en el tiempo.",
+    Icon: IconListDetails,
+    title: "Itinerario con servicios conectados",
+    desc: "Cada tramo del viaje muestra los servicios disponibles en ese aeropuerto — el usuario tiene la información exacta que necesita, en el momento exacto.",
   },
   {
-    Icon: IconZap,
-    title: "Simulador energético",
-    desc: "A partir del uso lúdico de la herramienta se facilita el aprendizaje sobre consumo en el tiempo e impacto en ahorro.",
+    Icon: IconPhone,
+    title: "Mobile-first responsive",
+    desc: "El 73% del tráfico era móvil. El rediseño arrancó desde el teléfono hacia arriba.",
   },
 ];
 
 const impact = [
-  { value: "-32%",  label: "Reducción de consumo promedio" },
-  { value: "89%",   label: "Retención a 30 días" },
-  { value: "3",     label: "Comunidades piloto activas" },
-  { value: "8.2",   label: "NPS" },
+  { value: "+5M",     label: "Usuarios únicos por año" },
+  { value: "+42%",    label: "Incremento en engagement" },
+  { value: "WCAG AA", label: "Conformidad alcanzada" },
+  { value: "35 → 1",  label: "Sitios en un único sistema" },
 ];
 
 const learnings = [
-  "El comportamiento gamificado solo funciona si los datos son confiables y en tiempo real.",
-  "La gamificación sola no es suficiente: el contexto social fue el mayor driver de engagement.",
-  "La simplificación visual de datos técnicos fue más difícil que la gamificación misma.",
-  "Contar con datos de una masa representativa de usuarios desde el inicio permite detectar patrones que fundan las decisiones de diseño.",
+  "La accesibilidad no es opcional ni un agregado final: integrarla desde el inicio cambia las decisiones de arquitectura.",
+  "Unificar 35 productos requiere tanto diseño del sistema como diseño de la colaboración entre equipos.",
+  "Una arquitectura de información bien hecha reduce el costo de mantenimiento — eso es impacto de negocio, no solo UX.",
+  "Un motor de búsqueda bien pensado no es solo funcionalidad técnica: es el núcleo de la experiencia. Si falla ahí, el resto del diseño no importa.",
 ];
 
 // ── Component ─────────────────────────────────────────────────────
-export default function SoleniumCaseStudy() {
+export default function AeropuertosCaseStudy() {
   return (
     <>
       <Navbar />
@@ -186,14 +194,14 @@ export default function SoleniumCaseStudy() {
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
               <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Energía Solar</span>
+              <span className="text-[#eff2fe]/80">Aeropuertos</span>
             </nav>
 
             {/* Hero image */}
             <div className="relative w-full h-[240px] sm:h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
               <Image
-                src={IMG_PHONES}
-                alt="Solenium app — tres pantallas principales"
+                src={IMG_HERO}
+                alt="Aeropuertos Argentina — ecosistema digital unificado"
                 fill
                 className="object-cover object-top"
                 priority
@@ -203,15 +211,15 @@ export default function SoleniumCaseStudy() {
 
             {/* Title block */}
             <div className="flex flex-col gap-4 max-w-3xl">
-              <SectionLabel>Energía Solar</SectionLabel>
+              <SectionLabel>Aeropuertos</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Gamificación para hábitos energéticos responsables
+                De 35 sitios dispersos a una experiencia unificada
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Una empresa colombiana de minigranjas solares para generación distribuida quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.
+                Un operador de 35 aeropuertos en Argentina, múltiples equipos y stakeholders. Cada aeropuerto tenía su propio sitio: distintos contenidos, estilos y arquitecturas de información. Los pasajeros no encontraban lo que necesitaban y el equipo no podía mantener tantos sitios.
               </p>
             </div>
 
@@ -243,8 +251,8 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 2. EL DESAFÍO ─ bg white ─────────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 2. EL DESAFÍO ─ bg light lavender ───────────────── */}
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
@@ -254,10 +262,9 @@ export default function SoleniumCaseStudy() {
               El desafío
             </h2>
 
-            {/* Three columns */}
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
               {/* Problema */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
                 <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
                 <ul className="flex flex-col gap-3">
                   {problem.map((item, i) => (
@@ -270,15 +277,20 @@ export default function SoleniumCaseStudy() {
               </div>
 
               {/* Hipótesis */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
                 <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
-                <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">
-                  A través de una estrategia de gamificación, podemos transformar la factura en una oportunidad de aprendizaje y compromiso con la energía solar.
-                </p>
+                <ul className="flex flex-col gap-3">
+                  {hypothesis.map((item, i) => (
+                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Validación */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
                 <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
                 <ul className="flex flex-col gap-3">
                   {validation.map((item, i) => (
@@ -289,17 +301,6 @@ export default function SoleniumCaseStudy() {
                   ))}
                 </ul>
               </div>
-            </div>
-
-            {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
-              <Image
-                src={IMG_HOME_SCREEN}
-                alt="Pantalla home con consumo y 'Tu vs Comunidad'"
-                fill
-                className="object-cover object-top"
-                unoptimized
-              />
             </div>
 
           </div>
@@ -341,8 +342,8 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 4. LA SOLUCIÓN ─ bg light ────────────────────────── */}
-        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 4. LA SOLUCIÓN ─ bg white ────────────────────────── */}
+        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
@@ -356,7 +357,7 @@ export default function SoleniumCaseStudy() {
               {solution.map(({ Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)]"
+                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <Icon className="w-6 h-6" />
@@ -377,8 +378,8 @@ export default function SoleniumCaseStudy() {
             {/* Image */}
             <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
-                src={IMG_INSIGNIAS}
-                alt="Pantalla de insignias"
+                src={IMG_SOLUTION}
+                alt="Sistema unificado de Aeropuertos Argentina"
                 fill
                 className="object-cover object-top"
                 unoptimized
@@ -419,8 +420,8 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 6. APRENDIZAJES ─ bg white ───────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 6. APRENDIZAJES ─ bg light lavender ─────────────── */}
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
@@ -434,7 +435,7 @@ export default function SoleniumCaseStudy() {
               {learnings.map((l, i) => (
                 <li
                   key={i}
-                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4"
+                  className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4"
                 >
                   <span className="mt-0.5 w-8 h-8 rounded-full bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <IconBulb />

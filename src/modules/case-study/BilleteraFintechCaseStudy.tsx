@@ -6,80 +6,71 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 
 // ── Figma assets ──────────────────────────────────────────────────
-const IMG_PHONES = "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c";
+const IMG_HERO     = "https://www.figma.com/api/mcp/asset/9b519038-2bbd-4202-bc5b-512a184de5e1";
 // TODO: replace with actual screenshots when available
-const IMG_HOME_SCREEN  = IMG_PHONES;
-const IMG_INSIGNIAS    = IMG_PHONES;
+const IMG_SOLUTION = IMG_HERO;
 
 // ── Tabler icons ─────────────────────────────────────────────────
-function IconChartBar({ className = "w-6 h-6" }: { className?: string }) {
+function IconWorld({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M3 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
-      <path d="M9 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5z" />
-      <path d="M15 9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V9z" />
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3.6 9h16.8M3.6 15h16.8" />
+      <path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18" />
     </svg>
   );
 }
 
-function IconUser({ className = "w-6 h-6" }: { className?: string }) {
+function IconAccessibility({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="12" cy="7" r="4" />
-      <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+      <circle cx="12" cy="4" r="1.5" />
+      <path d="M7 9h10M12 9v6M9 21l3-6 3 6" />
     </svg>
   );
 }
 
-function IconRoute({ className = "w-6 h-6" }: { className?: string }) {
+function IconBulb({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="6" cy="19" r="2" />
-      <circle cx="18" cy="5" r="2" />
-      <path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-8a3.5 3.5 0 0 1 0-7h3.5" />
+      <path d="M3 12h1m8-9v1m8 8h1m-15.4-6.4.7.7m12.1-.7-.7.7" />
+      <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0-1 3a2 2 0 0 1-4 0a3.5 3.5 0 0 0-1-3" />
+      <path d="M9.7 17h4.6" />
     </svg>
   );
 }
 
-function IconCalendarStats({ className = "w-6 h-6" }: { className?: string }) {
+function IconUserCheck({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M11.795 21H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" />
-      <path d="M18 14v4h4" />
-      <circle cx="18" cy="18" r="4" />
-      <path d="M15 3v4M7 3v4M3 11h16" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+      <path d="M16 11l2 2 4-4" />
     </svg>
   );
 }
 
-function IconBellRinging({ className = "w-6 h-6" }: { className?: string }) {
+function IconCurrency({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3H4a4 4 0 0 0 2-3v-3a7 7 0 0 1 4-6" />
-      <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-      <path d="M21 6.727a11.05 11.05 0 0 0-2.794-3.727M3 6.727a11.05 11.05 0 0 1 2.792-3.727" />
+      <circle cx="12" cy="12" r="9" />
+      <path d="M14.5 9a3.5 3.5 0 0 0-5 0v6a3.5 3.5 0 0 0 5 0" />
+      <path d="M9.5 12h5" />
     </svg>
   );
 }
 
-function IconMedal({ className = "w-6 h-6" }: { className?: string }) {
+function IconId({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="12" cy="15" r="5" />
-      <path d="M8.56 5.392L5 12h3l3.56-6.608M15.44 5.392L19 12h-3l-3.56-6.608M8 5h8" />
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <circle cx="8" cy="12" r="2" />
+      <path d="M14 9h4M14 13h3" />
     </svg>
   );
 }
 
-function IconZap({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-    </svg>
-  );
-}
-
-function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
+function IconBulbSmall({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M3 12h1m8-9v1m8 8h1m-15.4-6.4.7.7m12.1-.7-.7.7" />
@@ -91,88 +82,87 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
 
 // ── Data ──────────────────────────────────────────────────────────
 const meta = [
-  { label: "Rol",          value: "Product Designer" },
+  { label: "Rol",          value: "UX Lead / Product Designer" },
   { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Rubro",         value: "Energía Solar" },
-  { label: "Producto",      value: "App híbrida" },
+  { label: "Rubro",        value: "Fintech" },
+  { label: "Producto",     value: "App híbrida y Backoffice" },
 ];
 
 const heroStats = [
-  { value: "89%",     label: "Retención" },
-  { value: "-32%",    label: "Consumo" },
-  { value: "3",       label: "Comunidades" },
-  { value: "4 meses", label: "Duración" },
+  { value: "+1M",      label: "Transacciones en el primer año" },
+  { value: "NPS 75",   label: "Satisfacción" },
+  { value: "WCAG AA",  label: "Accesibilidad" },
+  { value: "3",        label: "Países" },
 ];
 
 const problem = [
-  "Los usuarios instalaban paneles solares pero no cambiaban sus hábitos de consumo.",
-  "Los dashboards de energía eran técnicos y poco motivadores.",
-  "Las comunidades no conocían los beneficios de un buen uso colectivo de la energía.",
+  "El 43% del target no estaba bancarizado y desconfiaba de las apps financieras.",
+  "Cada país tenía regulaciones KYC distintas que afectaban el flujo de onboarding.",
+  "La app original tenía una tasa de abandono del 68% en el registro.",
+];
+
+const hypothesis = [
+  "Un onboarding progresivo que empieza con funcionalidad básica aumentará la conversión.",
+  "Lenguaje financiero simplificado y visual reducirá la barrera de entrada.",
+  "Un diseño accesible y con lenguaje claro reducirá la barrera de entrada para usuarios con baja alfabetización digital.",
 ];
 
 const validation = [
-  "Encuesta a 96 usuarios actuales.",
-  "Benchmark de apps de energía y fitness con gamificación.",
-  "Test de usabilidad con 3 prototipos alternativos.",
+  "26 testeos de usabilidad y un POC con usuarios en 3 países con distintos niveles de educación financiera y alfabetización digital.",
+  "Auditoría legal con compliance officers de cada país.",
 ];
 
 const process = [
   {
-    Icon: IconChartBar,
-    title: "Research cuantitativo",
-    desc: "Encuesta a usuarios actuales para entender motivaciones, preferencias de recompensa y perfiles de jugador. Los hallazgos definieron el tipo de gamificación viable para este contexto.",
+    Icon: IconWorld,
+    title: "Diseño multi-país",
+    desc: "Un sistema de componentes con variantes por país que mantiene la consistencia visual con flexibilidad regulatoria.",
   },
   {
-    Icon: IconUser,
-    title: "Player personas",
-    desc: "A partir de los datos, definí dos perfiles de usuario con motivaciones distintas. El sistema debía funcionar para ambos sin forzar el mismo recorrido.",
+    Icon: IconAccessibility,
+    title: "Accesibilidad WCAG AA",
+    desc: "Contraste, tamaños de toque, lectores de pantalla y flujos alternativos para adultos mayores y usuarios con discapacidad.",
   },
   {
-    Icon: IconRoute,
-    title: "Behavioral plan",
-    desc: "Diseñé la arquitectura motivacional en capas: mecánicas, dinámicas y estética. La motivación extrínseca como puerta de entrada; la intrínseca como objetivo.",
+    Icon: IconBulb,
+    title: "Educación financiera integrada",
+    desc: "Tooltips y microcopy que explican cada término financiero en el momento exacto en que el usuario lo necesita.",
   },
 ];
 
 const solution = [
   {
-    Icon: IconCalendarStats,
-    title: "Desafíos personalizados",
-    desc: "Retos semanales adaptados al perfil de consumo de cada hogar.",
+    Icon: IconUserCheck,
+    title: "Onboarding progresivo",
+    desc: "El usuario puede usar funcionalidades básicas antes de completar la verificación de identidad.",
   },
   {
-    Icon: IconBellRinging,
-    title: "Feedback en tiempo real",
-    desc: "Notificaciones inteligentes que celebran los logros en el momento exacto.",
+    Icon: IconCurrency,
+    title: "Multi-moneda visual",
+    desc: "Interfaz que muestra claramente la moneda local y equivalencias sin confundir al usuario.",
   },
   {
-    Icon: IconMedal,
-    title: "Sistema de logros",
-    desc: "Insignias desbloqueables que documentan el progreso del usuario en el tiempo.",
-  },
-  {
-    Icon: IconZap,
-    title: "Simulador energético",
-    desc: "A partir del uso lúdico de la herramienta se facilita el aprendizaje sobre consumo en el tiempo e impacto en ahorro.",
+    Icon: IconId,
+    title: "KYC simplificado",
+    desc: "Flujo de verificación adaptado a las regulaciones de cada país con UX consistente.",
   },
 ];
 
 const impact = [
-  { value: "-32%",  label: "Reducción de consumo promedio" },
-  { value: "89%",   label: "Retención a 30 días" },
-  { value: "3",     label: "Comunidades piloto activas" },
-  { value: "8.2",   label: "NPS" },
+  { value: "+1M",     label: "Transacciones en el primer año" },
+  { value: "NPS 75",  label: "Satisfacción" },
+  { value: "WCAG AA", label: "Accesibilidad alcanzada" },
+  { value: "3",       label: "Países: Argentina, Colombia y México" },
 ];
 
 const learnings = [
-  "El comportamiento gamificado solo funciona si los datos son confiables y en tiempo real.",
-  "La gamificación sola no es suficiente: el contexto social fue el mayor driver de engagement.",
-  "La simplificación visual de datos técnicos fue más difícil que la gamificación misma.",
-  "Contar con datos de una masa representativa de usuarios desde el inicio permite detectar patrones que fundan las decisiones de diseño.",
+  "El diseño inclusivo no es opcional en fintech: millones de usuarios potenciales dependen de ello.",
+  "Los sistemas de diseño multi-país requieren gobernar la varianza tanto como la consistencia.",
+  "La educación financiera integrada en UX tiene más impacto que cualquier campaña de marketing.",
 ];
 
 // ── Component ─────────────────────────────────────────────────────
-export default function SoleniumCaseStudy() {
+export default function BilleteraFintechCaseStudy() {
   return (
     <>
       <Navbar />
@@ -186,14 +176,14 @@ export default function SoleniumCaseStudy() {
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
               <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Energía Solar</span>
+              <span className="text-[#eff2fe]/80">Fintech</span>
             </nav>
 
             {/* Hero image */}
             <div className="relative w-full h-[240px] sm:h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
               <Image
-                src={IMG_PHONES}
-                alt="Solenium app — tres pantallas principales"
+                src={IMG_HERO}
+                alt="Billetera Fintech — app multi-país"
                 fill
                 className="object-cover object-top"
                 priority
@@ -203,15 +193,15 @@ export default function SoleniumCaseStudy() {
 
             {/* Title block */}
             <div className="flex flex-col gap-4 max-w-3xl">
-              <SectionLabel>Energía Solar</SectionLabel>
+              <SectionLabel>Fintech</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Gamificación para hábitos energéticos responsables
+                Billetera Fintech accesible a 3 países
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Una empresa colombiana de minigranjas solares para generación distribuida quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.
+                Una empresa de venta directa con representantes independientes en toda la región quería ofrecer una billetera digital a sus usuarios en Argentina, Colombia y México. El desafío: cada mercado tiene regulaciones distintas, usuarios con diferentes niveles de educación financiera y monedas propias.
               </p>
             </div>
 
@@ -243,26 +233,25 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 2. EL DESAFÍO ─ bg white ─────────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 2. EL DESAFÍO ─ bg dark ──────────────────────────── */}
+        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
-              className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
+              className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
               El desafío
             </h2>
 
-            {/* Three columns */}
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
               {/* Problema */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
                 <ul className="flex flex-col gap-3">
                   {problem.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
+                    <li key={i} className="text-[#eff2fe]/75 text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b4a7ff]/50 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -270,20 +259,25 @@ export default function SoleniumCaseStudy() {
               </div>
 
               {/* Hipótesis */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
-                <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">
-                  A través de una estrategia de gamificación, podemos transformar la factura en una oportunidad de aprendizaje y compromiso con la energía solar.
-                </p>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
+                <ul className="flex flex-col gap-3">
+                  {hypothesis.map((item, i) => (
+                    <li key={i} className="text-[#eff2fe]/75 text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b4a7ff]/50 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Validación */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
                 <ul className="flex flex-col gap-3">
                   {validation.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
+                    <li key={i} className="text-[#eff2fe]/75 text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b4a7ff]/50 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -291,26 +285,15 @@ export default function SoleniumCaseStudy() {
               </div>
             </div>
 
-            {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
-              <Image
-                src={IMG_HOME_SCREEN}
-                alt="Pantalla home con consumo y 'Tu vs Comunidad'"
-                fill
-                className="object-cover object-top"
-                unoptimized
-              />
-            </div>
-
           </div>
         </section>
 
-        {/* ── 3. EL PROCESO ─ bg dark ──────────────────────────── */}
-        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 3. EL PROCESO ─ bg white ─────────────────────────── */}
+        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
-              className="text-white font-black text-[24px] md:text-[32px] leading-tight"
+              className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
               El proceso
@@ -320,19 +303,19 @@ export default function SoleniumCaseStudy() {
               {process.map(({ Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
+                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.4)] flex items-center justify-center text-[#b4a7ff] shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <h3
-                      className="text-white text-[16px] md:text-[18px] font-black leading-snug"
+                      className="text-[#1a1433] text-[16px] md:text-[18px] font-black leading-snug"
                       style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                     >
                       {title}
                     </h3>
-                    <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
+                    <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
               ))}
@@ -341,7 +324,7 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 4. LA SOLUCIÓN ─ bg light ────────────────────────── */}
+        {/* ── 4. LA SOLUCIÓN ─ bg light lavender ───────────────── */}
         <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
@@ -352,11 +335,11 @@ export default function SoleniumCaseStudy() {
               La solución
             </h2>
 
-            <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
+            <div className="grid md:grid-cols-3 gap-5 md:gap-6">
               {solution.map(({ Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)]"
+                  className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <Icon className="w-6 h-6" />
@@ -377,8 +360,8 @@ export default function SoleniumCaseStudy() {
             {/* Image */}
             <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
-                src={IMG_INSIGNIAS}
-                alt="Pantalla de insignias"
+                src={IMG_SOLUTION}
+                alt="Billetera Fintech — pantallas de la solución"
                 fill
                 className="object-cover object-top"
                 unoptimized
@@ -430,14 +413,14 @@ export default function SoleniumCaseStudy() {
               Aprendizajes clave
             </h2>
 
-            <ul className="grid md:grid-cols-2 gap-4 md:gap-5">
+            <ul className="grid md:grid-cols-3 gap-4 md:gap-5">
               {learnings.map((l, i) => (
                 <li
                   key={i}
                   className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4"
                 >
                   <span className="mt-0.5 w-8 h-8 rounded-full bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
-                    <IconBulb />
+                    <IconBulbSmall />
                   </span>
                   <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">{l}</p>
                 </li>

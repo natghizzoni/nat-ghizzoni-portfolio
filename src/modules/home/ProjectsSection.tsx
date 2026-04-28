@@ -23,26 +23,26 @@ function Badge({ label }: { label: string }) {
 // ── Project cards data ────────────────────────────────────────────
 const cards = [
   {
-    badges: ["WEB RESPONSIVO"],
+    badges: ["WEB RESPONSIVE"],
     title: "De 35 sitios dispersos a una experiencia unificada",
-    desc: "Lideré el rediseño del ecosistema digital de Aeropuertos, coordinando equipos multidisciplinarios y mediando entre stakeholders técnicos y de negocio para crear una plataforma escalable que alcanzó WCAG AAA.",
-    stats: "+5M búsquedas • +42% engagement • De 35 a 1 sistema",
+    desc: "Un operador de 35 aeropuertos en Argentina, múltiples equipos y stakeholders. Cada aeropuerto tenía su propio sitio: distintos contenidos, estilos y arquitecturas de información. Los pasajeros no encontraban lo que necesitaban.",
+    stats: "+5M usuarios anuales • +42% engagement • WCAG AA • 35→1 sitios",
     img: IMG_AEROPUERTOS,
     href: "/casos/aeropuertos-argentina",
   },
   {
-    badges: ["APP HÍBRIDA", "BACKOFFICE"],
-    title: "Ecosistema completo de alarmas para miles de hogares",
-    desc: "Durante 2 años transformamos la experiencia mediante validación continua con usuarios reales, un sistema de diseño cohesivo, y la adopción de metodologías UX que escalaron tanto el producto como la organización.",
-    stats: "+10k descargas • 2 años iteración • Rating duplicado",
+    badges: ["APP MÓVIL", "BACKOFFICE"],
+    title: "Ecosistema completo de alarmas IoT para el hogar",
+    desc: "Una empresa de seguridad llegó con un producto MVP heredado de otra startup. El trabajo fue analizar, priorizar y mejorar iterativamente la app — y diseñar desde cero el backoffice para técnicos.",
+    stats: "2x rating en stores • +10k descargas • 92% task completion",
     img: IMG_ALARM,
     href: "/casos/alarm",
   },
   {
-    badges: ["PWA", "BACKOFFICE"],
-    title: "Billetera fintech escalable a 3 países",
-    desc: "Diseñé una billetera fintech que escaló a 3 mercados (Argentina, Brasil, México), alcanzando +1M de transacciones y NPS 75. Lideré 26 testeos de usabilidad para garantizar inclusión financiera.",
-    stats: "+1M transacciones • NPS 75 • 3 países",
+    badges: ["FINTECH", "PWA"],
+    title: "Billetera Fintech accesible a 3 países",
+    desc: "Una empresa de venta directa quería ofrecer una billetera digital en Argentina, Colombia y México. El desafío: regulaciones distintas, usuarios con diferente alfabetización digital y monedas propias.",
+    stats: "+1M transacciones • NPS 75 • WCAG AA • 3 países",
     img: IMG_WALLET,
     href: "/casos/billetera-fintech",
   },
@@ -52,7 +52,7 @@ const cards = [
     desc: "Diseñé un ecosistema completo de 3 productos integrados que permite a operadores de telecom lanzar servicios de eSIM sin capacidad técnica propia, reduciendo el time-to-market de meses a semanas.",
     stats: "13 operadores • 3 países • Miles de activaciones mensuales",
     img: IMG_TELECOM,
-    href: "/casos/billetera-fintech",
+    href: "/casos/esim-whitelabel",
   },
 ];
 
@@ -159,7 +159,7 @@ export default function ProjectsSection() {
               />
             </div>
             {/* Badges: top-right via absolute on mobile, flex flow on desktop */}
-            <div className="absolute top-4 right-4 md:relative md:top-auto md:right-auto flex gap-2 z-10">
+            <div className="absolute top-4 right-4 md:relative md:top-auto md:right-auto flex flex-wrap justify-end gap-2 z-10">
               <span className="bg-[#f3f4f6] border border-[#1a1433] text-[#1a1433] text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.35px] px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap">
                 App Móvil
               </span>
@@ -173,13 +173,13 @@ export default function ProjectsSection() {
           <div className="bg-[#ecebf6] flex flex-col gap-4 px-6 py-8 md:px-[40px] md:pt-[32px] md:pb-[24px] md:w-[52%]">
             <div className="flex flex-col gap-4">
               <h2
-                className="font-black text-[#101828] text-[24px] md:text-[36px] leading-[1.2] md:leading-[42px]"
+                className="font-black text-[#101828] text-[24px] md:text-[32px] leading-[1.2] md:leading-[40px]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
                 Gamificación para hábitos energéticos responsables
               </h2>
               <p className="text-[#364153] text-[12px] md:text-[14px] font-medium leading-[1.6]">
-                Transformé datos complejos de consumo energético en mecánicas de juego que generan cambios de comportamiento reales y sostenibles.
+                Una empresa colombiana de minigranjas solares quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.
               </p>
               <div className="border-t border-[rgba(64,54,164,0.2)] pt-3 md:pt-4">
                 <p className="font-bold text-[#101828] text-[12px] md:text-[14px] leading-snug">

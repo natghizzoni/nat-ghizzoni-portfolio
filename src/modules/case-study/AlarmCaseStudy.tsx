@@ -6,75 +6,73 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 
 // ── Figma assets ──────────────────────────────────────────────────
-const IMG_PHONES = "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c";
+const IMG_HERO     = "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-8f6f-1471c15e250e";
 // TODO: replace with actual screenshots when available
-const IMG_HOME_SCREEN  = IMG_PHONES;
-const IMG_INSIGNIAS    = IMG_PHONES;
+const IMG_SOLUTION = IMG_HERO;
 
 // ── Tabler icons ─────────────────────────────────────────────────
-function IconChartBar({ className = "w-6 h-6" }: { className?: string }) {
+function IconHome({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M3 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6z" />
-      <path d="M9 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5z" />
-      <path d="M15 9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V9z" />
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z" />
+      <path d="M9 21V12h6v9" />
     </svg>
   );
 }
 
-function IconUser({ className = "w-6 h-6" }: { className?: string }) {
+function IconUsers({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="12" cy="7" r="4" />
-      <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+      <circle cx="7" cy="7" r="3" />
+      <circle cx="17" cy="7" r="3" />
+      <path d="M1 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+      <path d="M17 11a4 4 0 0 1 4 4v2" />
     </svg>
   );
 }
 
-function IconRoute({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="6" cy="19" r="2" />
-      <circle cx="18" cy="5" r="2" />
-      <path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-8a3.5 3.5 0 0 1 0-7h3.5" />
-    </svg>
-  );
-}
-
-function IconCalendarStats({ className = "w-6 h-6" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <path d="M11.795 21H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" />
-      <path d="M18 14v4h4" />
-      <circle cx="18" cy="18" r="4" />
-      <path d="M15 3v4M7 3v4M3 11h16" />
-    </svg>
-  );
-}
-
-function IconBellRinging({ className = "w-6 h-6" }: { className?: string }) {
+function IconBell({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3H4a4 4 0 0 0 2-3v-3a7 7 0 0 1 4-6" />
       <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-      <path d="M21 6.727a11.05 11.05 0 0 0-2.794-3.727M3 6.727a11.05 11.05 0 0 1 2.792-3.727" />
     </svg>
   );
 }
 
-function IconMedal({ className = "w-6 h-6" }: { className?: string }) {
+function IconSensor({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-      <circle cx="12" cy="15" r="5" />
-      <path d="M8.56 5.392L5 12h3l3.56-6.608M15.44 5.392L19 12h-3l-3.56-6.608M8 5h8" />
+      <circle cx="12" cy="12" r="3" />
+      <path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a13 13 0 0 0 0 17M20.5 3.5a13 13 0 0 1 0 17" />
     </svg>
   );
 }
 
-function IconZap({ className = "w-6 h-6" }: { className?: string }) {
+function IconBolt({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
       <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+    </svg>
+  );
+}
+
+function IconShield({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
+function IconDashboard({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="3" y="3" width="7" height="9" rx="1" />
+      <rect x="14" y="3" width="7" height="5" rx="1" />
+      <rect x="14" y="12" width="7" height="9" rx="1" />
+      <rect x="3" y="16" width="7" height="5" rx="1" />
     </svg>
   );
 }
@@ -93,86 +91,91 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
 const meta = [
   { label: "Rol",          value: "Product Designer" },
   { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Rubro",         value: "Energía Solar" },
-  { label: "Producto",      value: "App híbrida" },
+  { label: "Tipo",         value: "App móvil + Backoffice desktop" },
+  { label: "Rubro",        value: "Seguridad del hogar" },
 ];
 
 const heroStats = [
-  { value: "89%",     label: "Retención" },
-  { value: "-32%",    label: "Consumo" },
-  { value: "3",       label: "Comunidades" },
-  { value: "4 meses", label: "Duración" },
+  { value: "2x",     label: "Rating en stores" },
+  { value: "+10k",   label: "Descargas orgánicas" },
+  { value: "30–40%", label: "Reducción en consultas técnicas" },
+  { value: "92%",    label: "Task completion en instalación" },
 ];
 
 const problem = [
-  "Los usuarios instalaban paneles solares pero no cambiaban sus hábitos de consumo.",
-  "Los dashboards de energía eran técnicos y poco motivadores.",
-  "Las comunidades no conocían los beneficios de un buen uso colectivo de la energía.",
+  "Las apps de alarma existentes requerían conocimiento técnico para configurarlas.",
+  "Las familias querían control y tranquilidad sin complejidad.",
+  "El setup existente era tan complejo que generaba fricción incluso para los técnicos instaladores.",
+];
+
+const hypothesis = [
+  "Un onboarding guiado por pasos reducirá el tiempo y la fricción del setup.",
+  "Perfiles de acceso diferenciados aumentarán la adopción en el hogar.",
+  "Un contenido claro, sin tecnicismos y con ayuda oportuna reducirá los llamados a atención al cliente.",
 ];
 
 const validation = [
-  "Encuesta a 96 usuarios actuales.",
-  "Benchmark de apps de energía y fitness con gamificación.",
-  "Test de usabilidad con 3 prototipos alternativos.",
+  "Test de usabilidad con 15 usuarios en sus hogares.",
+  "Benchmark de 8 apps de seguridad del mercado argentino y latinoamericano.",
+  "Entrevistas con técnicos instaladores para entender puntos de dolor en el setup.",
 ];
 
 const process = [
   {
-    Icon: IconChartBar,
-    title: "Research cuantitativo",
-    desc: "Encuesta a usuarios actuales para entender motivaciones, preferencias de recompensa y perfiles de jugador. Los hallazgos definieron el tipo de gamificación viable para este contexto.",
+    Icon: IconHome,
+    title: "Diseño centrado en el hogar",
+    desc: "Cada flujo fue pensado para ser completado por cualquier miembro de la familia, no solo por el usuario más técnico.",
   },
   {
-    Icon: IconUser,
-    title: "Player personas",
-    desc: "A partir de los datos, definí dos perfiles de usuario con motivaciones distintas. El sistema debía funcionar para ambos sin forzar el mismo recorrido.",
+    Icon: IconUsers,
+    title: "Diseño para dos perfiles distintos",
+    desc: "El técnico instalador necesitaba gestionar múltiples clientes y dispositivos. La familia necesitaba simplicidad. Diseñé flujos separados para cada uno sin duplicar el sistema.",
   },
   {
-    Icon: IconRoute,
-    title: "Behavioral plan",
-    desc: "Diseñé la arquitectura motivacional en capas: mecánicas, dinámicas y estética. La motivación extrínseca como puerta de entrada; la intrínseca como objetivo.",
+    Icon: IconBell,
+    title: "Notificaciones inteligentes",
+    desc: "Sistema de alertas contextual que diferencia urgencia real de notificaciones informativas.",
   },
 ];
 
 const solution = [
   {
-    Icon: IconCalendarStats,
-    title: "Desafíos personalizados",
-    desc: "Retos semanales adaptados al perfil de consumo de cada hogar.",
+    Icon: IconSensor,
+    title: "Control de sensores",
+    desc: "Visualización del estado de cada sensor del hogar en tiempo real, con acciones claras y directas.",
   },
   {
-    Icon: IconBellRinging,
-    title: "Feedback en tiempo real",
-    desc: "Notificaciones inteligentes que celebran los logros en el momento exacto.",
+    Icon: IconBolt,
+    title: "Automatización de nodos eléctricos",
+    desc: "Control de dispositivos conectados desde la app, con reglas de automatización simples de configurar.",
   },
   {
-    Icon: IconMedal,
-    title: "Sistema de logros",
-    desc: "Insignias desbloqueables que documentan el progreso del usuario en el tiempo.",
+    Icon: IconShield,
+    title: "Control de alarma",
+    desc: "Activación, desactivación y monitoreo del sistema de alarma con un flujo sin fricciones.",
   },
   {
-    Icon: IconZap,
-    title: "Simulador energético",
-    desc: "A partir del uso lúdico de la herramienta se facilita el aprendizaje sobre consumo en el tiempo e impacto en ahorro.",
+    Icon: IconDashboard,
+    title: "Backoffice para técnicos",
+    desc: "Panel de gestión que permite al técnico instalar, configurar y monitorear dispositivos de múltiples hogares desde un único lugar.",
   },
 ];
 
 const impact = [
-  { value: "-32%",  label: "Reducción de consumo promedio" },
-  { value: "89%",   label: "Retención a 30 días" },
-  { value: "3",     label: "Comunidades piloto activas" },
-  { value: "8.2",   label: "NPS" },
+  { value: "2x",     label: "Rating en stores (de 1.9 a ~3.8)" },
+  { value: "+10k",   label: "Descargas orgánicas" },
+  { value: "30–40%", label: "Reducción en consultas técnicas" },
+  { value: "92%",    label: "Task completion en instalación" },
 ];
 
 const learnings = [
-  "El comportamiento gamificado solo funciona si los datos son confiables y en tiempo real.",
-  "La gamificación sola no es suficiente: el contexto social fue el mayor driver de engagement.",
-  "La simplificación visual de datos técnicos fue más difícil que la gamificación misma.",
-  "Contar con datos de una masa representativa de usuarios desde el inicio permite detectar patrones que fundan las decisiones de diseño.",
+  "Diseñar para familias significa diseñar para el eslabón más inexperto de la cadena.",
+  "La simplicidad en seguridad genera confianza: menos opciones, más claridad.",
+  "Los técnicos instaladores son usuarios clave que suelen ignorarse en el proceso de diseño e incluirlos desde el inicio cambia el producto.",
 ];
 
 // ── Component ─────────────────────────────────────────────────────
-export default function SoleniumCaseStudy() {
+export default function AlarmCaseStudy() {
   return (
     <>
       <Navbar />
@@ -186,14 +189,14 @@ export default function SoleniumCaseStudy() {
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
               <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Energía Solar</span>
+              <span className="text-[#eff2fe]/80">Smart Home</span>
             </nav>
 
             {/* Hero image */}
             <div className="relative w-full h-[240px] sm:h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
               <Image
-                src={IMG_PHONES}
-                alt="Solenium app — tres pantallas principales"
+                src={IMG_HERO}
+                alt="Alarm — ecosistema IoT para el hogar"
                 fill
                 className="object-cover object-top"
                 priority
@@ -203,15 +206,15 @@ export default function SoleniumCaseStudy() {
 
             {/* Title block */}
             <div className="flex flex-col gap-4 max-w-3xl">
-              <SectionLabel>Energía Solar</SectionLabel>
+              <SectionLabel>Smart Home</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Gamificación para hábitos energéticos responsables
+                Ecosistema completo de alarmas IoT para el hogar
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Una empresa colombiana de minigranjas solares para generación distribuida quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.
+                Una empresa de seguridad llegó con un producto MVP heredado de otra startup. El diseño tenía deuda acumulada y no estaba a la altura de sus dos usuarios clave: la familia que lo usa en el día a día y el técnico que lo instala y gestiona.
               </p>
             </div>
 
@@ -254,10 +257,9 @@ export default function SoleniumCaseStudy() {
               El desafío
             </h2>
 
-            {/* Three columns */}
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
               {/* Problema */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+              <div className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
                 <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
                 <ul className="flex flex-col gap-3">
                   {problem.map((item, i) => (
@@ -270,15 +272,20 @@ export default function SoleniumCaseStudy() {
               </div>
 
               {/* Hipótesis */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+              <div className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
                 <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
-                <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">
-                  A través de una estrategia de gamificación, podemos transformar la factura en una oportunidad de aprendizaje y compromiso con la energía solar.
-                </p>
+                <ul className="flex flex-col gap-3">
+                  {hypothesis.map((item, i) => (
+                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Validación */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+              <div className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
                 <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
                 <ul className="flex flex-col gap-3">
                   {validation.map((item, i) => (
@@ -291,22 +298,11 @@ export default function SoleniumCaseStudy() {
               </div>
             </div>
 
-            {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
-              <Image
-                src={IMG_HOME_SCREEN}
-                alt="Pantalla home con consumo y 'Tu vs Comunidad'"
-                fill
-                className="object-cover object-top"
-                unoptimized
-              />
-            </div>
-
           </div>
         </section>
 
-        {/* ── 3. EL PROCESO ─ bg dark ──────────────────────────── */}
-        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 3. EL PROCESO ─ bg mid purple ────────────────────── */}
+        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
@@ -322,7 +318,7 @@ export default function SoleniumCaseStudy() {
                   key={title}
                   className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.4)] flex items-center justify-center text-[#b4a7ff] shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#b4a7ff] shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -341,7 +337,7 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 4. LA SOLUCIÓN ─ bg light ────────────────────────── */}
+        {/* ── 4. LA SOLUCIÓN ─ bg light lavender ───────────────── */}
         <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
@@ -356,7 +352,7 @@ export default function SoleniumCaseStudy() {
               {solution.map(({ Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)]"
+                  className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <Icon className="w-6 h-6" />
@@ -377,8 +373,8 @@ export default function SoleniumCaseStudy() {
             {/* Image */}
             <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
-                src={IMG_INSIGNIAS}
-                alt="Pantalla de insignias"
+                src={IMG_SOLUTION}
+                alt="Alarm — pantallas de la solución"
                 fill
                 className="object-cover object-top"
                 unoptimized
@@ -388,8 +384,8 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 5. IMPACTO ─ bg mid purple ───────────────────────── */}
-        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
+        {/* ── 5. IMPACTO ─ bg dark ─────────────────────────────── */}
+        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
           <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
 
             <h2
@@ -430,7 +426,7 @@ export default function SoleniumCaseStudy() {
               Aprendizajes clave
             </h2>
 
-            <ul className="grid md:grid-cols-2 gap-4 md:gap-5">
+            <ul className="grid md:grid-cols-3 gap-4 md:gap-5">
               {learnings.map((l, i) => (
                 <li
                   key={i}

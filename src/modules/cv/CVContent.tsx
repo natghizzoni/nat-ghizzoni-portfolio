@@ -270,7 +270,7 @@ export default function CVContent() {
           </div>
 
           <p className="text-[#eff2fe]/80 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-            Diseñadora de producto con base en diseño industrial y más de 8 años de experiencia. Construí equipos de UX desde cero y seguí diseñando. Me especializo en behavioral design y sistemas que hacen posible que un buen producto exista — no solo que se vea bien.
+            Diseñadora de producto con base en diseño industrial y más de 5 años de experiencia en productos digitales. Construí equipos de UX desde cero y seguí diseñando. Me especializo en behavioral design y sistemas que hacen posible que un buen producto exista.
           </p>
 
           <div className="flex flex-wrap gap-4 md:gap-6">

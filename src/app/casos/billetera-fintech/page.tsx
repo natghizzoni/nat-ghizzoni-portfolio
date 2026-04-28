@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { caseStudies } from "@/data/caseStudies";
-import CaseStudyPage from "@/modules/case-study/CaseStudyPage";
+import BilleteraFintechCaseStudy from "@/modules/case-study/BilleteraFintechCaseStudy";
 
 export const metadata: Metadata = {
-  title: "Billetera Fintech — Accesible en 3 países | Natalia Ghizzoni",
+  title: "Billetera Fintech — Accesible a 3 países | Natalia Ghizzoni",
   description:
-    "Case study: Billetera digital multi-país con accesibilidad WCAG AA. +180% conversión, Argentina, Chile, México.",
+    "Case study: Billetera digital para Argentina, Colombia y México. +1M transacciones, NPS 75, WCAG AA.",
 };
 
 export default function BilleteraFintechPage() {
-  return <CaseStudyPage caseStudy={caseStudies["billetera-fintech"]} />;
+  return <BilleteraFintechCaseStudy />;
 }
