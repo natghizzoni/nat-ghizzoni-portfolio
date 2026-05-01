@@ -171,7 +171,7 @@ function CourseCarousel() {
   return (
     <div className="flex flex-col gap-5">
       {/* Track */}
-      <div className="relative -mx-6">
+      <div className="relative -mx-[var(--section-px)]">
         {/* Fade edges */}
         <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
@@ -179,12 +179,11 @@ function CourseCarousel() {
         <div
           ref={scrollRef}
           onScroll={handleScroll}
-          className="flex gap-3 md:gap-4 overflow-x-auto px-6 py-2"
+          className="flex gap-3 md:gap-4 overflow-x-auto px-[var(--section-px)] py-2 scroll-pl-[var(--section-px)]"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             scrollSnapType: "x mandatory",
-            scrollPaddingLeft: "24px",
             WebkitOverflowScrolling: "touch",
           }}
         >
@@ -250,8 +249,8 @@ export default function CVContent() {
   return (
     <>
       {/* ── 1. HERO ─ bg darkest ─────────────────────────────────── */}
-      <section className="bg-[#1a1433] pt-16 pb-14 md:pt-20 md:pb-20 px-6">
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-6 md:gap-8">
+      <section className="bg-[#1a1433] pt-16 pb-14 md:pt-20 md:pb-20 px-[var(--section-px)]">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-8">
           <SectionLabel>Sobre mí</SectionLabel>
 
           <div className="flex flex-col gap-2">
@@ -294,8 +293,8 @@ export default function CVContent() {
       </section>
 
       {/* ── 2. ACTUALIDAD ─ bg mid dark ──────────────────────────── */}
-      <section className="bg-[#2a2560] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-6">
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-8 md:gap-10">
+      <section className="bg-[#2a2560] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
           <SectionLabel>Actualidad</SectionLabel>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
@@ -339,8 +338,8 @@ export default function CVContent() {
       </section>
 
       {/* ── 3. EXPERIENCIA ─ bg white ────────────────────────────── */}
-      <section className="bg-white pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-6">
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-8 md:gap-10">
+      <section className="bg-white pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
           <p className="text-[#4036a4] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
             Experiencia previa
           </p>
@@ -385,10 +384,10 @@ export default function CVContent() {
 
       {/* ── 4. HABILIDADES ─ bg light ────────────────────────────── */}
       <section
-        className="bg-[#dddbe4] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-6"
+        className="bg-[#dddbe4] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]"
         style={{ borderTop: "0.833px solid #e5e7eb", borderBottom: "0.833px solid #e5e7eb" }}
       >
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-8 md:gap-10">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
           <p className="text-[#1a1433] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
             Habilidades
           </p>
@@ -432,8 +431,8 @@ export default function CVContent() {
       </section>
 
       {/* ── 5. FORMACIÓN ─ bg white ──────────────────────────────── */}
-      <section className="bg-white pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-6">
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-10 md:gap-12">
+      <section className="bg-white pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
           <p className="text-[#4036a4] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
             Formación
           </p>
@@ -472,8 +471,8 @@ export default function CVContent() {
       </section>
 
       {/* ── 6. VOLUNTARIADOS ─ bg mid purple ─────────────────────── */}
-      <section className="bg-[#352e76] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-6">
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-8 md:gap-10">
+      <section className="bg-[#352e76] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
           <SectionLabel>Voluntariados</SectionLabel>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
@@ -506,8 +505,8 @@ export default function CVContent() {
       </section>
 
       {/* ── 7. IDIOMAS ─ bg card light ───────────────────────────── */}
-      <section className="bg-[#ecebf6] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-6">
-        <div className="max-w-[1346px] mx-auto flex flex-col gap-8">
+      <section className="bg-[#ecebf6] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
+        <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
           <p className="text-[#4036a4] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
             Idiomas
           </p>

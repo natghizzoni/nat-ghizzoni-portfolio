@@ -150,8 +150,8 @@ export default function BlogSection() {
   }
 
   return (
-    <section id="blog" className="bg-[#352e76] pt-14 pb-20 md:pt-[56px] md:pb-[114px] px-6">
-      <div className="max-w-[1346px] mx-auto flex flex-col gap-8 md:gap-[40px]">
+    <section id="blog" className="bg-[#352e76] pt-14 pb-20 md:pt-[56px] md:pb-[114px] px-[var(--section-px)]">
+      <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-[40px]">
 
         {/* Header */}
         <div className="flex flex-col gap-4 md:gap-[24px]">
@@ -169,7 +169,7 @@ export default function BlogSection() {
 
         {/* Carousel */}
         <div className="flex flex-col gap-5">
-          <div className="relative -mx-6">
+          <div className="relative -mx-[var(--section-px)]">
             {/* Fade edges */}
             <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#352e76] to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#352e76] to-transparent z-10 pointer-events-none" />
@@ -178,12 +178,11 @@ export default function BlogSection() {
             <div
               ref={scrollRef}
               onScroll={handleScroll}
-              className="flex gap-5 md:gap-[32px] overflow-x-auto px-6 py-2"
+              className="flex gap-5 md:gap-[32px] overflow-x-auto px-[var(--section-px)] py-2 scroll-pl-[var(--section-px)]"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
                 scrollSnapType: "x mandatory",
-                scrollPaddingLeft: "24px",
                 WebkitOverflowScrolling: "touch",
               }}
             >

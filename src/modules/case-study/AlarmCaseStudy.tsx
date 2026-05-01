@@ -4,11 +4,12 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
+import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Figma assets ──────────────────────────────────────────────────
 const IMG_HERO     = "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-8f6f-1471c15e250e";
-// TODO: replace with actual screenshots when available
-const IMG_SOLUTION = IMG_HERO;
+const IMG_SOLUTION = "https://www.figma.com/api/mcp/asset/2344a85d-40f3-438a-afef-e72a7e7dfc2d";
+const IMG_IMPACT   = "https://www.figma.com/api/mcp/asset/56b5cf13-d070-4afd-be37-e51f4af03e35";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconHome({ className = "w-6 h-6" }: { className?: string }) {
@@ -181,9 +182,23 @@ export default function AlarmCaseStudy() {
       <Navbar />
       <main className="pt-[80px]">
 
-        {/* ── 1. HERO ─ bg darkest ─────────────────────────────── */}
-        <section className="bg-[#1a1433] pt-12 pb-0 px-6 overflow-hidden">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-8">
+        {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
+        <section className="bg-[#1a1433] pt-12 pb-0 overflow-hidden">
+          <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
+            <Image
+              src={IMG_HERO}
+              alt="Alarm — ecosistema IoT para el hogar"
+              fill
+              className="object-cover object-top"
+              priority
+              unoptimized
+            />
+          </div>
+        </section>
+
+        {/* ── 2. INTRO ─ breadcrumb · título · descripción · cards ─ */}
+        <section className="bg-[#2a2560] pt-10 pb-12 md:pt-[56px] md:pb-[72px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
@@ -191,18 +206,6 @@ export default function AlarmCaseStudy() {
               <span aria-hidden="true">/</span>
               <span className="text-[#eff2fe]/80">Smart Home</span>
             </nav>
-
-            {/* Hero image */}
-            <div className="relative w-full h-[240px] sm:h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
-              <Image
-                src={IMG_HERO}
-                alt="Alarm — ecosistema IoT para el hogar"
-                fill
-                className="object-cover object-top"
-                priority
-                unoptimized
-              />
-            </div>
 
             {/* Title block */}
             <div className="flex flex-col gap-4 max-w-3xl">
@@ -218,25 +221,10 @@ export default function AlarmCaseStudy() {
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {heroStats.map((s) => (
-                <div key={s.label} className="bg-[#2a2560] border border-[rgba(87,75,224,0.3)] rounded-2xl p-5 flex flex-col gap-1">
-                  <p
-                    className="text-[#efb803] font-black text-[28px] md:text-[36px] leading-none"
-                    style={{ fontFamily: "var(--font-hanken-grotesk)" }}
-                  >
-                    {s.value}
-                  </p>
-                  <p className="text-[#eff2fe]/60 text-[12px] font-medium">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
             {/* Metadata pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {meta.map((m) => (
-                <div key={m.label} className="bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
+                <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
                 </div>
@@ -247,8 +235,8 @@ export default function AlarmCaseStudy() {
         </section>
 
         {/* ── 2. EL DESAFÍO ─ bg white ─────────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -302,8 +290,8 @@ export default function AlarmCaseStudy() {
         </section>
 
         {/* ── 3. EL PROCESO ─ bg mid purple ────────────────────── */}
-        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -338,8 +326,8 @@ export default function AlarmCaseStudy() {
         </section>
 
         {/* ── 4. LA SOLUCIÓN ─ bg light lavender ───────────────── */}
-        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -385,8 +373,8 @@ export default function AlarmCaseStudy() {
         </section>
 
         {/* ── 5. IMPACTO ─ bg dark ─────────────────────────────── */}
-        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -399,10 +387,10 @@ export default function AlarmCaseStudy() {
               {impact.map((s) => (
                 <div
                   key={s.label}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
                 >
                   <p
-                    className="text-[#efb803] font-black text-[36px] md:text-[48px] leading-none"
+                    className="text-[#efb803] font-black text-[30px] md:text-[42px] leading-none"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
                     {s.value}
@@ -412,12 +400,22 @@ export default function AlarmCaseStudy() {
               ))}
             </div>
 
+            <div className="relative w-full aspect-[1024/336] rounded-2xl overflow-hidden">
+              <Image
+                src={IMG_IMPACT}
+                alt="Alarm — impacto"
+                fill
+                className="object-cover object-center"
+                unoptimized
+              />
+            </div>
+
           </div>
         </section>
 
         {/* ── 6. APRENDIZAJES ─ bg white ───────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -443,6 +441,7 @@ export default function AlarmCaseStudy() {
           </div>
         </section>
 
+        <RelatedCaseStudies currentSlug="alarm" />
         <WorkTogetherCTA />
       </main>
       <Footer />

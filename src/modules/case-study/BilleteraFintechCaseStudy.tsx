@@ -4,11 +4,11 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
+import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Figma assets ──────────────────────────────────────────────────
-const IMG_HERO     = "https://www.figma.com/api/mcp/asset/9b519038-2bbd-4202-bc5b-512a184de5e1";
-// TODO: replace with actual screenshots when available
-const IMG_SOLUTION = IMG_HERO;
+const IMG_HERO     = "https://www.figma.com/api/mcp/asset/d2745ef7-f077-4651-9c19-362d1516e08d";
+const IMG_SOLUTION = "https://www.figma.com/api/mcp/asset/3a6d5ae1-e2ae-49b6-a770-d838c81e9c9f";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconWorld({ className = "w-6 h-6" }: { className?: string }) {
@@ -168,9 +168,23 @@ export default function BilleteraFintechCaseStudy() {
       <Navbar />
       <main className="pt-[80px]">
 
-        {/* ── 1. HERO ─ bg darkest ─────────────────────────────── */}
-        <section className="bg-[#1a1433] pt-12 pb-0 px-6 overflow-hidden">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-8">
+        {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
+        <section className="bg-[#1a1433] overflow-hidden">
+          <div className="relative w-full h-[260px] sm:h-[380px] md:h-[560px]">
+            <Image
+              src={IMG_HERO}
+              alt="Billetera Fintech — app multi-países"
+              fill
+              className="object-cover object-top"
+              priority
+              unoptimized
+            />
+          </div>
+        </section>
+
+        {/* ── 2. INTRO ─ breadcrumb · título · descripción · cards ─ */}
+        <section className="bg-[#2a2560] pt-10 pb-12 md:pt-[56px] md:pb-[72px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
@@ -178,18 +192,6 @@ export default function BilleteraFintechCaseStudy() {
               <span aria-hidden="true">/</span>
               <span className="text-[#eff2fe]/80">Fintech</span>
             </nav>
-
-            {/* Hero image */}
-            <div className="relative w-full h-[240px] sm:h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
-              <Image
-                src={IMG_HERO}
-                alt="Billetera Fintech — app multi-país"
-                fill
-                className="object-cover object-top"
-                priority
-                unoptimized
-              />
-            </div>
 
             {/* Title block */}
             <div className="flex flex-col gap-4 max-w-3xl">
@@ -205,25 +207,10 @@ export default function BilleteraFintechCaseStudy() {
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {heroStats.map((s) => (
-                <div key={s.label} className="bg-[#2a2560] border border-[rgba(87,75,224,0.3)] rounded-2xl p-5 flex flex-col gap-1">
-                  <p
-                    className="text-[#efb803] font-black text-[28px] md:text-[36px] leading-none"
-                    style={{ fontFamily: "var(--font-hanken-grotesk)" }}
-                  >
-                    {s.value}
-                  </p>
-                  <p className="text-[#eff2fe]/60 text-[12px] font-medium">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
             {/* Metadata pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {meta.map((m) => (
-                <div key={m.label} className="bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
+                <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
                 </div>
@@ -233,12 +220,12 @@ export default function BilleteraFintechCaseStudy() {
           </div>
         </section>
 
-        {/* ── 2. EL DESAFÍO ─ bg dark ──────────────────────────── */}
-        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        {/* ── 2. EL DESAFÍO ─ bg light lavender ───────────────── */}
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
-              className="text-white font-black text-[24px] md:text-[32px] leading-tight"
+              className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
               El desafío
@@ -246,12 +233,12 @@ export default function BilleteraFintechCaseStudy() {
 
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
               {/* Problema */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
+              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
                 <ul className="flex flex-col gap-3">
                   {problem.map((item, i) => (
-                    <li key={i} className="text-[#eff2fe]/75 text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b4a7ff]/50 shrink-0" />
+                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -259,12 +246,12 @@ export default function BilleteraFintechCaseStudy() {
               </div>
 
               {/* Hipótesis */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
+              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
                 <ul className="flex flex-col gap-3">
                   {hypothesis.map((item, i) => (
-                    <li key={i} className="text-[#eff2fe]/75 text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b4a7ff]/50 shrink-0" />
+                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -272,12 +259,12 @@ export default function BilleteraFintechCaseStudy() {
               </div>
 
               {/* Validación */}
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
+              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
                 <ul className="flex flex-col gap-3">
                   {validation.map((item, i) => (
-                    <li key={i} className="text-[#eff2fe]/75 text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#b4a7ff]/50 shrink-0" />
+                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -288,12 +275,12 @@ export default function BilleteraFintechCaseStudy() {
           </div>
         </section>
 
-        {/* ── 3. EL PROCESO ─ bg white ─────────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        {/* ── 3. EL PROCESO ─ bg dark ──────────────────────────── */}
+        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
-              className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
+              className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
               El proceso
@@ -303,19 +290,19 @@ export default function BilleteraFintechCaseStudy() {
               {process.map(({ Icon, title, desc }) => (
                 <div
                   key={title}
-                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
+                  className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.4)] flex items-center justify-center text-[#b4a7ff] shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <h3
-                      className="text-[#1a1433] text-[16px] md:text-[18px] font-black leading-snug"
+                      className="text-white text-[16px] md:text-[18px] font-black leading-snug"
                       style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                     >
                       {title}
                     </h3>
-                    <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
+                    <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
               ))}
@@ -325,8 +312,8 @@ export default function BilleteraFintechCaseStudy() {
         </section>
 
         {/* ── 4. LA SOLUCIÓN ─ bg light lavender ───────────────── */}
-        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -372,8 +359,8 @@ export default function BilleteraFintechCaseStudy() {
         </section>
 
         {/* ── 5. IMPACTO ─ bg mid purple ───────────────────────── */}
-        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -386,10 +373,10 @@ export default function BilleteraFintechCaseStudy() {
               {impact.map((s) => (
                 <div
                   key={s.label}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
                 >
                   <p
-                    className="text-[#efb803] font-black text-[36px] md:text-[48px] leading-none"
+                    className="text-[#efb803] font-black text-[30px] md:text-[42px] leading-none"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
                     {s.value}
@@ -403,8 +390,8 @@ export default function BilleteraFintechCaseStudy() {
         </section>
 
         {/* ── 6. APRENDIZAJES ─ bg white ───────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -430,6 +417,7 @@ export default function BilleteraFintechCaseStudy() {
           </div>
         </section>
 
+        <RelatedCaseStudies currentSlug="billetera-fintech" />
         <WorkTogetherCTA />
       </main>
       <Footer />

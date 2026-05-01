@@ -25,7 +25,7 @@ export default function LogosSection() {
       style={{ borderTop: "0.833px solid #e5e7eb", borderBottom: "0.833px solid #e5e7eb" }}
     >
       {/* Label */}
-      <p className="text-center text-[#1a1433] text-[11px] md:text-[14px] font-semibold uppercase tracking-[0.3px] mb-6 md:mb-10 px-6">
+      <p className="text-center text-[#1a1433] text-[11px] md:text-[14px] font-semibold uppercase tracking-[0.3px] mb-6 md:mb-10 px-[var(--section-px)]">
         Empresas y organizaciones con las que trabajé
       </p>
 

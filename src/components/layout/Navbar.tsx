@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-[var(--section-px)] ${
         scrolled
           ? "bg-[rgba(26,20,51,0.65)] backdrop-blur-xl"
           : "bg-[#1a1433]"
@@ -64,7 +64,7 @@ export default function Navbar() {
           : "0.833px solid rgba(87,75,224,0.5)",
       }}
     >
-      <nav className="max-w-[1346px] mx-auto px-6 h-[80px] flex items-center justify-between">
+      <nav className="max-w-[1600px] mx-auto h-[80px] flex items-center justify-between">
 
         {/* Logo: "Nat" Bold + "Ghizzoni" Regular — both #efb803 */}
         <Link
@@ -150,7 +150,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className={`md:hidden px-6 pb-6 pt-2 flex flex-col gap-3 border-t border-[rgba(87,75,224,0.3)] ${scrolled ? "bg-[rgba(26,20,51,0.65)] backdrop-blur-xl" : "bg-[#1a1433]"}`}>
+        <div className={`md:hidden pb-6 pt-2 flex flex-col gap-3 border-t border-[rgba(87,75,224,0.3)] ${scrolled ? "bg-[rgba(26,20,51,0.65)] backdrop-blur-xl" : "bg-[#1a1433]"}`}>
           <Link
             href="/cv"
             className="text-[14px] font-bold text-[#eff2fe] underline"
