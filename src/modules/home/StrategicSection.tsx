@@ -46,8 +46,8 @@ export default function StrategicSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="bg-[#dddbe4] pt-10 pb-14 md:pt-[56px] md:pb-[80px] px-6">
-      <div className="max-w-[1346px] mx-auto w-full">
+    <section className="bg-[#dddbe4] pt-10 pb-14 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
+      <div className="max-w-[1600px] mx-auto w-full">
 
         {/* Header */}
         <div className="flex flex-col gap-3 md:gap-4 mb-8 md:mb-6">
@@ -58,7 +58,7 @@ export default function StrategicSection() {
             <span className="font-bold">Diseño sistemas. </span>
             <span className="font-normal">Construyo experiencias.</span>
           </h2>
-          <p className="text-[#5c6378] text-[12px] md:text-[16px]">
+          <p className="text-[#5c6378] text-[14px] md:text-[16px]">
             <span className="font-bold text-[#101828]">¿Poco tiempo? </span>
             <span>Te cuento en 1 minuto quién soy</span>
           </p>
@@ -205,14 +205,14 @@ export default function StrategicSection() {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pt-6 md:pt-4 mt-6 md:mt-0">
-          <p className="text-[#5c6378] text-[12px] md:text-[16px] flex-1">
+        <div className="flex flex-row flex-wrap items-center gap-x-8 gap-y-4 pt-8 md:pt-[24px] mt-6 md:mt-0">
+          <p className="text-[#5c6378] text-[14px] md:text-[16px] flex-[1_1_260px] min-w-0">
             <span className="font-bold text-[#101828]">¿Qué busco? </span>
             <span>Rol senior donde el diseño tenga impacto real en producto y negocio</span>
           </p>
           <Link
             href="/cv"
-            className="self-start sm:self-auto flex-shrink-0 inline-flex items-center gap-3 bg-[#1a1433] text-white pl-4 pr-3 py-2 rounded-[10px] hover:bg-[#2a2560] transition-colors shadow-[0px_10px_15px_0px_rgba(0,0,0,0.1),0px_4px_6px_0px_rgba(0,0,0,0.1)]"
+            className="mx-auto flex-shrink-0 inline-flex items-center gap-3 bg-[#1a1433] text-white pl-4 pr-3 py-[6px] rounded-[10px] hover:bg-[#2a2560] transition-colors shadow-[0px_10px_15px_0px_rgba(0,0,0,0.1),0px_4px_6px_0px_rgba(0,0,0,0.1)]"
             style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "14px", lineHeight: "28px", letterSpacing: "0.6px" }}
           >
             Ir a Sobre mí

@@ -29,10 +29,10 @@ function DownloadIcon() {
 export default function Footer() {
   return (
     <footer
-      className="bg-[#1a1433] pt-10 pb-12 md:pt-[40px] md:pb-[81px] px-6"
+      className="bg-[#1a1433] pt-10 pb-12 md:pt-[40px] md:pb-[81px] px-[var(--section-px)]"
       style={{ borderTop: "0.833px solid rgba(64,54,164,0.3)" }}
     >
-      <div className="max-w-[1346px] mx-auto flex flex-col gap-8 md:gap-[8px]">
+      <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-[8px]">
 
         {/* Main row */}
         <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-[32px] pb-6 md:pb-[32px]">

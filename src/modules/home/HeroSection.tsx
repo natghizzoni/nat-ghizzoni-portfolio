@@ -7,7 +7,7 @@ const NAT_AVATAR = "https://www.figma.com/api/mcp/asset/f73e3381-e4b5-4125-9945-
 export default function HeroSection() {
   return (
     <section
-      className="bg-[#1A1433] min-h-screen flex flex-col justify-center pt-20 pb-16 px-6 relative overflow-hidden"
+      className="bg-[#1A1433] min-h-screen flex flex-col justify-center pt-20 pb-16 px-[var(--section-px)] relative overflow-hidden"
     >
       {/* Subtle radial glow */}
       <div
@@ -19,7 +19,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="max-w-[1346px] mx-auto w-full relative">
+      <div className="max-w-[1600px] mx-auto w-full relative">
         <div className="flex flex-col md:grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center">
           {/* Avatar — above title on mobile/tablet, right column on desktop */}
           <div className="flex justify-center mt-6 md:mt-0 md:order-last">

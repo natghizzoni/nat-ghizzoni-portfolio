@@ -4,12 +4,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
+import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Figma assets ──────────────────────────────────────────────────
 const IMG_PHONES = "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c";
 // TODO: replace with actual screenshots when available
-const IMG_HOME_SCREEN  = IMG_PHONES;
-const IMG_INSIGNIAS    = IMG_PHONES;
+const IMG_HOME_SCREEN  = "https://www.figma.com/api/mcp/asset/f743a8e3-451c-4903-8629-8be448aae260";
+const IMG_INSIGNIAS    = "https://www.figma.com/api/mcp/asset/a55a5967-0e1b-492d-8105-8990ef7d02d7";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconChartBar({ className = "w-6 h-6" }: { className?: string }) {
@@ -98,10 +99,10 @@ const meta = [
 ];
 
 const heroStats = [
+  { value: "4 meses", label: "Duración" },
+  { value: "3",       label: "Comunidades" },
   { value: "89%",     label: "Retención" },
   { value: "-32%",    label: "Consumo" },
-  { value: "3",       label: "Comunidades" },
-  { value: "4 meses", label: "Duración" },
 ];
 
 const problem = [
@@ -158,10 +159,10 @@ const solution = [
 ];
 
 const impact = [
-  { value: "-32%",  label: "Reducción de consumo promedio" },
-  { value: "89%",   label: "Retención a 30 días" },
-  { value: "3",     label: "Comunidades piloto activas" },
-  { value: "8.2",   label: "NPS" },
+  { value: "4 meses", label: "Duración" },
+  { value: "3",       label: "Comunidades piloto activas" },
+  { value: "89%",     label: "Retención a 30 días" },
+  { value: "-32%",    label: "Reducción de consumo promedio" },
 ];
 
 const learnings = [
@@ -178,9 +179,23 @@ export default function SoleniumCaseStudy() {
       <Navbar />
       <main className="pt-[80px]">
 
-        {/* ── 1. HERO ─ bg darkest ─────────────────────────────── */}
-        <section className="bg-[#1a1433] pt-12 pb-0 px-6 overflow-hidden">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-8">
+        {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
+        <section className="bg-[#1a1433] pt-12 pb-0 overflow-hidden">
+          <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
+            <Image
+              src={IMG_PHONES}
+              alt="Solenium app — tres pantallas principales"
+              fill
+              className="object-cover object-top"
+              priority
+              unoptimized
+            />
+          </div>
+        </section>
+
+        {/* ── 2. INTRO ─ breadcrumb · título · descripción · cards ─ */}
+        <section className="bg-[#2a2560] pt-10 pb-12 md:pt-[56px] md:pb-[72px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
@@ -189,20 +204,8 @@ export default function SoleniumCaseStudy() {
               <span className="text-[#eff2fe]/80">Energía Solar</span>
             </nav>
 
-            {/* Hero image */}
-            <div className="relative w-full h-[240px] sm:h-[340px] md:h-[480px] rounded-[20px] overflow-hidden">
-              <Image
-                src={IMG_PHONES}
-                alt="Solenium app — tres pantallas principales"
-                fill
-                className="object-cover object-top"
-                priority
-                unoptimized
-              />
-            </div>
-
             {/* Title block */}
-            <div className="flex flex-col gap-4 max-w-3xl">
+            <div className="flex flex-col gap-4">
               <SectionLabel>Energía Solar</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
@@ -210,30 +213,15 @@ export default function SoleniumCaseStudy() {
               >
                 Gamificación para hábitos energéticos responsables
               </h1>
-              <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Una empresa colombiana de minigranjas solares para generación distribuida quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.
+              <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
+                Una empresa colombiana de minigranjas solares para generación distribuida quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. <span className="font-bold text-[#eff2fe]">El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.</span>
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-              {heroStats.map((s) => (
-                <div key={s.label} className="bg-[#2a2560] border border-[rgba(87,75,224,0.3)] rounded-2xl p-5 flex flex-col gap-1">
-                  <p
-                    className="text-[#efb803] font-black text-[28px] md:text-[36px] leading-none"
-                    style={{ fontFamily: "var(--font-hanken-grotesk)" }}
-                  >
-                    {s.value}
-                  </p>
-                  <p className="text-[#eff2fe]/60 text-[12px] font-medium">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
             {/* Metadata pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {meta.map((m) => (
-                <div key={m.label} className="bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
+                <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
                 </div>
@@ -243,9 +231,9 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 2. EL DESAFÍO ─ bg white ─────────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        {/* ── 2. EL DESAFÍO ─ bg light ─────────────────────────── */}
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -257,12 +245,12 @@ export default function SoleniumCaseStudy() {
             {/* Three columns */}
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
               {/* Problema */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
+              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#4036a4] text-[13px] font-semibold">Problema</p>
                 <ul className="flex flex-col gap-3">
                   {problem.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
+                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -270,20 +258,20 @@ export default function SoleniumCaseStudy() {
               </div>
 
               {/* Hipótesis */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
-                <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">
+              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#4036a4] text-[13px] font-semibold">Hipótesis</p>
+                <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
                   A través de una estrategia de gamificación, podemos transformar la factura en una oportunidad de aprendizaje y compromiso con la energía solar.
                 </p>
               </div>
 
               {/* Validación */}
-              <div className="bg-[rgba(64,54,164,0.06)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
+              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
+                <p className="text-[#4036a4] text-[13px] font-semibold">Validación</p>
                 <ul className="flex flex-col gap-3">
                   {validation.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
+                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -292,12 +280,12 @@ export default function SoleniumCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
+            <div className="relative w-full aspect-[1024/333] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_HOME_SCREEN}
                 alt="Pantalla home con consumo y 'Tu vs Comunidad'"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
                 unoptimized
               />
             </div>
@@ -305,9 +293,9 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
-        {/* ── 3. EL PROCESO ─ bg dark ──────────────────────────── */}
-        <section className="bg-[#2a2560] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        {/* ── 3. EL PROCESO ─ bg darkest ───────────────────────── */}
+        <section className="bg-[#1a1433] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -342,8 +330,8 @@ export default function SoleniumCaseStudy() {
         </section>
 
         {/* ── 4. LA SOLUCIÓN ─ bg light ────────────────────────── */}
-        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -375,12 +363,12 @@ export default function SoleniumCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
+            <div className="relative w-full aspect-[990/493] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_INSIGNIAS}
                 alt="Pantalla de insignias"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
                 unoptimized
               />
             </div>
@@ -389,8 +377,8 @@ export default function SoleniumCaseStudy() {
         </section>
 
         {/* ── 5. IMPACTO ─ bg mid purple ───────────────────────── */}
-        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -403,10 +391,10 @@ export default function SoleniumCaseStudy() {
               {impact.map((s) => (
                 <div
                   key={s.label}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
                 >
                   <p
-                    className="text-[#efb803] font-black text-[36px] md:text-[48px] leading-none"
+                    className="text-[#efb803] font-black text-[30px] md:text-[42px] leading-none"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
                     {s.value}
@@ -420,8 +408,8 @@ export default function SoleniumCaseStudy() {
         </section>
 
         {/* ── 6. APRENDIZAJES ─ bg white ───────────────────────── */}
-        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-6">
-          <div className="max-w-[1346px] mx-auto flex flex-col gap-6">
+        <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
 
             <h2
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
@@ -447,6 +435,7 @@ export default function SoleniumCaseStudy() {
           </div>
         </section>
 
+        <RelatedCaseStudies currentSlug="solenium" />
         <WorkTogetherCTA />
       </main>
       <Footer />

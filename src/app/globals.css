@@ -54,6 +54,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Section horizontal gutter ────────────────────────────────── */
+:root                        { --section-px: 18px; }
+@media (min-width: 768px)  { :root { --section-px: 40px;  } }
+@media (min-width: 1280px) { :root { --section-px: 96px;  } }
+@media (min-width: 1536px) { :root { --section-px: 200px; } }
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;

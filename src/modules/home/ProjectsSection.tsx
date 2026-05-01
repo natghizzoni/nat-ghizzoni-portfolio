@@ -132,8 +132,8 @@ export default function ProjectsSection() {
   }
 
   return (
-    <section id="proyectos" className="bg-[#2a2560] pt-14 pb-20 md:pt-[56px] md:pb-[114px] px-6">
-      <div className="max-w-[1346px] mx-auto flex flex-col gap-10 md:gap-[40px]">
+    <section id="proyectos" className="bg-[#2a2560] pt-14 pb-20 md:pt-[56px] md:pb-[114px] px-[var(--section-px)]">
+      <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-[40px]">
 
         {/* Label */}
         <p className="text-[#efb803] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
@@ -203,7 +203,7 @@ export default function ProjectsSection() {
         {/* ── Project cards carousel ────────────────────────────── */}
         <div className="flex flex-col gap-5">
           {/* Track + fade wrapper */}
-          <div className="relative -mx-6">
+          <div className="relative -mx-[var(--section-px)]">
             {/* Fade edges */}
             <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#2a2560] to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#2a2560] to-transparent z-10 pointer-events-none" />
@@ -212,12 +212,11 @@ export default function ProjectsSection() {
             <div
               ref={scrollRef}
               onScroll={handleScroll}
-              className="flex gap-5 md:gap-[24px] overflow-x-auto px-6 py-2"
+              className="flex gap-5 md:gap-[24px] overflow-x-auto px-[var(--section-px)] py-2 scroll-pl-[var(--section-px)]"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
                 scrollSnapType: "x mandatory",
-                scrollPaddingLeft: "24px",   // matches px-6 — snap aligns to content edge
                 WebkitOverflowScrolling: "touch",
               }}
             >
