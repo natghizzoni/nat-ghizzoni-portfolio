@@ -6,10 +6,10 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
-// ── Figma assets ──────────────────────────────────────────────────
-const IMG_HERO     = "https://www.figma.com/api/mcp/asset/73cc0fc7-61c8-4826-833a-27f02103ad24";
-const IMG_SOLUTION = "https://www.figma.com/api/mcp/asset/ac062eb5-6e95-4210-835b-f9eb87292c63";
-const IMG_IMPACT   = "https://www.figma.com/api/mcp/asset/fa97857e-a0ed-461b-a076-f15c8fbb39fb";
+// ── Case study images (ImageKit CDN) ─────────────────────────────
+const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aeropuertos-hero.png";
+const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aeropuertos-solution.png";
+const IMG_IMPACT   = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aeropuertos-impact.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconSitemap({ className = "w-6 h-6" }: { className?: string }) {

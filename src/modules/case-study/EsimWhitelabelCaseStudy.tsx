@@ -6,9 +6,8 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
-// ── Figma assets ──────────────────────────────────────────────────
-const IMG_HERO     = "https://www.figma.com/api/mcp/asset/98f13723-e14a-4045-aaf9-d89fc57b444b";
-// TODO: replace with actual screenshots when available
+// ── Case study images (ImageKit CDN) ─────────────────────────────
+const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/esim-hero.png";
 const IMG_SOLUTION = IMG_HERO;
 
 // ── Tabler icons ─────────────────────────────────────────────────

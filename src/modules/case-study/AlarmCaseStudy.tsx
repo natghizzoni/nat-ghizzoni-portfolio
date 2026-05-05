@@ -6,10 +6,10 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
-// ── Figma assets ──────────────────────────────────────────────────
-const IMG_HERO     = "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-8f6f-1471c15e250e";
-const IMG_SOLUTION = "https://www.figma.com/api/mcp/asset/2344a85d-40f3-438a-afef-e72a7e7dfc2d";
-const IMG_IMPACT   = "https://www.figma.com/api/mcp/asset/56b5cf13-d070-4afd-be37-e51f4af03e35";
+// ── Case study images (ImageKit CDN) ─────────────────────────────
+const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-hero.png";
+const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-solution.png";
+const IMG_IMPACT   = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-impact.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconHome({ className = "w-6 h-6" }: { className?: string }) {
