@@ -6,11 +6,10 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
-// ── Figma assets ──────────────────────────────────────────────────
-const IMG_PHONES = "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c";
-// TODO: replace with actual screenshots when available
-const IMG_HOME_SCREEN  = "https://www.figma.com/api/mcp/asset/f743a8e3-451c-4903-8629-8be448aae260";
-const IMG_INSIGNIAS    = "https://www.figma.com/api/mcp/asset/a55a5967-0e1b-492d-8105-8990ef7d02d7";
+// ── Case study images (ImageKit CDN) ─────────────────────────────
+const IMG_PHONES       = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png";
+const IMG_HOME_SCREEN  = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-2.png";
+const IMG_INSIGNIAS    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-3.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconChartBar({ className = "w-6 h-6" }: { className?: string }) {
@@ -280,7 +279,7 @@ export default function SoleniumCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full aspect-[1024/333] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_HOME_SCREEN}
                 alt="Pantalla home con consumo y 'Tu vs Comunidad'"
@@ -363,7 +362,7 @@ export default function SoleniumCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full aspect-[990/493] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_INSIGNIAS}
                 alt="Pantalla de insignias"

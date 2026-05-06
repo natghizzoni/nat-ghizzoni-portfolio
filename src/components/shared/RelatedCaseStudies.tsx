@@ -9,19 +9,19 @@ const ALL_CASES = [
     slug: "solenium",
     label: "Energía Solar",
     title: "Gamificación para hábitos energéticos responsables",
-    image: "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png",
   },
   {
     slug: "aeropuertos-argentina",
     label: "Aeropuertos",
     title: "De 35 sitios dispersos a una experiencia unificada",
-    image: "https://www.figma.com/api/mcp/asset/73cc0fc7-61c8-4826-833a-27f02103ad24",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-1.png?updatedAt=1778018681652",
   },
   {
     slug: "alarm",
     label: "Smart Home",
     title: "Ecosistema completo de alarmas IoT para el hogar",
-    image: "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-8f6f-1471c15e250e",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png",
   },
   {
     slug: "billetera-fintech",

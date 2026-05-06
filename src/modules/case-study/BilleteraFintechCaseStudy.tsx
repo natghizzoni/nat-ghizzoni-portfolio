@@ -6,9 +6,9 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
-// ── Figma assets ──────────────────────────────────────────────────
-const IMG_HERO     = "https://www.figma.com/api/mcp/asset/d2745ef7-f077-4651-9c19-362d1516e08d";
-const IMG_SOLUTION = "https://www.figma.com/api/mcp/asset/3a6d5ae1-e2ae-49b6-a770-d838c81e9c9f";
+// ── Case study images (ImageKit CDN) ─────────────────────────────
+const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png";
+const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-solution.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconWorld({ className = "w-6 h-6" }: { className?: string }) {
@@ -345,7 +345,7 @@ export default function BilleteraFintechCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
                 src={IMG_SOLUTION}
                 alt="Billetera Fintech — pantallas de la solución"

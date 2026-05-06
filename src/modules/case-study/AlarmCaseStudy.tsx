@@ -6,10 +6,11 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
-// ── Figma assets ──────────────────────────────────────────────────
-const IMG_HERO     = "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-8f6f-1471c15e250e";
-const IMG_SOLUTION = "https://www.figma.com/api/mcp/asset/2344a85d-40f3-438a-afef-e72a7e7dfc2d";
-const IMG_IMPACT   = "https://www.figma.com/api/mcp/asset/56b5cf13-d070-4afd-be37-e51f4af03e35";
+// ── Case study images (ImageKit CDN) ─────────────────────────────
+const IMG_HERO      = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png";
+const IMG_CHALLENGE = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-2.png";
+const IMG_SOLUTION  = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-3.png";
+const IMG_IMPACT    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-impact.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconHome({ className = "w-6 h-6" }: { className?: string }) {
@@ -183,7 +184,7 @@ export default function AlarmCaseStudy() {
       <main className="pt-[80px]">
 
         {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
-        <section className="bg-[#1a1433] pt-12 pb-0 overflow-hidden">
+        <section className="bg-[#1a1433] pt-0 pb-0 overflow-hidden">
           <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
             <Image
               src={IMG_HERO}
@@ -322,6 +323,18 @@ export default function AlarmCaseStudy() {
               ))}
             </div>
 
+            {/* Image */}
+            {IMG_CHALLENGE && (
+              <Image
+                src={IMG_CHALLENGE}
+                alt="Alarm — el proceso"
+                width={1024}
+                height={349}
+                className="w-full h-auto rounded-2xl"
+                unoptimized
+              />
+            )}
+
           </div>
         </section>
 
@@ -359,12 +372,12 @@ export default function AlarmCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
                 src={IMG_SOLUTION}
                 alt="Alarm — pantallas de la solución"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
                 unoptimized
               />
             </div>
@@ -398,16 +411,6 @@ export default function AlarmCaseStudy() {
                   <p className="text-[#eff2fe]/65 text-[12px] md:text-[13px] leading-snug">{s.label}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="relative w-full aspect-[1024/336] rounded-2xl overflow-hidden">
-              <Image
-                src={IMG_IMPACT}
-                alt="Alarm — impacto"
-                fill
-                className="object-cover object-center"
-                unoptimized
-              />
             </div>
 
           </div>
