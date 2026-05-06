@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const NAT_AVATAR = "https://www.figma.com/api/mcp/asset/f73e3381-e4b5-4125-9945-f38ca9e08ac6";
+const NAT_AVATAR = "https://ik.imagekit.io/9822293kkm/Portfolio/Image%20(Natalia%20Ghizzoni).png?updatedAt=1769207333068";
 
 export default function HeroSection() {
   return (
@@ -24,14 +24,13 @@ export default function HeroSection() {
           {/* Avatar — above title on mobile/tablet, right column on desktop */}
           <div className="flex justify-center mt-6 md:mt-0 md:order-last">
             <div
-              className="relative rounded-full overflow-hidden shrink-0 w-[160px] h-[160px] md:w-[320px] md:h-[320px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]"
-              style={{ border: "7.5px solid rgba(255,255,255,0.2)" }}
+              className="relative shrink-0 w-[160px] h-[160px] md:w-[320px] md:h-[320px]"
             >
               <Image
                 src={NAT_AVATAR}
                 alt="Natalia Ghizzoni"
                 fill
-                className="object-cover object-top"
+                className="object-contain"
                 priority
                 unoptimized
               />

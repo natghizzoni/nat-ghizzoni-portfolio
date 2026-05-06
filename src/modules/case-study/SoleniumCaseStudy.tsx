@@ -7,9 +7,9 @@ import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
-const IMG_PHONES       = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/solenium-phones.png";
-const IMG_HOME_SCREEN  = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/solenium-home-screen.png";
-const IMG_INSIGNIAS    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/solenium-insignias.png";
+const IMG_PHONES       = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png";
+const IMG_HOME_SCREEN  = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-2.png";
+const IMG_INSIGNIAS    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-3.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconChartBar({ className = "w-6 h-6" }: { className?: string }) {
@@ -279,7 +279,7 @@ export default function SoleniumCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full aspect-[1024/333] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_HOME_SCREEN}
                 alt="Pantalla home con consumo y 'Tu vs Comunidad'"
@@ -362,7 +362,7 @@ export default function SoleniumCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full aspect-[990/493] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_INSIGNIAS}
                 alt="Pantalla de insignias"

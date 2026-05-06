@@ -5,9 +5,9 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 
 // ── Figma asset URLs ──────────────────────────────────────────────
-const IMG_FEATURED    = "https://www.figma.com/api/mcp/asset/6612e3d5-a538-4ad6-9e79-54ea7182221c";
-const IMG_AEROPUERTOS = "https://www.figma.com/api/mcp/asset/73cc0fc7-61c8-4826-833a-27f02103ad24";
-const IMG_ALARM       = "https://www.figma.com/api/mcp/asset/77427579-b782-4b39-8f6f-1471c15e250e";
+const IMG_FEATURED    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png";
+const IMG_AEROPUERTOS = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-1.png?updatedAt=1778018681652";
+const IMG_ALARM       = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png";
 const IMG_WALLET      = "https://www.figma.com/api/mcp/asset/9b519038-2bbd-4202-bc5b-512a184de5e1";
 const IMG_TELECOM     = "https://www.figma.com/api/mcp/asset/98f13723-e14a-4045-aaf9-d89fc57b444b";
 
@@ -28,6 +28,7 @@ const cards = [
     desc: "Un operador de 35 aeropuertos en Argentina, múltiples equipos y stakeholders. Cada aeropuerto tenía su propio sitio: distintos contenidos, estilos y arquitecturas de información. Los pasajeros no encontraban lo que necesitaban.",
     stats: "+5M usuarios anuales • +42% engagement • WCAG AA • 35→1 sitios",
     img: IMG_AEROPUERTOS,
+    imgPos: "object-center scale-[1.2] group-hover:!scale-[1.28]",
     href: "/casos/aeropuertos-argentina",
   },
   {
@@ -233,7 +234,7 @@ export default function ProjectsSection() {
                       src={card.img}
                       alt={card.badges[0]}
                       fill
-                      className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+                      className={`object-cover ${card.imgPos ?? "object-top"} transition-transform duration-300 group-hover:scale-[1.03]`}
                       unoptimized
                     />
                     {/* Badges top-right */}

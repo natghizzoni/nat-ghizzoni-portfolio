@@ -383,7 +383,7 @@ export default function EsimWhitelabelCaseStudy() {
             </div>
 
             {/* Image */}
-            <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-[#dddbe4]">
+            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
                 src={IMG_SOLUTION}
                 alt="Ecosistema whitelabel — portal, app, backoffice y SDK"

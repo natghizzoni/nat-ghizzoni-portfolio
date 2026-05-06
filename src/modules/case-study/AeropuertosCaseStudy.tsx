@@ -7,8 +7,8 @@ import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
-const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aeropuertos-hero.png";
-const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aeropuertos-solution.png";
+const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-1.png?updatedAt=1778018681652";
+const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-3.png?updatedAt=1778018738269";
 const IMG_IMPACT   = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aeropuertos-impact.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
@@ -188,13 +188,13 @@ export default function AeropuertosCaseStudy() {
       <main className="pt-[80px]">
 
         {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
-        <section className="bg-[#1a1433] pt-12 pb-0 overflow-hidden">
-          <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
+        <section className="bg-[#1a1433] pt-12 pb-0">
+          <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px] overflow-hidden">
             <Image
               src={IMG_HERO}
               alt="Aeropuertos Argentina — ecosistema digital unificado"
               fill
-              className="object-cover object-top"
+              className="object-cover object-top scale-[1.1] origin-top"
               priority
               unoptimized
             />
@@ -327,6 +327,16 @@ export default function AeropuertosCaseStudy() {
               ))}
             </div>
 
+            {/* Image */}
+            <Image
+              src={IMG_SOLUTION}
+              alt="Sistema unificado de Aeropuertos Argentina"
+              width={1024}
+              height={349}
+              className="w-full h-auto rounded-2xl"
+              unoptimized
+            />
+
           </div>
         </section>
 
@@ -363,17 +373,6 @@ export default function AeropuertosCaseStudy() {
               ))}
             </div>
 
-            {/* Image */}
-            <div className="relative w-full h-[200px] sm:h-[235px] md:h-[290px] rounded-2xl overflow-hidden bg-[#dddbe4]">
-              <Image
-                src={IMG_SOLUTION}
-                alt="Sistema unificado de Aeropuertos Argentina"
-                fill
-                className="object-cover scale-[1.4] origin-center"
-                unoptimized
-              />
-            </div>
-
           </div>
         </section>
 
@@ -405,7 +404,7 @@ export default function AeropuertosCaseStudy() {
               ))}
             </div>
 
-            <div className="relative w-full aspect-[990/493] rounded-2xl overflow-hidden">
+            <div className="relative w-full h-[349px] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_IMPACT}
                 alt="Aeropuertos Argentina — impacto"
