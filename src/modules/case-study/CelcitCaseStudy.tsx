@@ -145,7 +145,7 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
 const meta = [
   { label: "Rol",          value: "Co-diseñadora UX/Accesibilidad" },
   { label: "Herramientas", value: "Figma, WCAG 2.1" },
-  { label: "Rubro",        value: "Educación teatral" },
+  { label: "Rubro",        value: "Edtech" },
   { label: "Producto",     value: "Landing + checkout de pago" },
 ];
 
