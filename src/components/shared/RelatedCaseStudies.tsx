@@ -6,6 +6,12 @@ import { useRef, useState } from "react";
 
 const ALL_CASES = [
   {
+    slug: "celcit",
+    label: "Educación / Accesibilidad",
+    title: "Accesibilidad integral para una plataforma de educación teatral",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/celcit-1.png",
+  },
+  {
     slug: "solenium",
     label: "Energía Solar",
     title: "Gamificación para hábitos energéticos responsables",
