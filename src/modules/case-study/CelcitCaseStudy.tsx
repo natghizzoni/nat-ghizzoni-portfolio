@@ -146,7 +146,7 @@ const meta = [
   { label: "Rol",          value: "Co-diseñadora UX/Accesibilidad" },
   { label: "Herramientas", value: "Figma, WCAG 2.1" },
   { label: "Rubro",        value: "Edtech" },
-  { label: "Producto",     value: "Landing + checkout de pago" },
+  { label: "Producto",     value: "Landing + checkout de pago + plataforma e-learning" },
 ];
 
 const problem = [
