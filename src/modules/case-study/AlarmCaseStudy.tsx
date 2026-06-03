@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
-import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
+import RelatedCaseStudies from "@/components/shared/RelatedCaseStudiesLazy";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
 const IMG_HERO      = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png";
