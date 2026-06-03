@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Client-only wrapper around RelatedCaseStudies.
  * Using ssr: false prevents SSR/hydration mismatches because the
