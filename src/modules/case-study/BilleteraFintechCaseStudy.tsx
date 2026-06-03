@@ -7,8 +7,10 @@ import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
-const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png";
-const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-solution.png";
+const IMG_HERO      = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png";
+const IMG_CHALLENGE = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/image%2013.png";
+const IMG_SOLUTION  = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-solution.png";
+const IMG_IMPACT    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/iPhone%2013%20Pro.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconWorld({ className = "w-6 h-6" }: { className?: string }) {
@@ -169,17 +171,15 @@ export default function BilleteraFintechCaseStudy() {
       <main className="pt-[80px]">
 
         {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
-        <section className="bg-[#1a1433] overflow-hidden">
-          <div className="relative w-full h-[260px] sm:h-[380px] md:h-[560px]">
+        <section className="bg-[#1a1433] overflow-hidden relative h-[260px] sm:h-[380px] md:h-[560px]">
             <Image
               src={IMG_HERO}
               alt="Billetera Fintech — app multi-países"
               fill
-              className="object-cover object-top"
+              className="object-contain object-top"
               priority
               unoptimized
             />
-          </div>
         </section>
 
         {/* ── 2. INTRO ─ breadcrumb · título · descripción · cards ─ */}
@@ -272,6 +272,17 @@ export default function BilleteraFintechCaseStudy() {
               </div>
             </div>
 
+            {/* Image */}
+            <div className="relative w-full aspect-[1024/309] rounded-2xl overflow-hidden">
+              <Image
+                src={IMG_CHALLENGE}
+                alt="Billetera Fintech — el desafío"
+                fill
+                className="object-cover [object-position:center_calc(50%-24px)]"
+                unoptimized
+              />
+            </div>
+
           </div>
         </section>
 
@@ -360,7 +371,7 @@ export default function BilleteraFintechCaseStudy() {
 
         {/* ── 5. IMPACTO ─ bg mid purple ───────────────────────── */}
         <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
-          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-3">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -369,21 +380,34 @@ export default function BilleteraFintechCaseStudy() {
               Impacto
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-              {impact.map((s) => (
-                <div
-                  key={s.label}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
-                >
-                  <p
-                    className="text-[#efb803] font-black text-[30px] md:text-[42px] leading-none"
-                    style={{ fontFamily: "var(--font-hanken-grotesk)" }}
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+              {/* Left: 2x2 cards */}
+              <div className="grid grid-cols-2 gap-4 md:gap-5">
+                {impact.map((s) => (
+                  <div
+                    key={s.label}
+                    className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
                   >
-                    {s.value}
-                  </p>
-                  <p className="text-[#eff2fe]/65 text-[12px] md:text-[13px] leading-snug">{s.label}</p>
-                </div>
-              ))}
+                    <p
+                      className="text-[#efb803] font-black text-[26px] md:text-[36px] leading-none"
+                      style={{ fontFamily: "var(--font-hanken-grotesk)" }}
+                    >
+                      {s.value}
+                    </p>
+                    <p className="text-[#eff2fe]/65 text-[12px] md:text-[13px] leading-snug">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right: image */}
+              <Image
+                src={IMG_IMPACT}
+                alt="Billetera Fintech — impacto"
+                width={1024}
+                height={349}
+                className="w-full h-auto"
+                unoptimized
+              />
             </div>
 
           </div>

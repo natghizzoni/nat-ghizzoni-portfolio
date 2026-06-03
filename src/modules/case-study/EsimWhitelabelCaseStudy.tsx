@@ -7,8 +7,8 @@ import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
 import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
-const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/esim-hero.png";
-const IMG_SOLUTION = IMG_HERO;
+const IMG_HERO     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid1.png";
+const IMG_SOLUTION = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid3.png";
 
 // ── Tabler icons ─────────────────────────────────────────────────
 function IconComponents({ className = "w-6 h-6" }: { className?: string }) {
@@ -201,12 +201,12 @@ export default function EsimWhitelabelCaseStudy() {
 
         {/* ── 1. HERO ─ imagen sola, bg más oscuro ─────────────── */}
         <section className="bg-[#1a1433] pt-12 pb-0 overflow-hidden">
-          <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
+          <div className="relative w-full h-[333px]">
             <Image
               src={IMG_HERO}
               alt="Ecosistema whitelabel de eSIM"
               fill
-              className="object-cover object-top"
+              className="object-contain object-center"
               priority
               unoptimized
             />
@@ -310,6 +310,17 @@ export default function EsimWhitelabelCaseStudy() {
               </div>
             </div>
 
+            {/* Image */}
+            <div className="overflow-hidden rounded-2xl aspect-[16/9] relative max-h-[300px]">
+              <Image
+                src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid4.png"
+                alt="El desafío — contexto visual"
+                fill
+                className="object-cover object-center"
+                unoptimized
+              />
+            </div>
+
           </div>
         </section>
 
@@ -382,15 +393,36 @@ export default function EsimWhitelabelCaseStudy() {
               ))}
             </div>
 
-            {/* Image */}
-            <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden bg-[#dddbe4]">
+            {/* Image — wide: single panoramic, narrow: two stacked */}
+            <div className="hidden sm:block overflow-hidden">
               <Image
                 src={IMG_SOLUTION}
                 alt="Ecosistema whitelabel — portal, app, backoffice y SDK"
-                fill
-                className="object-cover object-top"
+                width={1024}
+                height={600}
+                className="w-full h-auto rounded-2xl min-w-[600px]"
                 unoptimized
               />
+            </div>
+            <div className="flex flex-col gap-3 sm:hidden">
+              <div className="overflow-hidden rounded-2xl aspect-[4/3] relative">
+                <Image
+                  src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/validA.png"
+                  alt="Ecosistema whitelabel — vista A"
+                  fill
+                  className="object-cover object-center"
+                  unoptimized
+                />
+              </div>
+              <div className="overflow-hidden rounded-2xl aspect-[4/3] relative">
+                <Image
+                  src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/validB.png"
+                  alt="Ecosistema whitelabel — vista B"
+                  fill
+                  className="object-cover object-center"
+                  unoptimized
+                />
+              </div>
             </div>
 
           </div>

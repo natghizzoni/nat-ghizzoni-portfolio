@@ -68,7 +68,7 @@ export default function StrategicSection() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-[40px]">
 
           {/* Left: flip card */}
-          <div className="min-h-[420px] md:min-h-[474px] relative" style={{ perspective: "1200px" }}>
+          <div className="min-h-[420px] md:min-h-[474px] relative cursor-pointer" style={{ perspective: "1200px" }} onClick={() => setOpen(o => !o)}>
             <div
               className="absolute inset-0 transition-transform duration-700 ease-in-out"
               style={{
@@ -84,7 +84,6 @@ export default function StrategicSection() {
                   background: "linear-gradient(144.68deg, #352e76 32%, rgba(64,54,164,0.9) 100%)",
                   pointerEvents: open ? "none" : "auto",
                 }}
-                onClick={() => setOpen(true)}
               >
                 {/* Decorative circle */}
                 <div
@@ -165,7 +164,7 @@ export default function StrategicSection() {
 
                 {/* Volver */}
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => { e.stopPropagation(); setOpen(false); }}
                   className="self-start flex items-center gap-1.5 bg-white/10 hover:bg-white/20 active:bg-white/30 transition-colors px-3 py-1.5 rounded-full text-white/70 hover:text-white text-xs font-medium"
                 >
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">

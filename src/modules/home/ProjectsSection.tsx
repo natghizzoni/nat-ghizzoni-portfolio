@@ -8,8 +8,8 @@ import { useRef, useState, useEffect } from "react";
 const IMG_FEATURED    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png";
 const IMG_AEROPUERTOS = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-1.png?updatedAt=1778018681652";
 const IMG_ALARM       = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png";
-const IMG_WALLET      = "https://www.figma.com/api/mcp/asset/9b519038-2bbd-4202-bc5b-512a184de5e1";
-const IMG_TELECOM     = "https://www.figma.com/api/mcp/asset/98f13723-e14a-4045-aaf9-d89fc57b444b";
+const IMG_WALLET      = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png";
+const IMG_TELECOM     = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid1.png";
 
 // ── Floating badge pill ───────────────────────────────────────────
 function Badge({ label }: { label: string }) {
@@ -22,6 +22,14 @@ function Badge({ label }: { label: string }) {
 
 // ── Project cards data ────────────────────────────────────────────
 const cards = [
+  {
+    badges: ["ACCESIBILIDAD", "WCAG AA"],
+    title: "Accesibilidad integral para una plataforma de educación teatral latinoamericana",
+    desc: "Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, con WCAG 2.1 AA y DUA. 11 flujos distribuidos entre la landing y el portal educativo.",
+    stats: "11 flujos · WCAG 2.1 AA · CELCIT",
+    img: null,
+    href: "/casos/celcit",
+  },
   {
     badges: ["WEB RESPONSIVE"],
     title: "De 35 sitios dispersos a una experiencia unificada",
@@ -230,13 +238,19 @@ export default function ProjectsSection() {
                 >
                   {/* Top: image */}
                   <div className="bg-[#dddbe4] relative h-[160px] md:h-[170px] shrink-0 overflow-hidden rounded-t-[14px]">
-                    <Image
-                      src={card.img}
-                      alt={card.badges[0]}
-                      fill
-                      className={`object-cover ${card.imgPos ?? "object-top"} transition-transform duration-300 group-hover:scale-[1.03]`}
-                      unoptimized
-                    />
+                    {card.img ? (
+                      <Image
+                        src={card.img}
+                        alt={card.badges[0]}
+                        fill
+                        className={`object-cover ${card.imgPos ?? "object-top"} transition-transform duration-300 group-hover:scale-[1.03]`}
+                        unoptimized
+                      />
+                    ) : (
+                      <div style={{ background: "#2a2560", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", color: "white", opacity: 0.4, fontSize: "13px" }}>
+                        hero.jpg — pendiente
+                      </div>
+                    )}
                     {/* Badges top-right */}
                     <div className="absolute top-3 right-3 flex gap-1 z-10 flex-wrap justify-end">
                       {card.badges.map((b) => (

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -40,6 +41,8 @@ function ChevronDownIcon() {
 
 export default function Navbar() {
   const { language, toggle } = useLanguage();
+  const pathname = usePathname();
+  const isCV = pathname === "/cv";
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -82,8 +85,11 @@ export default function Navbar() {
           {/* Sobre mi — underlined */}
           <Link
             href="/cv"
-            className="px-3 py-2 text-[#eff2fe] text-[14px] font-bold underline decoration-solid transition-colors hover:text-white"
+            className={`px-3 py-2 text-[14px] font-bold underline decoration-solid transition-colors ${
+              isCV ? "text-[#eff2fe]/40 cursor-default pointer-events-none" : "text-[#eff2fe] hover:text-white"
+            }`}
             style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
+            aria-current={isCV ? "page" : undefined}
           >
             Sobre mi
           </Link>
@@ -153,9 +159,10 @@ export default function Navbar() {
         <div className={`md:hidden pb-6 pt-2 flex flex-col gap-3 border-t border-[rgba(87,75,224,0.3)] ${scrolled ? "bg-[rgba(26,20,51,0.65)] backdrop-blur-xl" : "bg-[#1a1433]"}`}>
           <Link
             href="/cv"
-            className="text-[14px] font-bold text-[#eff2fe] underline"
+            className={`text-[14px] font-bold underline ${isCV ? "text-[#eff2fe]/40 cursor-default pointer-events-none" : "text-[#eff2fe] hover:text-white"}`}
             style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
             onClick={() => setMenuOpen(false)}
+            aria-current={isCV ? "page" : undefined}
           >
             Sobre mi
           </Link>

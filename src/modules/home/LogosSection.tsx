@@ -2,15 +2,16 @@
 
 import Image from "next/image";
 
-// ── Figma assets — node 340-7389 ──────────────────────────────────
+// ── ImageKit CDN logos ────────────────────────────────────────────
 const LOGOS = [
-  { src: "https://www.figma.com/api/mcp/asset/b067db4d-0232-497e-8c0f-6d80b70d24c3", alt: "+Mujeres en UX",              w: 168 },
-  { src: "https://www.figma.com/api/mcp/asset/d983b466-4da4-4b0d-aea2-9512faf47446", alt: "Coderhouse",                  w: 210 },
-  { src: "https://www.figma.com/api/mcp/asset/2c774f91-c917-464c-95be-91c2b9f2ff4b", alt: "Gamific",                      w: 154 },
-  { src: "https://www.figma.com/api/mcp/asset/4ab02f6c-3461-471c-9bca-e6225a0253f9", alt: "Interaction Design Foundation", w: 238 },
-  { src: "https://www.figma.com/api/mcp/asset/019641f8-7c28-4a27-9676-130e891b0fd8", alt: "Puerta 18",                    w: 154 },
-  { src: "https://www.figma.com/api/mcp/asset/0620fa84-6227-4a3e-b80e-5d7c4bfeabf4", alt: "Solenium",                     w: 168 },
-  { src: "https://www.figma.com/api/mcp/asset/b190a64c-041f-48bc-b81a-9d3b11b659d6", alt: "Steplix",                      w: 140 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/+M.png?updatedAt=1769031465852",                    alt: "+Mujeres en UX",              w: 168 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/Frame%201618873887.png?updatedAt=1769031466055",    alt: "Coderhouse",                  w: 210 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/Frame-2.png?updatedAt=1769031466066",               alt: "Gamific",                     w: 154 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/Frame-3.png?updatedAt=1769031466087",               alt: "Interaction Design Foundation", w: 238 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/image%20235.png?updatedAt=1769034079690",           alt: "Puerta 18",                   w: 154 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/Frame.png?updatedAt=1769031465582",                 alt: "Solenium",                    w: 168 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/Frame-1.png?updatedAt=1769031465595",               alt: "Steplix",                     w: 140 },
+  { src: "https://ik.imagekit.io/9822293kkm/Portfolio/navbar-brand.png",                                  alt: "CELCIT",                      w: 160 },
 ];
 
 const BG = "#dddbe4";

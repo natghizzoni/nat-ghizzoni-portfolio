@@ -2,6 +2,18 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "celcit",
+    slug: "celcit",
+    title: "Accesibilidad integral para una plataforma de educación teatral latinoamericana",
+    description:
+      "Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, con WCAG 2.1 AA y DUA.",
+    tags: ["Accessibility", "UX Design", "Design System", "WCAG AA"],
+    category: "Educación / Accesibilidad",
+    imagePlaceholder: "celcit",
+    accent: "#4036a4",
+    link: "/casos/celcit",
+  },
+  {
     id: "solenium",
     slug: "solenium",
     title: "Gamificación para hábitos energéticos responsables",
