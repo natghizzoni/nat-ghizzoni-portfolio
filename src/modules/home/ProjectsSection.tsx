@@ -27,13 +27,14 @@ const cards = [
     title: "Accesibilidad integral para una plataforma de educación teatral latinoamericana",
     desc: "Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, con WCAG 2.1 AA y DUA. 11 flujos distribuidos entre la landing y el portal educativo.",
     stats: "11 flujos · WCAG 2.1 AA · CELCIT",
-    img: null,
+    img: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
+    imgPos: "object-top scale-[1.6] group-hover:!scale-[1.68]",
     href: "/casos/celcit",
   },
   {
     badges: ["WEB RESPONSIVE"],
     title: "De 35 sitios dispersos a una experiencia unificada",
-    desc: "Un operador de 35 aeropuertos en Argentina, múltiples equipos y stakeholders. Cada aeropuerto tenía su propio sitio: distintos contenidos, estilos y arquitecturas de información. Los pasajeros no encontraban lo que necesitaban.",
+    desc: "Un operador de 35 aeropuertos en Argentina con 35 sitios distintos: diferentes estilos, arquitecturas de información y lógicas de contenido. Los pasajeros no encontraban lo que necesitaban y el equipo no podía mantener tantos sitios.",
     stats: "+5M usuarios anuales • +42% engagement • WCAG AA • 35→1 sitios",
     img: IMG_AEROPUERTOS,
     imgPos: "object-center scale-[1.2] group-hover:!scale-[1.28]",
@@ -42,23 +43,23 @@ const cards = [
   {
     badges: ["APP MÓVIL", "BACKOFFICE"],
     title: "Ecosistema completo de alarmas IoT para el hogar",
-    desc: "Una empresa de seguridad llegó con un producto MVP heredado de otra startup. El trabajo fue analizar, priorizar y mejorar iterativamente la app — y diseñar desde cero el backoffice para técnicos.",
-    stats: "2x rating en stores • +10k descargas • 92% task completion",
+    desc: "Una empresa de seguridad llegó con un MVP heredado de otra startup. Rating de 1.9 en stores, sin sistema de diseño, inconsistencias por todos lados y un backoffice que no existía. Todo se gestionaba por teléfono.",
+    stats: "2x rating en stores • +10k descargas • -30% consultas técnicas • 92% task completion",
     img: IMG_ALARM,
     href: "/casos/alarm",
   },
   {
     badges: ["FINTECH", "PWA"],
-    title: "Billetera Fintech accesible a 3 países",
-    desc: "Una empresa de venta directa quería ofrecer una billetera digital en Argentina, Colombia y México. El desafío: regulaciones distintas, usuarios con diferente alfabetización digital y monedas propias.",
-    stats: "+1M transacciones • NPS 75 • WCAG AA • 3 países",
+    title: "Billetera digital para revendedoras",
+    desc: "Una empresa B2B de servicios financieros quería validar si personas con baja alfabetización digital adoptarían una billetera digital para gestionar los ingresos de su emprendimiento. El proyecto fue un discovery y POC de 2 meses. Trabajé junto al PO.",
+    stats: "NPS 75 • 83% comprensión del flujo • 26 usuarias testeadas",
     img: IMG_WALLET,
     href: "/casos/billetera-fintech",
   },
   {
     badges: ["BACKOFFICE", "WHITELABEL"],
     title: "Ecosistema whitelabel de eSIM",
-    desc: "Diseñé un ecosistema completo de 3 productos integrados que permite a operadores de telecom lanzar servicios de eSIM sin capacidad técnica propia, reduciendo el time-to-market de meses a semanas.",
+    desc: "Una empresa de telecomunicaciones necesitaba competir en el mercado global de eSIM con una solución que operadores de cualquier tamaño pudieran lanzar con su propia marca, sin infraestructura técnica propia.",
     stats: "13 operadores • 3 países • Miles de activaciones mensuales",
     img: IMG_TELECOM,
     href: "/casos/esim-whitelabel",
@@ -188,7 +189,7 @@ export default function ProjectsSection() {
                 Gamificación para hábitos energéticos responsables
               </h2>
               <p className="text-[#364153] text-[12px] md:text-[14px] font-medium leading-[1.6]">
-                Una empresa colombiana de minigranjas solares quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.
+                Una empresa vende minigranjas solares en Colombia. El problema: instalan los paneles, pero sin cambio de hábitos el ahorro prometido no se materializa.
               </p>
               <div className="border-t border-[rgba(64,54,164,0.2)] pt-3 md:pt-4">
                 <p className="font-bold text-[#101828] text-[12px] md:text-[14px] leading-snug">

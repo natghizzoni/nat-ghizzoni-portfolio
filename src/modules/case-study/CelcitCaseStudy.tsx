@@ -150,35 +150,27 @@ const meta = [
 ];
 
 const problem = [
-  "Los usuarios no podían inscribirse ni navegar de forma autónoma.",
-  "Videos sin subtítulos, PDFs inaccesibles, contraste insuficiente.",
-  "Menú de navegación oculto detrás de un ícono de engranaje.",
+  "Los usuarios tenían dificultades para inscribirse y navegar de forma autónoma.",
+  "Videos sin subtítulos, PDFs inaccesibles, contraste insuficiente y menú de navegación oculto.",
+  "Se contaba con una base funcional que excluía a las personas que más necesitan acceso flexible al aprendizaje.",
 ];
 
-const hypothesis = [
-  "Aplicando WCAG 2.1 AA y DUA se pueden eliminar las barreras sistemáticamente.",
-  "Un sistema de diseño accesible desde los tokens garantiza consistencia en la implementación.",
-  "El rediseño beneficia a todos los usuarios, no solo a personas con discapacidad.",
-];
+const hypothesis = "Si aplicamos WCAG 2.1 AA y DUA desde los tokens de diseño, podemos eliminar las barreras sistemáticamente y beneficiar a todos los usuarios, no solo a personas con discapacidad.";
 
-const validation = [
-  "Auditoría técnica del aula virtual (aulascelcit.com).",
-  'Caso de estudio: curso "Poéticas teatrales con perspectiva de género".',
-  "Análisis por dimensiones: IxD, navegación, audiovisual, evaluación, carga cognitiva.",
-];
+const validation = "Auditoría técnica del aula virtual. Análisis por dimensiones: diseño de interacción, contenido audiovisual, evaluación y carga cognitiva. Pruebas de first click con usuarios con y sin necesidades de accesibilidad.";
 
 const process = [
   {
     Icon: IconSearch,
     title: "Diagnóstico y relevamiento",
     desc: "Auditamos el aula virtual en tres dimensiones: diseño de interacción, contenido audiovisual y evaluación. Para cada pantalla documentamos la barrera, el criterio WCAG/DUA que incumplía y una propuesta concreta de mejora.",
-    placeholder: "proceso-diagnostico.jpg" as string | null,
+    placeholder: null as string | null,
   },
   {
     Icon: IconLayout,
     title: "Sistema de diseño accesible",
     desc: "En paralelo construí el sistema de diseño en Figma: tokens de color verificados contra ratio 4.5:1, tipografía, espaciado y componentes con estados de foco visible y etiquetado semántico para lectores de pantalla.",
-    placeholder: "design-system-figma.jpg" as string | null,
+    placeholder: null as string | null,
   },
   {
     Icon: IconPencil,
@@ -202,15 +194,8 @@ const solution = [
   { Icon: IconBook,    title: "Accesibilidad cognitiva",  desc: "Botón de Lectura Fácil como alternativa de representación (DUA). Diseño por bloques: una unidad de información por vez." },
   { Icon: IconEar,     title: "Accesibilidad sensorial",  desc: "Audiotexto nativo, subtítulos pregrabados obligatorios, espacio reservado para interpretación en LSA en todos los videos." },
   { Icon: IconTouch,   title: "Interfaz operable",        desc: "Área táctil mínima 44px, iconografía consistente en toda la plataforma, foco visible por teclado, contraste verificado mayor a 4.5:1." },
-  { Icon: IconCheck,   title: "Evaluación accesible",     desc: 'Una pregunta por vez, opciones con texto completo ("Verdadero" / "Falso"), acompañadas de pictogramas y tipografía alineada a la izquierda.' },
 ];
 
-const impact = [
-  { value: "8 categorías", label: "de barreras identificadas" },
-  { value: "5 principios", label: "de rediseño aplicados" },
-  { value: "WCAG 2.1 AA",  label: "estándar de cumplimiento" },
-  { value: "+50 cursos",   label: "alcance del sistema de diseño" },
-];
 
 const learnings = [
   "Diseñar para los extremos beneficia al centro: las mejoras para personas con discapacidad son las mismas que mejoran la experiencia de alguien con mala señal, una persona mayor o un estudiante de otro país de Latinoamérica.",
@@ -228,20 +213,24 @@ export default function CelcitCaseStudy() {
         {/* ── 0. HERO ──────────────────────────────────────────── */}
         <section className="bg-[#1a1a2e] pt-12 pb-0 overflow-hidden">
           <div className="w-full h-[240px] sm:h-[340px] md:h-[520px] overflow-hidden">
-            <ImgPlaceholder label="hero.jpg — pendiente" />
+            <img
+              src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png"
+              alt="CELCIT — plataforma e-learning accesible"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
         </section>
 
         {/* ── 1. INTRO ─────────────────────────────────────────── */}
         <section className="bg-[#2a2560] pt-10 pb-12 md:pt-[56px] md:pb-[72px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
-              <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Educación / Accesibilidad</span>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
+              <span className="text-[#eff2fe]/35">Plataforma e-learning</span>
             </nav>
             <div className="flex flex-col gap-4">
-              <SectionLabel>Educación / Accesibilidad</SectionLabel>
+
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
@@ -249,8 +238,8 @@ export default function CelcitCaseStudy() {
                 Accesibilidad integral para una plataforma de educación teatral
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Las barreras no están en las personas, están en los entornos que diseñamos. Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, basado en{" "}
-                <span className="font-bold text-[#eff2fe]">WCAG 2.1 AA y DUA.</span>
+                Las barreras no están en las personas, están en los entornos que diseñamos. Proyecto freelance de 4 meses para el CELCIT, Centro Latinoamericano de Investigación Teatral. Co-diseñé un sistema de diseño accesible y el rediseño del aula virtual, basado en{" "}
+                <strong className="text-[#eff2fe]">WCAG 2.1 AA y Diseño Universal para el Aprendizaje.</strong>
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -261,6 +250,7 @@ export default function CelcitCaseStudy() {
                 </div>
               ))}
             </div>
+            <p className="text-[#eff2fe]/50 text-[13px] leading-[1.6]">Trabajé junto a una especialista en accesibilidad, y al PO, desarrollador fullstack.</p>
           </div>
         </section>
 
@@ -268,40 +258,32 @@ export default function CelcitCaseStudy() {
         <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
             <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>El desafío</h2>
-            <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[13px] font-semibold">Problema</p>
-                <ul className="flex flex-col gap-3">
-                  {problem.map((item, i) => (
-                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[13px] font-semibold">Hipótesis</p>
-                <ul className="flex flex-col gap-3">
-                  {hypothesis.map((item, i) => (
-                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[13px] font-semibold">Validación</p>
-                <ul className="flex flex-col gap-3">
-                  {validation.map((item, i) => (
-                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Problema — one card per item */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {problem.map((item, i) => (
+                <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
+                </div>
+              ))}
             </div>
-            <div className="rounded-2xl overflow-hidden">
-              <ImgPlaceholder label="diagnostico-anotado.jpg — capturas anotadas del aula original" />
+
+            {/* Hipótesis + Validación — inline */}
+            <div className="flex flex-col gap-6 mt-4">
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
+                <strong>{hypothesis}</strong>
+              </p>
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Validación</span>
+                {validation}
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden flex justify-center">
+              <img
+                src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/celcit2.png"
+                alt="Diagnóstico anotado del aula virtual original"
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </section>
@@ -350,18 +332,19 @@ export default function CelcitCaseStudy() {
                 </div>
               ))}
             </div>
-            <div className="rounded-2xl overflow-hidden">
-              <ImgPlaceholder label="comparativa-antes-despues.jpg — antes/despues de pantalla o componente" />
-            </div>
           </div>
         </section>
 
         {/* ── 5. LA SOLUCIÓN ───────────────────────────────────── */}
-        <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
+        <section className="bg-[#1a1433] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>La solución</h2>
+            <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>La solución</h2>
             <div className="rounded-2xl overflow-hidden">
-              <ImgPlaceholder label="aula-rediseno-hero.jpg — vista general del prototipo accesible" />
+              <img
+                src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt1.png"
+                alt="Vista general del prototipo accesible"
+                className="w-full h-auto"
+              />
             </div>
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
               {solution.map(({ Icon, title, desc }) => (
@@ -376,23 +359,22 @@ export default function CelcitCaseStudy() {
                 </div>
               ))}
             </div>
-            <div className="rounded-2xl overflow-hidden">
-              <ImgPlaceholder label="detalle-lectura-facil.jpg — componente Lectura Facil o barra de progreso" />
-            </div>
           </div>
         </section>
 
         {/* ── 6. IMPACTO ───────────────────────────────────────── */}
         <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Impacto</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-              {impact.map((s) => (
-                <div key={s.label} className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center">
-                  <p className="font-black text-[28px] md:text-[38px] leading-none" style={{ fontFamily: "var(--font-hanken-grotesk)", color: ACCENT }}>{s.value}</p>
-                  <p className="text-[#eff2fe]/65 text-[12px] md:text-[13px] leading-snug">{s.label}</p>
-                </div>
-              ))}
+            <div className="flex items-center gap-4">
+              <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Impacto</h2>
+              <span className="inline-flex items-center gap-1.5 bg-[#FFA901]/20 text-[#FFA901] text-[11px] font-semibold uppercase tracking-[0.3px] px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFA901] animate-pulse shrink-0" />
+                En curso
+              </span>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col gap-3">
+              <p className="text-white font-black text-[18px] md:text-[22px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Entregables</p>
+              <p className="text-[#eff2fe]/70 text-[14px] md:text-[15px] leading-[1.75]">Wireframes validados con usuarios reales, sistema de diseño con tokens documentados y pruebas de first click. La implementación está en curso.</p>
             </div>
           </div>
         </section>
@@ -401,13 +383,10 @@ export default function CelcitCaseStudy() {
         <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
             <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Aprendizajes clave</h2>
-            <ul className="grid md:grid-cols-2 gap-4 md:gap-5">
+            <ul className="grid sm:grid-cols-2 gap-3">
               {learnings.map((l, i) => (
-                <li key={i} className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4">
-                  <span className="mt-0.5 w-8 h-8 rounded-full bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
-                    <IconBulb />
-                  </span>
-                  <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">{l}</p>
+                <li key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
                 </li>
               ))}
             </ul>

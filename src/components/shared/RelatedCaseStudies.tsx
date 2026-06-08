@@ -9,7 +9,7 @@ const ALL_CASES = [
     slug: "celcit",
     label: "Educación / Accesibilidad",
     title: "Accesibilidad integral para una plataforma de educación teatral",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/celcit-1.png",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
   },
   {
     slug: "solenium",

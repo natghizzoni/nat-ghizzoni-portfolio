@@ -84,10 +84,10 @@ function IconBulbSmall({ className = "w-5 h-5" }: { className?: string }) {
 
 // ── Data ──────────────────────────────────────────────────────────
 const meta = [
-  { label: "Rol",          value: "UX Lead / Product Designer" },
+  { label: "Rol",          value: "Product Designer" },
   { label: "Herramientas", value: "Figma, Maze" },
   { label: "Rubro",        value: "Fintech" },
-  { label: "Producto",     value: "App híbrida y Backoffice" },
+  { label: "Producto",     value: "PWA" },
 ];
 
 const heroStats = [
@@ -99,68 +99,56 @@ const heroStats = [
 
 const problem = [
   "El 43% del target no estaba bancarizado y desconfiaba de las apps financieras.",
-  "Cada país tenía regulaciones KYC distintas que afectaban el flujo de onboarding.",
-  "La app original tenía una tasa de abandono del 68% en el registro.",
-];
-
-const hypothesis = [
-  "Un onboarding progresivo que empieza con funcionalidad básica aumentará la conversión.",
-  "Lenguaje financiero simplificado y visual reducirá la barrera de entrada.",
-  "Un diseño accesible y con lenguaje claro reducirá la barrera de entrada para usuarios con baja alfabetización digital.",
-];
-
-const validation = [
-  "26 testeos de usabilidad y un POC con usuarios en 3 países con distintos niveles de educación financiera y alfabetización digital.",
-  "Auditoría legal con compliance officers de cada país.",
+  "La mayoría de las usuarias eran revendedoras independientes con baja alfabetización digital y sin experiencia previa con herramientas financieras.",
+  "El producto tenía que darles claridad sobre sus ingresos y seguimiento de pagos, sin requerir conocimiento técnico previo.",
 ];
 
 const process = [
   {
-    Icon: IconWorld,
-    title: "Diseño multi-país",
-    desc: "Un sistema de componentes con variantes por país que mantiene la consistencia visual con flexibilidad regulatoria.",
-  },
-  {
-    Icon: IconAccessibility,
-    title: "Accesibilidad WCAG AA",
-    desc: "Contraste, tamaños de toque, lectores de pantalla y flujos alternativos para adultos mayores y usuarios con discapacidad.",
+    Icon: IconUserCheck,
+    title: "Discovery con usuarias reales",
+    desc: "Entender el modelo mental de alguien que nunca usó una billetera digital requiere ir más allá de los flujos. Trabajamos en entender cómo estas usuarias gestionaban su dinero antes del producto y qué palabras usaban para describir sus transacciones.",
   },
   {
     Icon: IconBulb,
-    title: "Educación financiera integrada",
-    desc: "Tooltips y microcopy que explican cada término financiero en el momento exacto en que el usuario lo necesita.",
+    title: "Diseño centrado en claridad y confianza",
+    desc: "El mayor obstáculo no era la usabilidad, era la desconfianza. Cada decisión de diseño, desde el microcopy hasta la jerarquía visual, estaba orientada a reducir la ansiedad financiera y hacer visible el valor del producto desde el primer uso.",
+  },
+  {
+    Icon: IconAccessibility,
+    title: "Validación iterativa",
+    desc: "26 testeos con usuarias reales durante el POC. Cada ronda informó decisiones concretas de diseño. El criterio de éxito no era completar tareas, era que las usuarias entendieran qué estaba pasando con su dinero.",
   },
 ];
 
 const solution = [
   {
-    Icon: IconUserCheck,
-    title: "Onboarding progresivo",
-    desc: "El usuario puede usar funcionalidades básicas antes de completar la verificación de identidad.",
+    Icon: IconCurrency,
+    title: "Billetera para revendedoras",
+    desc: "Funcionalidades vinculadas a los pedidos de productos: detalle de pagos pendientes, pagos ejecutados y margen de ganancia. Todo en un solo lugar, sin requerir conocimiento financiero previo.",
   },
   {
-    Icon: IconCurrency,
-    title: "Multi-moneda visual",
-    desc: "Interfaz que muestra claramente la moneda local y equivalencias sin confundir al usuario.",
+    Icon: IconUserCheck,
+    title: "Onboarding progresivo",
+    desc: "El usuario accede a funcionalidades básicas antes de completar la verificación. Diseñado para usuarias que necesitan ver valor inmediato antes de comprometerse con el proceso de registro.",
   },
   {
     Icon: IconId,
-    title: "KYC simplificado",
-    desc: "Flujo de verificación adaptado a las regulaciones de cada país con UX consistente.",
+    title: "Link de pago para compradores",
+    desc: "El comprador paga desde un link sin necesidad de tener la app. El flujo cierra el ciclo de cobro de la revendedora de forma simple y directa.",
   },
 ];
 
 const impact = [
-  { value: "+1M",     label: "Transacciones en el primer año" },
-  { value: "NPS 75",  label: "Satisfacción" },
-  { value: "WCAG AA", label: "Accesibilidad alcanzada" },
-  { value: "3",       label: "Países: Argentina, Colombia y México" },
+  { value: "NPS 75", label: "medido durante el POC" },
+  { value: "83%",    label: "tasa de comprensión del flujo" },
+  { value: "26",     label: "usuarias testeadas" },
 ];
 
 const learnings = [
-  "El diseño inclusivo no es opcional en fintech: millones de usuarios potenciales dependen de ello.",
-  "Los sistemas de diseño multi-país requieren gobernar la varianza tanto como la consistencia.",
-  "La educación financiera integrada en UX tiene más impacto que cualquier campaña de marketing.",
+  "La desconfianza financiera no se resuelve con diseño intuitivo, se resuelve con diseño transparente. Los usuarios necesitan entender qué pasa con su dinero en cada paso.",
+  "Validar con el usuario menos técnico del target es la prueba más honesta de un producto financiero. Si ese usuario lo entiende, el resto también.",
+  "Un POC bien ejecutado reduce el riesgo de inversión con evidencia real. El entregable no era un prototipo, era una decisión informada para el cliente.",
 ];
 
 // ── Component ─────────────────────────────────────────────────────
@@ -187,23 +175,23 @@ export default function BilleteraFintechCaseStudy() {
           <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
 
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
-              <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Fintech</span>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
+              <span className="text-[#eff2fe]/35">Fintech</span>
             </nav>
 
             {/* Title block */}
-            <div className="flex flex-col gap-4 max-w-3xl">
+            <div className="flex flex-col gap-4">
               <SectionLabel>Fintech</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Billetera Fintech accesible a 3 países
+                Billetera digital para revendedoras
               </h1>
-              <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Una empresa de venta directa con representantes independientes en toda la región quería ofrecer una billetera digital a sus usuarios en Argentina, Colombia y México. El desafío: cada mercado tiene regulaciones distintas, usuarios con diferentes niveles de educación financiera y monedas propias.
+              <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
+                Una empresa B2B de servicios financieros quería validar si personas con baja alfabetización digital adoptarían una billetera digital para gestionar los ingresos de su emprendimiento. El proyecto fue un discovery y POC de 2 meses. Trabajé junto al PO.
               </p>
             </div>
 
@@ -231,45 +219,26 @@ export default function BilleteraFintechCaseStudy() {
               El desafío
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {/* Problema */}
-              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
-                <ul className="flex flex-col gap-3">
-                  {problem.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Problema — one card per bullet */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {problem.map((item, i) => (
+                <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
+                </div>
+              ))}
+            </div>
 
-              {/* Hipótesis */}
-              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
-                <ul className="flex flex-col gap-3">
-                  {hypothesis.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Hipótesis + Validación — inline */}
+            <div className="flex flex-col gap-6 mt-4">
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
+                <strong>Si el producto les da visibilidad real sobre su dinero con un lenguaje claro y sin tecnicismos, personas que nunca usaron servicios financieros digitales lo van a adoptar.</strong>
+              </p>
 
-              {/* Validación */}
-              <div className="bg-white border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
-                <ul className="flex flex-col gap-3">
-                  {validation.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Validación</span>
+                26 testeos de usabilidad con usuarias en distintos niveles de alfabetización digital. El objetivo no era solo medir usabilidad, era validar si el producto tenía valor real para ellas.
+              </p>
             </div>
 
             {/* Image */}
@@ -380,13 +349,13 @@ export default function BilleteraFintechCaseStudy() {
               Impacto
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-              {/* Left: 2x2 cards */}
-              <div className="grid grid-cols-2 gap-4 md:gap-5">
+            <div className="grid md:grid-cols-2 gap-4 items-start">
+              {/* Left: stacked cards */}
+              <div className="flex flex-col gap-2">
                 {impact.map((s) => (
                   <div
                     key={s.label}
-                    className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
+                    className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 flex flex-col gap-0.5"
                   >
                     <p
                       className="text-[#efb803] font-black text-[26px] md:text-[36px] leading-none"
@@ -403,12 +372,16 @@ export default function BilleteraFintechCaseStudy() {
               <Image
                 src={IMG_IMPACT}
                 alt="Billetera Fintech — impacto"
-                width={1024}
-                height={349}
-                className="w-full h-auto"
+                width={600}
+                height={600}
+                className="w-auto max-h-[220px] object-contain self-end justify-self-start rounded-2xl"
                 unoptimized
               />
             </div>
+
+            <p className="text-[#eff2fe]/70 text-[13px] md:text-[14px] leading-[1.75]">
+              El cliente decidió continuar y adaptar el producto a la identidad de la marca local.
+            </p>
 
           </div>
         </section>
@@ -424,19 +397,13 @@ export default function BilleteraFintechCaseStudy() {
               Aprendizajes clave
             </h2>
 
-            <ul className="grid md:grid-cols-3 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {learnings.map((l, i) => (
-                <li
-                  key={i}
-                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4"
-                >
-                  <span className="mt-0.5 w-8 h-8 rounded-full bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
-                    <IconBulbSmall />
-                  </span>
-                  <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">{l}</p>
-                </li>
+                <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-start border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
+                </div>
               ))}
-            </ul>
+            </div>
 
           </div>
         </section>

@@ -22,7 +22,7 @@ const projects = [
     desc: "Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, con WCAG 2.1 AA y DUA.",
     stats: "11 flujos · WCAG 2.1 AA · CELCIT",
     link: "/casos/celcit",
-    mockup: null,
+    mockup: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
   },
   {
     id: "aeropuertos-argentina",
