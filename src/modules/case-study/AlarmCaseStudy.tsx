@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
-import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
+import RelatedCaseStudies from "@/components/shared/RelatedCaseStudiesLazy";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
 const IMG_HERO      = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png";
@@ -105,38 +105,39 @@ const heroStats = [
 ];
 
 const problem = [
-  "Las apps de alarma existentes requerían conocimiento técnico para configurarlas.",
-  "Las familias querían control y tranquilidad sin complejidad.",
-  "El setup existente era tan complejo que generaba fricción incluso para los técnicos instaladores.",
+  "La app de alarma requería conocimiento técnico para configurarla. Las familias querían control y tranquilidad, no complejidad.",
+  "Más del 90% de los usuarios solo usaba la app para activar y desactivar la alarma. El resto de las funcionalidades era invisible para ellos.",
+  "El setup era tan complejo que generaba fricción incluso para los técnicos instaladores.",
 ];
 
-const hypothesis = [
-  "Un onboarding guiado por pasos reducirá el tiempo y la fricción del setup.",
-  "Perfiles de acceso diferenciados aumentarán la adopción en el hogar.",
-  "Un contenido claro, sin tecnicismos y con ayuda oportuna reducirá los llamados a atención al cliente.",
-];
-
-const validation = [
-  "Test de usabilidad con 15 usuarios en sus hogares.",
-  "Benchmark de 8 apps de seguridad del mercado argentino y latinoamericano.",
-  "Entrevistas con técnicos instaladores para entender puntos de dolor en el setup.",
-];
-
-const process = [
+const processStage1 = [
   {
-    Icon: IconHome,
-    title: "Diseño centrado en el hogar",
-    desc: "Cada flujo fue pensado para ser completado por cualquier miembro de la familia, no solo por el usuario más técnico.",
+    Icon: IconBulb,
+    title: "Auditoría y estabilización",
+    desc: "Arranqué auditando componentes y arquitectura. Sin sistema de diseño, las inconsistencias eran estructurales. Estabilizar la base fue el primer trabajo antes de tocar cualquier flujo.",
   },
   {
     Icon: IconUsers,
-    title: "Diseño para dos perfiles distintos",
-    desc: "El técnico instalador necesitaba gestionar múltiples clientes y dispositivos. La familia necesitaba simplicidad. Diseñé flujos separados para cada uno sin duplicar el sistema.",
+    title: "Research con usuarios reales",
+    desc: "Tests en hogares reales y entrevistas con técnicos instaladores. El hallazgo que definió todo: los técnicos y los usuarios de a pie tenían universos mentales completamente distintos. Lo que los técnicos entendían con facilidad, los usuarios no tocaban.",
   },
   {
-    Icon: IconBell,
-    title: "Notificaciones inteligentes",
-    desc: "Sistema de alertas contextual que diferencia urgencia real de notificaciones informativas.",
+    Icon: IconHome,
+    title: "Jerarquización y simplificación",
+    desc: "Trabajé en la jerarquía de la información y en traducir conceptos técnicos a lenguaje cotidiano. Los acuerdos con el PO en esta etapa dieron las bases para lo que vino después.",
+  },
+];
+
+const processStage2 = [
+  {
+    Icon: IconBolt,
+    title: "Nuevas funcionalidades sobre base estable",
+    desc: "Con el sistema estabilizado, el foco cambió. Acompañé al equipo y al PO en el desarrollo de nuevas funcionalidades. Ya no había deuda que resolver, había producto que hacer crecer.",
+  },
+  {
+    Icon: IconDashboard,
+    title: "Backoffice que escaló",
+    desc: "Lo que empezó como un ABM simple de comunicadores terminó siendo una herramienta de gestión casi completa de atención al cliente.",
   },
 ];
 
@@ -144,36 +145,37 @@ const solution = [
   {
     Icon: IconSensor,
     title: "Control de sensores",
-    desc: "Visualización del estado de cada sensor del hogar en tiempo real, con acciones claras y directas.",
+    desc: "Estado de cada sensor en tiempo real. Acciones claras, sin terminología técnica.",
   },
   {
     Icon: IconBolt,
     title: "Automatización de nodos eléctricos",
-    desc: "Control de dispositivos conectados desde la app, con reglas de automatización simples de configurar.",
+    desc: "Reglas simples para controlar dispositivos conectados. La complejidad quedó del lado del sistema.",
   },
   {
     Icon: IconShield,
     title: "Control de alarma",
-    desc: "Activación, desactivación y monitoreo del sistema de alarma con un flujo sin fricciones.",
+    desc: "El flujo más crítico tenía que ser el más sólido. Sin pasos innecesarios, sin ambigüedad.",
   },
   {
     Icon: IconDashboard,
     title: "Backoffice para técnicos",
-    desc: "Panel de gestión que permite al técnico instalar, configurar y monitorear dispositivos de múltiples hogares desde un único lugar.",
+    desc: "Gestión completa de instalaciones, configuraciones y monitoreo de múltiples hogares desde un solo lugar. Lo que antes requería llamadas telefónicas ahora vive en el panel.",
   },
 ];
 
 const impact = [
-  { value: "2x",     label: "Rating en stores (de 1.9 a ~3.8)" },
-  { value: "+10k",   label: "Descargas orgánicas" },
-  { value: "30–40%", label: "Reducción en consultas técnicas" },
-  { value: "92%",    label: "Task completion en instalación" },
+  { value: "2x",    label: "Rating en stores (de 1.9 a ~3.8)" },
+  { value: "+10k",  label: "Descargas orgánicas" },
+  { value: "-30%",  label: "Reducción en consultas técnicas" },
+  { value: "92%",   label: "Task completion en instalación" },
 ];
 
 const learnings = [
-  "Diseñar para familias significa diseñar para el eslabón más inexperto de la cadena.",
-  "La simplicidad en seguridad genera confianza: menos opciones, más claridad.",
-  "Los técnicos instaladores son usuarios clave que suelen ignorarse en el proceso de diseño e incluirlos desde el inicio cambia el producto.",
+  "Diseñar para familias significa diseñar para el integrante menos técnico del hogar. Si ese usuario no puede completar el flujo solo, el producto falló.",
+  "La simplicidad en seguridad no es solo usabilidad, es confianza. Un usuario que no entiende lo que está pasando con su alarma no se siente seguro, aunque el sistema funcione perfectamente.",
+  "Los técnicos instaladores son usuarios tan críticos como los usuarios finales. Ignorarlos en el proceso de diseño es diseñar la mitad del producto. Incluirlos desde el research cambió las decisiones de arquitectura y hizo posible el backoffice.",
+  "Un producto estable y escalable cambia lo que un equipo puede hacer. La primera etapa fue resolver deuda. La segunda fue crecer sobre esa base. La diferencia entre las dos fue lo que me enseñó a liderar.",
 ];
 
 // ── Component ─────────────────────────────────────────────────────
@@ -202,14 +204,14 @@ export default function AlarmCaseStudy() {
           <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
 
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
-              <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Smart Home</span>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
+              <span className="text-[#eff2fe]/35">Smart Home</span>
             </nav>
 
             {/* Title block */}
-            <div className="flex flex-col gap-4 max-w-3xl">
+            <div className="flex flex-col gap-4">
               <SectionLabel>Smart Home</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
@@ -217,8 +219,9 @@ export default function AlarmCaseStudy() {
               >
                 Ecosistema completo de alarmas IoT para el hogar
               </h1>
-              <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Una empresa de seguridad llegó con un producto MVP heredado de otra startup. El diseño tenía deuda acumulada y no estaba a la altura de sus dos usuarios clave: la familia que lo usa en el día a día y el técnico que lo instala y gestiona.
+              <p className="text-[#eff2fe] text-[14px] lg:text-[16px] leading-[1.75]">
+                Una empresa de seguridad llegó con un MVP heredado de otra startup. Rating de 1.9 en stores, sin sistema de diseño, inconsistencias por todos lados y un backoffice que no existía. Todo se gestionaba por teléfono.<br /><br />
+                Trabajé en este proyecto en dos etapas. <strong>Entré como Senior UX Designer y me ascendieron a líder técnica del equipo UX durante el proyecto.</strong> Eso cambió mi rol, pero también cambió el producto.
               </p>
             </div>
 
@@ -231,6 +234,10 @@ export default function AlarmCaseStudy() {
                 </div>
               ))}
             </div>
+
+            <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
+              Equipo formado por un UX/UI Designer, PO, Scrum Master, Tech Lead, Frontend, Backend y QA propio y de la empresa.
+            </p>
 
           </div>
         </section>
@@ -246,45 +253,26 @@ export default function AlarmCaseStudy() {
               El desafío
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {/* Problema */}
-              <div className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Problema</p>
-                <ul className="flex flex-col gap-3">
-                  {problem.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Problema — one card per bullet */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {problem.map((item, i) => (
+                <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
+                </div>
+              ))}
+            </div>
 
-              {/* Hipótesis */}
-              <div className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Hipótesis</p>
-                <ul className="flex flex-col gap-3">
-                  {hypothesis.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Hipótesis + Research — inline */}
+            <div className="flex flex-col gap-6 mt-4">
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
+                <strong>Si simplificamos el producto para el usuario menos técnico sin quitarle poder al técnico, podemos mejorar la experiencia de ambos sin duplicar el sistema.</strong>
+              </p>
 
-              {/* Validación */}
-              <div className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.18)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.4px]">Validación</p>
-                <ul className="flex flex-col gap-3">
-                  {validation.map((item, i) => (
-                    <li key={i} className="text-[#364153] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/40 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Research</span>
+                Tests de usabilidad en hogares reales, benchmark de 8 apps de seguridad del mercado argentino y latinoamericano, y entrevistas con técnicos instaladores. El hallazgo clave: el mapa conceptual de la app era tan técnico que los usuarios no interactuaban con nada más allá de encender y apagar. <strong>Eso definió todo lo que vino después.</strong>
+              </p>
             </div>
 
           </div>
@@ -292,7 +280,7 @@ export default function AlarmCaseStudy() {
 
         {/* ── 3. EL PROCESO ─ bg mid purple ────────────────────── */}
         <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
-          <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-10">
 
             <h2
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
@@ -301,26 +289,60 @@ export default function AlarmCaseStudy() {
               El proceso
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {process.map(({ Icon, title, desc }) => (
-                <div
-                  key={title}
-                  className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#b4a7ff] shrink-0">
-                    <Icon className="w-6 h-6" />
+            {/* Etapa 1 */}
+            <div className="flex flex-col gap-5">
+              <p>
+                <span className="inline-block bg-white/10 text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5">Etapa 1 · Senior UX Designer</span>
+              </p>
+              <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+                {processStage1.map(({ Icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#b4a7ff] shrink-0">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h3
+                        className="text-white text-[16px] md:text-[18px] font-black leading-snug"
+                        style={{ fontFamily: "var(--font-hanken-grotesk)" }}
+                      >
+                        {title}
+                      </h3>
+                      <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <h3
-                      className="text-white text-[16px] md:text-[18px] font-black leading-snug"
-                      style={{ fontFamily: "var(--font-hanken-grotesk)" }}
-                    >
-                      {title}
-                    </h3>
-                    <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
+                ))}
+              </div>
+            </div>
+
+            {/* Etapa 2 */}
+            <div className="flex flex-col gap-5">
+              <p>
+                <span className="inline-block bg-white/10 text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5">Etapa 2 · Líder técnica del equipo UX</span>
+              </p>
+              <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+                {processStage2.map(({ Icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#b4a7ff] shrink-0">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <h3
+                        className="text-white text-[16px] md:text-[18px] font-black leading-snug"
+                        style={{ fontFamily: "var(--font-hanken-grotesk)" }}
+                      >
+                        {title}
+                      </h3>
+                      <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* Image */}
@@ -403,7 +425,7 @@ export default function AlarmCaseStudy() {
                   className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
                 >
                   <p
-                    className="text-[#efb803] font-black text-[30px] md:text-[42px] leading-none"
+                    className="text-[#efb803] font-black text-[26px] md:text-[38px] leading-none"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
                     {s.value}
@@ -412,6 +434,10 @@ export default function AlarmCaseStudy() {
                 </div>
               ))}
             </div>
+
+            <p className="text-[#eff2fe]/70 text-[13px] md:text-[14px] leading-[1.75]">
+              El 2x en rating refleja el estado del producto cuando llegó: 1.9 era una señal clara de que algo en la experiencia estaba fallando. La reducción del 30% en consultas técnicas cerró el loop del backoffice.
+            </p>
 
           </div>
         </section>
@@ -427,19 +453,13 @@ export default function AlarmCaseStudy() {
               Aprendizajes clave
             </h2>
 
-            <ul className="grid md:grid-cols-3 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {learnings.map((l, i) => (
-                <li
-                  key={i}
-                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4"
-                >
-                  <span className="mt-0.5 w-8 h-8 rounded-full bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
-                    <IconBulb />
-                  </span>
-                  <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">{l}</p>
-                </li>
+                <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-start border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
+                </div>
               ))}
-            </ul>
+            </div>
 
           </div>
         </section>

@@ -8,10 +8,22 @@ const MOCKUPS = {
   aeropuertos: "https://www.figma.com/api/mcp/asset/429ddecb-2522-463c-bd23-605c853037af",
   alarm:       "https://www.figma.com/api/mcp/asset/a5c41f3c-0e18-48c1-ad63-2e322a84e076",
   wallet:      "https://www.figma.com/api/mcp/asset/c4627a78-3d94-4764-ba50-4617f50bd546",
-  esim:        "https://www.figma.com/api/mcp/asset/de4f48e8-6d64-4037-bfe1-486a1b9e22bb",
+  esim:        "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid1.png",
 };
 
 const projects = [
+  {
+    id: "celcit",
+    category: "Educación / Accesibilidad",
+    categoryColor: "bg-[#EDE9FE] text-[#5B21B6]",
+    tags: ["ACCESIBILIDAD", "WCAG AA"],
+    tagColors: ["bg-[rgba(64,54,164,0.1)] border border-[rgba(64,54,164,0.3)] text-[#4036a4]", "bg-[#EDE9FE] text-[#5B21B6]"],
+    title: "Accesibilidad integral para una plataforma de educación teatral latinoamericana",
+    desc: "Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, con WCAG 2.1 AA y DUA.",
+    stats: "11 flujos · WCAG 2.1 AA · CELCIT",
+    link: "/casos/celcit",
+    mockup: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
+  },
   {
     id: "aeropuertos-argentina",
     category: "Aeroportuario",
@@ -80,13 +92,19 @@ export default function ProjectsGrid() {
             >
               {/* Mockup image */}
               <div className="relative h-44 bg-[#F5F4FF] overflow-hidden">
-                <Image
-                  src={p.mockup}
-                  alt={p.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  unoptimized
-                />
+                {p.mockup ? (
+                  <Image
+                    src={p.mockup}
+                    alt={p.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    unoptimized
+                  />
+                ) : (
+                  <div style={{ background: "#2a2560", aspectRatio: "16/9", display: "flex", alignItems: "center", justifyContent: "center", color: "white", opacity: 0.4, fontSize: "13px", height: "100%", width: "100%" }}>
+                    hero.jpg — pendiente
+                  </div>
+                )}
                 {/* Category badge */}
                 <div className="absolute top-3 left-3">
                   <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${p.categoryColor} bg-white/90 backdrop-blur-sm border-0`}>

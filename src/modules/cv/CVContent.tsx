@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CarouselControls from "@/components/ui/CarouselControls";
 import { useCarousel } from "@/hooks/useCarousel";
@@ -39,18 +41,18 @@ function StarIcon() {
 // ── Data ──────────────────────────────────────────────────────────
 const currentRoles = [
   {
-    role: "Co-fundadora",
-    company: "Gamific.ar",
-    companyHref: "https://gamific.ar",
-    period: "Enero 2025–hoy",
-    desc: "Espacio colectivo enfocado en gamificación y diseño de productos digitales. Lidero la estrategia, el roadmap y el diseño de experiencias formativas basadas en sistemas motivacionales.",
+    role: "Product Designer — Proyecto",
+    company: "CELCIT",
+    companyHref: null,
+    period: "Mayo 2026–hoy",
+    desc: "Rediseño end-to-end de la experiencia educativa digital del CELCIT (Centro Latinoamericano de Creación e Investigación Teatral). 11 flujos entre la landing y el portal educativo: inscripción, checkout, onboarding, visualización de curso, foro, notificaciones y perfil de avance. Foco en accesibilidad WCAG AA auditable.",
   },
   {
-    role: "Product Designer · Consultora",
-    company: "Independiente",
-    companyHref: null,
-    period: "2025–hoy",
-    desc: "Consultoría en diseño de producto para empresas en sectores de agribusiness, e-commerce y energía. Proyectos end-to-end desde research hasta entrega.",
+    role: "Co-fundadora",
+    company: "Gamific",
+    companyHref: "https://gamific.ar",
+    period: "Enero 2025–hoy",
+    desc: "Espacio de aprendizaje especializado en gamificación ética y diseño de productos digitales. Lideré el crecimiento de la comunidad desde cero: +900 seguidores en LinkedIn en menos de un año, 7 eventos con referentes internacionales, 1 workshop gratuito y más de 20 certificaciones emitidas.",
   },
 ];
 
@@ -59,25 +61,25 @@ const experience = [
     role: "UX Lead",
     company: "Steplix",
     period: "Abril 2023–Abril 2026",
-    desc: "Construí el área de UX desde cero: equipo, cultura, procesos y roadmap. Lideré 3 diseñadores mientras seguí diseñando. Introduje templates de research y un sistema de diseño para backoffice que resultó en +30% de ratings positivos en stores.",
+    desc: "Construí el área de UX desde cero: definí la cultura, los procesos y el plan de crecimiento del equipo. Lideré un equipo de 3 designers mientras seguí activa como diseñadora. Establecí el roadmap estratégico integrando research, diseño y colaboración con producto, desarrollo y negocio. Participé en reuniones comerciales representando la visión de diseño en etapas de preventa.",
   },
   {
     role: "Sr. UX Designer",
     company: "Steplix",
     period: "Mayo 2022–Abril 2023",
-    desc: "3 proyectos end-to-end. Responsable de research, diseño y validación con usuarios. Introduje templates de investigación y establecí prácticas de handoff con desarrollo y QA.",
+    desc: "Lideré 3 proyectos end-to-end en productos B2B y B2C, desde el research hasta el handoff. Introduje plantillas de research y workshops de co-creación que el equipo adoptó como práctica estándar. Construí el design system del backoffice, reduciendo tiempos de entrega en iteraciones futuras. Un proyecto alcanzó +30% en valoraciones positivas en store tras implementar mejoras de usabilidad y behavioral design.",
   },
   {
-    role: "Profesora",
+    role: "UX Designer — Freelance",
+    company: "Proyectos independientes",
+    period: "Oct 2021–Abril 2024",
+    desc: "Proyectos end-to-end en sectores de agroindustria, e-commerce y energía. Responsable de research, arquitectura de información, prototipado y handoff. Trabajo paralelo a rol en Steplix.",
+  },
+  {
+    role: "Profesora de UX",
     company: "Coderhouse",
     period: "Sept 2021–Enero 2022",
-    desc: "Dicté UX en niveles básico, avanzado y research. Coordiné tutores y evalué trabajos finales. Más de 400 estudiantes formados.",
-  },
-  {
-    role: "Semi Senior UX Designer",
-    company: "Independiente",
-    period: "2019–2021",
-    desc: "Primeros proyectos digitales end-to-end. Capacitaciones para fundaciones. Aprendizaje de estimaciones y procesos de entrega.",
+    desc: "Planifiqué y dicté clases de UX en tres niveles (Básico, Avanzado y Research) para más de 400 estudiantes. Coordiné equipos de tutores y evalué trabajos finales con foco en pensamiento crítico y proceso colaborativo.",
   },
 ];
 
@@ -101,7 +103,9 @@ const herramientas = [
   "Google Analytics",
   "Jira",
   "Azure DevOps",
+  "Zeplin",
   "Claude",
+  "Claude Code",
   "ChatGPT",
   "Gemini",
 ];
@@ -251,43 +255,72 @@ export default function CVContent() {
       {/* ── 1. HERO ─ bg darkest ─────────────────────────────────── */}
       <section className="bg-[#1a1433] pt-16 pb-14 md:pt-20 md:pb-20 px-[var(--section-px)]">
         <div className="max-w-[1600px] mx-auto flex flex-col gap-6 md:gap-8">
-          <SectionLabel>Sobre mí</SectionLabel>
+          {/* Breadcrumb */}
+          <nav aria-label="breadcrumb">
+            <ol className="flex items-center gap-2 text-[12px] md:text-[13px] font-semibold uppercase tracking-[0.3px]">
+              <li>
+                <Link href="/" className="text-[#eff2fe]/50 hover:text-[#eff2fe] transition-colors">
+                  Inicio
+                </Link>
+              </li>
+              <li className="text-[#eff2fe]/30">›</li>
+              <li className="text-[#efb803]" aria-current="page">Sobre mí</li>
+            </ol>
+          </nav>
 
-          <div className="flex flex-col gap-2">
-            <h1
-              className="text-white text-[40px] md:text-[64px] leading-[1.05] font-black"
-              style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "-1px" }}
-            >
-              Natalia Ghizzoni
-            </h1>
-            <p
-              className="text-[#b4a7ff] text-[14px] lg:text-[18px] font-medium leading-relaxed"
-              style={{ fontFamily: "var(--font-hanken-grotesk)" }}
-            >
-              Product Designer · De la estrategia al pixel · Gamificación
+          <div className="flex flex-col gap-6 md:gap-8 items-center sm:items-start text-center sm:text-left">
+            <div className="flex flex-col gap-2">
+              {/* Avatar + name + tagline row */}
+              <div className="flex flex-col items-center sm:flex-row sm:items-center gap-5">
+                <div className="shrink-0 w-[84px] h-[84px] md:w-[134px] md:h-[134px] rounded-full overflow-hidden ring-2 ring-white/10">
+                  <Image
+                    src="https://ik.imagekit.io/9822293kkm/Portfolio/foto.png"
+                    alt="Natalia Ghizzoni"
+                    width={140}
+                    height={140}
+                    className="w-full h-full object-cover object-center"
+                    unoptimized
+                  />
+                </div>
+                <div className="flex flex-col gap-1 text-center sm:text-left">
+                  <h1
+                    className="text-white text-[40px] md:text-[64px] leading-[1.05] font-black"
+                    style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "-1px" }}
+                  >
+                    Natalia<br />
+                    Ghizzoni <span className="font-thin text-[16px] md:text-[40px]">(Nat)</span>
+                  </h1>
+                  <p
+                    className="text-[#b4a7ff] text-[14px] lg:text-[18px] font-medium leading-relaxed"
+                    style={{ fontFamily: "var(--font-hanken-grotesk)" }}
+                  >
+                    Product Designer · De la estrategia al pixel · Gamificación
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[#eff2fe]/80 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
+              Llegué al producto digital desde el diseño industrial: aprendí a pensar en sistemas antes de pensar en pantallas. Me especializo en diseño conductual y gamificación ética (no como feature decorativo, sino como estrategia para cambiar comportamientos reales).
             </p>
-          </div>
 
-          <p className="text-[#eff2fe]/80 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-            Diseñadora de producto con base en diseño industrial y más de 5 años de experiencia en productos digitales. Construí equipos de UX desde cero y seguí diseñando. Me especializo en behavioral design y sistemas que hacen posible que un buen producto exista.
-          </p>
-
-          <div className="flex flex-wrap gap-4 md:gap-6">
-            <a
-              href="mailto:nat.ghizzoni@gmail.com"
-              className="flex items-center gap-2 text-[#eff2fe]/70 hover:text-[#eff2fe] transition-colors text-[13px] md:text-[14px]"
-            >
-              <EmailIcon />
-              nat.ghizzoni@gmail.com
-            </a>
-            <span className="flex items-center gap-2 text-[#eff2fe]/70 text-[13px] md:text-[14px]">
-              <PhoneIcon />
-              +54 9 223 529 16 87
-            </span>
-            <span className="flex items-center gap-2 text-[#eff2fe]/70 text-[13px] md:text-[14px]">
-              <PinIcon />
-              Mar del Plata, Buenos Aires, Argentina
-            </span>
+            <div className="flex flex-wrap justify-center sm:justify-start gap-4 md:gap-6">
+              <a
+                href="mailto:nat.ghizzoni@gmail.com"
+                className="flex items-center gap-2 text-[#eff2fe]/70 hover:text-[#eff2fe] transition-colors text-[13px] md:text-[14px]"
+              >
+                <EmailIcon />
+                nat.ghizzoni@gmail.com
+              </a>
+              <span className="flex items-center gap-2 text-[#eff2fe]/70 text-[13px] md:text-[14px]">
+                <PhoneIcon />
+                +54 9 223 529 16 87
+              </span>
+              <span className="flex items-center gap-2 text-[#eff2fe]/70 text-[13px] md:text-[14px]">
+                <PinIcon />
+                Mar del Plata, Buenos Aires, Argentina
+              </span>
+            </div>
           </div>
         </div>
       </section>

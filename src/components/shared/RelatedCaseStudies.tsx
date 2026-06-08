@@ -6,6 +6,12 @@ import { useRef, useState } from "react";
 
 const ALL_CASES = [
   {
+    slug: "celcit",
+    label: "Educación / Accesibilidad",
+    title: "Accesibilidad integral para una plataforma de educación teatral",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
+  },
+  {
     slug: "solenium",
     label: "Energía Solar",
     title: "Gamificación para hábitos energéticos responsables",
@@ -27,13 +33,13 @@ const ALL_CASES = [
     slug: "billetera-fintech",
     label: "Fintech",
     title: "Billetera Fintech accesible a 3 países",
-    image: "https://www.figma.com/api/mcp/asset/9b519038-2bbd-4202-bc5b-512a184de5e1",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png",
   },
   {
     slug: "esim-whitelabel",
     label: "Telecomunicaciones",
     title: "Ecosistema whitelabel de eSIM",
-    image: "https://www.figma.com/api/mcp/asset/98f13723-e14a-4045-aaf9-d89fc57b444b",
+    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid1.png",
   },
 ];
 
@@ -98,9 +104,10 @@ export default function RelatedCaseStudies({ currentSlug }: { currentSlug: strin
           style={{ scrollbarWidth: "none" }}
         >
           {related.map((cs) => (
-            <div
+            <Link
               key={cs.slug}
-              className="snap-start shrink-0 w-[260px] md:w-[300px] bg-white rounded-2xl overflow-hidden border border-[rgba(64,54,164,0.1)] flex flex-col"
+              href={`/casos/${cs.slug}`}
+              className="snap-start shrink-0 w-[260px] md:w-[300px] bg-white rounded-2xl overflow-hidden border border-[rgba(64,54,164,0.1)] flex flex-col hover:border-[rgba(64,54,164,0.35)] hover:shadow-md transition-all"
             >
               <div className="relative w-full h-[160px] shrink-0">
                 <Image
@@ -121,17 +128,14 @@ export default function RelatedCaseStudies({ currentSlug }: { currentSlug: strin
                 >
                   {cs.title}
                 </p>
-                <Link
-                  href={`/casos/${cs.slug}`}
-                  className="inline-flex items-center gap-2 text-[#4036a4] text-[13px] font-semibold hover:gap-3 transition-all self-start"
-                >
+                <span className="inline-flex items-center gap-2 text-[#4036a4] text-[13px] font-semibold self-start">
                   Ver caso
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

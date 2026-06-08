@@ -51,7 +51,7 @@ const articles = [
     desc: "Cómo las recompensas de Estatus, Acceso y Poder (SAPs) impulsan el comportamiento humano en productos digitales.",
     year: "2023",
     readTime: "10 min",
-    href: "https://medium.com/@nat.ghizzoni/la-gamificaci%C3%B3n-usada-como-capa-no-arregla-productos-mal-dise%C3%B1ados-539ad909cd0",
+    href: "https://medium.com/@nat.ghizzoni/dise%C3%B1ar-para-lo-que-nos-mueve-recompensas-saps-en-experiencias-digitales-2dfdb229533e",
   },
 ];
 

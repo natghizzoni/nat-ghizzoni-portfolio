@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
 import WorkTogetherCTA from "@/components/shared/WorkTogetherCTA";
-import RelatedCaseStudies from "@/components/shared/RelatedCaseStudies";
+import RelatedCaseStudies from "@/components/shared/RelatedCaseStudiesLazy";
 
 // ── Case study images (ImageKit CDN) ─────────────────────────────
 const IMG_PHONES       = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png";
@@ -92,45 +92,39 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
 // ── Data ──────────────────────────────────────────────────────────
 const meta = [
   { label: "Rol",          value: "Product Designer" },
+{ label: "Duración",     value: "4 meses" },
   { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Rubro",         value: "Energía Solar" },
-  { label: "Producto",      value: "App híbrida" },
+  { label: "Producto",     value: "App híbrida" },
 ];
 
 const heroStats = [
   { value: "4 meses", label: "Duración" },
   { value: "3",       label: "Comunidades" },
   { value: "89%",     label: "Retención" },
-  { value: "-32%",    label: "Consumo" },
+  { value: "-27%",    label: "Consumo" },
 ];
 
 const problem = [
-  "Los usuarios instalaban paneles solares pero no cambiaban sus hábitos de consumo.",
-  "Los dashboards de energía eran técnicos y poco motivadores.",
-  "Las comunidades no conocían los beneficios de un buen uso colectivo de la energía.",
-];
-
-const validation = [
-  "Encuesta a 96 usuarios actuales.",
-  "Benchmark de apps de energía y fitness con gamificación.",
-  "Test de usabilidad con 3 prototipos alternativos.",
+  "Los usuarios instalaban los paneles pero no cambiaban sus hábitos de consumo.",
+  "Dashboard de energía técnico y abstracto, pocos lo entendían y casi nadie actuaba en base a ellos.",
+  "Las comunidades no conocían el impacto colectivo de su consumo.",
 ];
 
 const process = [
   {
     Icon: IconChartBar,
     title: "Research cuantitativo",
-    desc: "Encuesta a usuarios actuales para entender motivaciones, preferencias de recompensa y perfiles de jugador. Los hallazgos definieron el tipo de gamificación viable para este contexto.",
+    desc: "Los datos del ecualizador de Quantic Foundry revelaron dos perfiles dominantes con motivaciones opuestas. Eso definió el diseño: no podíamos forzar un solo recorrido.",
   },
   {
     Icon: IconUser,
     title: "Player personas",
-    desc: "A partir de los datos, definí dos perfiles de usuario con motivaciones distintas. El sistema debía funcionar para ambos sin forzar el mismo recorrido.",
+    desc: "El Cazarrecompensas entra por estímulo: recompensa, curiosidad, novedad. El Arquitecto se queda porque entiende, domina y conecta con el propósito. El sistema tenía que funcionar para ambos sin sacrificar a ninguno.",
   },
   {
     Icon: IconRoute,
     title: "Behavioral plan",
-    desc: "Diseñé la arquitectura motivacional en capas: mecánicas, dinámicas y estética. La motivación extrínseca como puerta de entrada; la intrínseca como objetivo.",
+    desc: "Diseñé la arquitectura motivacional en capas: mecánicas, dinámicas y estética. Dopamina como puerta de entrada y desafíos semanales, y no diarios: no perseguíamos DAU, perseguíamos cambio de hábito real fuera de la app.",
   },
 ];
 
@@ -138,37 +132,36 @@ const solution = [
   {
     Icon: IconCalendarStats,
     title: "Desafíos personalizados",
-    desc: "Retos semanales adaptados al perfil de consumo de cada hogar.",
+    desc: "Retos semanales, individuales y colectivos, adaptados al perfil de consumo de cada hogar y comunidad.",
   },
   {
     Icon: IconBellRinging,
     title: "Feedback en tiempo real",
-    desc: "Notificaciones inteligentes que celebran los logros en el momento exacto.",
+    desc: "Notificaciones en el momento exacto del logro registrado en el medidor energético. La dopamina funciona cuando el refuerzo es inmediato y específico.",
   },
   {
     Icon: IconMedal,
     title: "Sistema de logros",
-    desc: "Insignias desbloqueables que documentan el progreso del usuario en el tiempo.",
+    desc: "Insignias que documentan el progreso en el tiempo. Diseñadas para el Arquitecto, el perfil que se motiva por dominio y propósito, no por competencia.",
   },
   {
     Icon: IconZap,
     title: "Simulador energético",
-    desc: "A partir del uso lúdico de la herramienta se facilita el aprendizaje sobre consumo en el tiempo e impacto en ahorro.",
+    desc: "Herramienta para estimar el impacto del consumo en ahorro real. Fue nuestra propuesta y resonó con el cliente porque estaban trabajando en la desagregación de hogares. El usuario estima horas de uso activo y visualiza el impacto, aprendizaje sin fricción técnica.",
   },
 ];
 
 const impact = [
-  { value: "4 meses", label: "Duración" },
   { value: "3",       label: "Comunidades piloto activas" },
   { value: "89%",     label: "Retención a 30 días" },
-  { value: "-32%",    label: "Reducción de consumo promedio" },
+  { value: "-27%",    label: "Reducción de consumo promedio" },
 ];
 
 const learnings = [
-  "El comportamiento gamificado solo funciona si los datos son confiables y en tiempo real.",
-  "La gamificación sola no es suficiente: el contexto social fue el mayor driver de engagement.",
-  "La simplificación visual de datos técnicos fue más difícil que la gamificación misma.",
-  "Contar con datos de una masa representativa de usuarios desde el inicio permite detectar patrones que fundan las decisiones de diseño.",
+  "El comportamiento gamificado solo funciona si los datos son confiables. El sistema de notificaciones dependía de lecturas en tiempo real de los medidores y cualquier latencia rompe la lógica de refuerzo.",
+  "La gamificación sola no alcanza: el mayor driver de engagement fue el contexto social. Las misiones colectivas y la visibilidad del impacto comunitario sostuvieron la retención donde los desafíos individuales se habrían agotado.",
+  "Simplificar datos técnicos de energía fue más difícil que diseñar la gamificación. El lenguaje de kilowatts y tarifas es opaco para la mayoría de los usuarios. Traducirlo a impacto concreto y comprensible fue el trabajo de diseño más subestimado del proyecto.",
+  "La adopción inicial fue más lenta de lo esperado. La retención fue una sorpresa positiva pero llegar ahí requirió más tiempo de onboarding del que habíamos planificado.",
 ];
 
 // ── Component ─────────────────────────────────────────────────────
@@ -197,10 +190,10 @@ export default function SoleniumCaseStudy() {
           <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
 
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#eff2fe]/50">
-              <Link href="/#proyectos" className="hover:text-[#eff2fe] transition-colors">Proyectos</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#eff2fe]/80">Energía Solar</span>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
+              <span className="text-[#eff2fe]/35">Energía Solar</span>
             </nav>
 
             {/* Title block */}
@@ -213,7 +206,10 @@ export default function SoleniumCaseStudy() {
                 Gamificación para hábitos energéticos responsables
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Una empresa colombiana de minigranjas solares para generación distribuida quería que sus usuarios no solo instalaran paneles, sino que cambiaran sus hábitos de consumo. <span className="font-bold text-[#eff2fe]">El problema: los datos de energía son tan técnicos y abstractos que nadie los entiende.</span>
+                Una empresa vende minigranjas solares en Colombia. <span className="font-bold text-[#eff2fe]">El problema: instalan los paneles, pero sin cambio de hábitos el ahorro prometido no se materializa.</span> El proyecto llegó a través de Gamific. Empezó como consultoría de gamificación y evolucionó hacia trabajo de producto.
+              </p>
+              <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
+                Trabajé en conjunto a una analista funcional, un diseñador UI, un tech lead/PO y los equipos de frontend y backend de la empresa.
               </p>
             </div>
 
@@ -241,41 +237,28 @@ export default function SoleniumCaseStudy() {
               El desafío
             </h2>
 
-            {/* Three columns */}
-            <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {/* Problema */}
-              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[13px] font-semibold">Problema</p>
-                <ul className="flex flex-col gap-3">
-                  {problem.map((item, i) => (
-                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Problema — one card per bullet */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {problem.map((item, i) => (
+                <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
+                </div>
+              ))}
+            </div>
 
+            {/* Hipótesis + Research — inline */}
+            <div className="flex flex-col gap-6 mt-4">
               {/* Hipótesis */}
-              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[13px] font-semibold">Hipótesis</p>
-                <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                  A través de una estrategia de gamificación, podemos transformar la factura en una oportunidad de aprendizaje y compromiso con la energía solar.
-                </p>
-              </div>
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
+                <strong>Si diseñamos un sistema motivacional que haga visible el impacto individual y colectivo del ahorro, podemos cambiar comportamientos reales.</strong>
+              </p>
 
-              {/* Validación */}
-              <div className="bg-white border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex flex-col gap-4">
-                <p className="text-[#4036a4] text-[13px] font-semibold">Validación</p>
-                <ul className="flex flex-col gap-3">
-                  {validation.map((item, i) => (
-                    <li key={i} className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.65] flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4036a4]/30 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Research */}
+              <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Research</span>
+                Encuestamos a 96 usuarios actuales usando el framework de Bartle para perfilar el aspecto lúdico de la muestra. Los resultados mostraron una distribución tan variada que el modelo no alcanzaba para segmentar con precisión. Cambiamos al framework de Quantic Foundry, que ofrece un ecualizador motivacional más granular. <strong>Ese cambio definió todo lo que vino después:</strong> las player personas, las mecánicas elegidas y la arquitectura del sistema. Complementamos con benchmark de apps de energía y fitness con gamificación, test de usabilidad y monitoreo de métricas.
+              </p>
             </div>
 
             {/* Image */}
@@ -386,14 +369,14 @@ export default function SoleniumCaseStudy() {
               Impacto
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
               {impact.map((s) => (
                 <div
                   key={s.label}
                   className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
                 >
                   <p
-                    className="text-[#efb803] font-black text-[30px] md:text-[42px] leading-none"
+                    className="text-[#efb803] font-black text-[26px] md:text-[38px] leading-none"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
                     {s.value}
@@ -402,6 +385,10 @@ export default function SoleniumCaseStudy() {
                 </div>
               ))}
             </div>
+
+            <p className="text-[#eff2fe]/50 text-[12px] md:text-[13px] leading-[1.75]">
+              Medido en medidores reales durante los primeros 4 meses del piloto, comparado contra el mismo período del año anterior. La retención fue una sorpresa aunque la adopción inicial fue más lenta de lo esperado.
+            </p>
 
           </div>
         </section>
@@ -421,12 +408,9 @@ export default function SoleniumCaseStudy() {
               {learnings.map((l, i) => (
                 <li
                   key={i}
-                  className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] rounded-2xl p-6 flex gap-4"
+                  className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]"
                 >
-                  <span className="mt-0.5 w-8 h-8 rounded-full bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
-                    <IconBulb />
-                  </span>
-                  <p className="text-[#364153] text-[13px] md:text-[14px] leading-[1.75]">{l}</p>
+                  <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
                 </li>
               ))}
             </ul>
