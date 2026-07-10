@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -90,97 +93,15 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// ── Data ──────────────────────────────────────────────────────────
-const meta = [
-  { label: "Rol",          value: "UX Lead Designer" },
-  { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Producto",     value: "Web Responsive" },
-  { label: "Rubro",        value: "Aeroportuario" },
-];
-
-const heroStats = [
-  { value: "+5M",     label: "Usuarios anuales" },
-  { value: "+42%",    label: "Engagement" },
-  { value: "WCAG AA", label: "Accesibilidad" },
-  { value: "35 → 1",  label: "Sitios unificados" },
-];
-
-const problem = [
-  "35 sitios con distintos contenidos, estilos y arquitecturas de información. Imposible de mantener, imposible de escalar.",
-  "La mayoría de los usuarios buscaba su vuelo en la web de la aerolínea, no en el sitio del aeropuerto.",
-  "Los servicios del aeropuerto estaban fragmentados. Todo se tenía que buscar por separado y todo el tránsito dependía de esa acción.",
-];
-
-const hypothesis = [
-  "Un sistema de diseño unificado reducirá la carga cognitiva del usuario.",
-  "Una arquitectura orientada a tareas mejorará la búsqueda de vuelos.",
-  "La accesibilidad WCAG AA ampliará el alcance a pasajeros con discapacidad.",
-];
-
-const validation = [
-  "Auditoría completa de los 35 sitios con heurísticas de Nielsen.",
-  "Benchmarking de sitios de aeropuertos nacionales e internacionales.",
-  "Entrevistas con pasajeros frecuentes y con necesidades especiales.",
-  "Test de usabilidad comparativo antes y después del rediseño.",
-];
-
-const process = [
-  {
-    Icon: IconSitemap,
-    title: "Arquitectura de información unificada",
-    desc: "El desafío no era solo ordenar el contenido, era convencer a cada área de negocio de integrarse a una lógica de servicio común. Definí estructuras de contenido compartidas que facilitaron esa negociación. El criterio era uno solo: darle al usuario lo que necesita, cuando lo necesita.",
-  },
-  {
-    Icon: IconAccessibility,
-    title: "Accesibilidad desde el origen",
-    desc: "WCAG AA no fue un requisito de compliance, fue una respuesta a un perfil de usuario real con necesidades críticas en el momento del viaje. Integrarla desde el inicio cambió decisiones de arquitectura que habrían sido muy costosas de corregir después.",
-  },
-  {
-    Icon: IconUsersGroup,
-    title: "Coordinación multidisciplinaria",
-    desc: "Mi trabajo estaba principalmente en las decisiones de arquitectura y la negociación con stakeholders. Con un UI designer y un perfil de dedicación parcial en el equipo, también diseñé, testé e iteré pantallas. Nunca dejé de hacer el trabajo de diseño.",
-  },
-];
-
-const solution = [
-  {
-    Icon: IconComponents,
-    title: "Design System",
-    desc: "Un sistema de componentes escalable que mantiene la identidad visual y funcional en los 35 aeropuertos. El mismo sistema que hizo posible que cada área de negocio tuviera su espacio sin romper la coherencia de la experiencia.",
-  },
-  {
-    Icon: IconSearch,
-    title: "Buscador centralizado",
-    desc: "Motor de búsqueda de vuelos unificado que funciona igual en todos los sitios. La respuesta directa al problema de fondo: si el usuario venía al sitio a buscar su vuelo, tenía que encontrarlo sin fricción.",
-  },
-  {
-    Icon: IconListDetails,
-    title: "Itinerario con servicios conectados",
-    desc: "El argumento que convenció a los stakeholders. Darle al usuario lo que necesita, cuando lo necesita: su vuelo y los servicios del aeropuerto integrados en un solo recorrido. Estacionamiento, accesibilidad, traslados. Todo conectado al momento del viaje, no disperso en secciones separadas.",
-  },
-  {
-    Icon: IconPhone,
-    title: "Mobile-first y accesible",
-    desc: "El 73% del tráfico era móvil. El rediseño arrancó desde el teléfono hacia arriba. No como adaptación, fue el punto de partida. WCAG AA integrada desde el origen, validada con usuarios reales con discapacidad.",
-  },
-];
-
-const impact = [
-  { value: "+5M",     label: "Usuarios únicos por año" },
-  { value: "+42%",    label: "Incremento en engagement" },
-  { value: "WCAG AA", label: "Conformidad alcanzada" },
-  { value: "35 → 1",  label: "Sitios en un único sistema" },
-];
-
-const learnings = [
-  "La accesibilidad no es un agregado final. Integrarla desde el principio cambió decisiones de arquitectura que habrían sido muy costosas de corregir después, y nos permitió diseñar para un perfil de usuario con necesidades críticas en el momento del viaje.",
-  "Unificar 35 productos requiere diseño del sistema y diseño de la colaboración. La resistencia de las áreas no se resuelve con un argumento técnico, se resuelve con estructuras de contenido que hacen posible la conversación.",
-  "Una arquitectura de información bien hecha reduce el costo de mantenimiento. Impacto directo en el negocio, no solo en UX. Un sitio que nadie puede sostener termina fragmentándose de nuevo.",
-  "El buscador era el núcleo, no una funcionalidad técnica. Si el usuario no encuentra su vuelo, todo lo demás sobra. Era el problema de fondo y tenía que ser la solución más sólida.",
-];
+// ── Icons per card (text comes from i18n, same order) ─────────────
+const processIcons = [IconSitemap, IconAccessibility, IconUsersGroup];
+const solutionIcons = [IconComponents, IconSearch, IconListDetails, IconPhone];
 
 // ── Component ─────────────────────────────────────────────────────
 export default function AeropuertosCaseStudy() {
+  const { t } = useLanguage();
+  const c = t.cases.aeropuertos;
+  const common = t.caseCommon;
   return (
     <>
       <Navbar />
@@ -191,7 +112,7 @@ export default function AeropuertosCaseStudy() {
           <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px] overflow-hidden">
             <Image
               src={IMG_HERO}
-              alt="Aeropuertos Argentina — ecosistema digital unificado"
+              alt={c.heroAlt}
               fill
               className="object-cover object-top scale-[1.1] origin-top"
               priority
@@ -206,31 +127,31 @@ export default function AeropuertosCaseStudy() {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">{common.breadcrumbProjects}</Link>
               <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
-              <span className="text-[#eff2fe]/35">Aeropuertos</span>
+              <span className="text-[#eff2fe]/35">{c.breadcrumb}</span>
             </nav>
 
             {/* Title block */}
             <div className="flex flex-col gap-4 max-w-3xl">
-              <SectionLabel>Aeropuertos</SectionLabel>
+              <SectionLabel>{c.label}</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                De 35 sitios dispersos a una experiencia unificada
+                {c.title}
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                Un operador de 35 aeropuertos en Argentina con 35 sitios distintos: diferentes estilos, arquitecturas de información y lógicas de contenido. Los pasajeros no encontraban lo que necesitaban y el equipo no podía mantener tantos sitios.
+                {c.intro1}
               </p>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-                El proyecto no era solo unificar sitios, era convencer a una organización fragmentada, con áreas que querían su propio espacio (su propia identidad, su propio micrositio), <span className="font-bold text-[#eff2fe]">que la única forma de destacar era ser útil para el usuario primero.</span>
+                {c.intro2Pre}<span className="font-bold text-[#eff2fe]">{c.intro2Bold}</span>
               </p>
             </div>
 
             {/* Metadata pills */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {meta.map((m) => (
+              {c.meta.map((m) => (
                 <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
@@ -239,7 +160,7 @@ export default function AeropuertosCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-              Lideré un equipo de 2 designers y articulé con 2 frontends, 1 backend, 2 QAs, PO y stakeholders de múltiples áreas de negocio.
+              {c.team}
             </p>
 
           </div>
@@ -253,12 +174,12 @@ export default function AeropuertosCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El desafío
+              {common.challenge}
             </h2>
 
             {/* Problema — one card per bullet */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {problem.map((item, i) => (
+              {c.problem.map((item, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
                 </div>
@@ -268,12 +189,12 @@ export default function AeropuertosCaseStudy() {
             {/* Hipótesis + Validación — inline */}
             <div className="flex flex-col gap-6 mt-4">
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
-                <strong>{hypothesis.join(" ")}</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.hypothesis}</span>
+                <strong>{c.hypothesis}</strong>
               </p>
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Validación</span>
-                {validation.join(" ")}
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.validation}</span>
+                {c.validation}
               </p>
             </div>
 
@@ -288,11 +209,13 @@ export default function AeropuertosCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El proceso
+              {common.process}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {process.map(({ Icon, title, desc }) => (
+              {c.process.map(({ title, desc }, i) => {
+                const Icon = processIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -310,13 +233,14 @@ export default function AeropuertosCaseStudy() {
                     <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Image */}
             <Image
               src={IMG_SOLUTION}
-              alt="Sistema unificado de Aeropuertos Argentina"
+              alt={c.processImgAlt}
               width={1024}
               height={349}
               className="w-full h-auto rounded-2xl"
@@ -334,11 +258,13 @@ export default function AeropuertosCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              La solución
+              {common.solution}
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {solution.map(({ Icon, title, desc }) => (
+              {c.solution.map(({ title, desc }, i) => {
+                const Icon = solutionIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-[rgba(64,54,164,0.04)] border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -356,7 +282,8 @@ export default function AeropuertosCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
           </div>
@@ -370,11 +297,11 @@ export default function AeropuertosCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Impacto
+              {common.impact}
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-              {impact.map((s) => (
+              {c.impact.map((s) => (
                 <div
                   key={s.label}
                   className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
@@ -391,13 +318,13 @@ export default function AeropuertosCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/50 text-[12px] md:text-[13px] leading-[1.75]">
-              El incremento en engagement incluye mayor tiempo en el sitio como respuesta directa al problema de fondo: los usuarios ahora tienen razón para quedarse.
+              {c.impactNote}
             </p>
 
             <div className="relative w-full h-[349px] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_IMPACT}
-                alt="Aeropuertos Argentina — impacto"
+                alt={c.impactImgAlt}
                 fill
                 className="object-cover object-center"
                 unoptimized
@@ -415,11 +342,11 @@ export default function AeropuertosCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Aprendizajes clave
+              {common.learnings}
             </h2>
 
             <ul className="grid md:grid-cols-2 gap-4 md:gap-5">
-              {learnings.map((l, i) => (
+              {c.learnings.map((l, i) => (
                 <li
                   key={i}
                   className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]"

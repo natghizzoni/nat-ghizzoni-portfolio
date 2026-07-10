@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -82,77 +85,15 @@ function IconBulbSmall({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// ── Data ──────────────────────────────────────────────────────────
-const meta = [
-  { label: "Rol",          value: "Product Designer" },
-  { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Rubro",        value: "Fintech" },
-  { label: "Producto",     value: "PWA" },
-];
-
-const heroStats = [
-  { value: "+1M",      label: "Transacciones en el primer año" },
-  { value: "NPS 75",   label: "Satisfacción" },
-  { value: "WCAG AA",  label: "Accesibilidad" },
-  { value: "3",        label: "Países" },
-];
-
-const problem = [
-  "El 43% del target no estaba bancarizado y desconfiaba de las apps financieras.",
-  "La mayoría de las usuarias eran revendedoras independientes con baja alfabetización digital y sin experiencia previa con herramientas financieras.",
-  "El producto tenía que darles claridad sobre sus ingresos y seguimiento de pagos, sin requerir conocimiento técnico previo.",
-];
-
-const process = [
-  {
-    Icon: IconUserCheck,
-    title: "Discovery con usuarias reales",
-    desc: "Entender el modelo mental de alguien que nunca usó una billetera digital requiere ir más allá de los flujos. Trabajamos en entender cómo estas usuarias gestionaban su dinero antes del producto y qué palabras usaban para describir sus transacciones.",
-  },
-  {
-    Icon: IconBulb,
-    title: "Diseño centrado en claridad y confianza",
-    desc: "El mayor obstáculo no era la usabilidad, era la desconfianza. Cada decisión de diseño, desde el microcopy hasta la jerarquía visual, estaba orientada a reducir la ansiedad financiera y hacer visible el valor del producto desde el primer uso.",
-  },
-  {
-    Icon: IconAccessibility,
-    title: "Validación iterativa",
-    desc: "26 testeos con usuarias reales durante el POC. Cada ronda informó decisiones concretas de diseño. El criterio de éxito no era completar tareas, era que las usuarias entendieran qué estaba pasando con su dinero.",
-  },
-];
-
-const solution = [
-  {
-    Icon: IconCurrency,
-    title: "Billetera para revendedoras",
-    desc: "Funcionalidades vinculadas a los pedidos de productos: detalle de pagos pendientes, pagos ejecutados y margen de ganancia. Todo en un solo lugar, sin requerir conocimiento financiero previo.",
-  },
-  {
-    Icon: IconUserCheck,
-    title: "Onboarding progresivo",
-    desc: "El usuario accede a funcionalidades básicas antes de completar la verificación. Diseñado para usuarias que necesitan ver valor inmediato antes de comprometerse con el proceso de registro.",
-  },
-  {
-    Icon: IconId,
-    title: "Link de pago para compradores",
-    desc: "El comprador paga desde un link sin necesidad de tener la app. El flujo cierra el ciclo de cobro de la revendedora de forma simple y directa.",
-  },
-];
-
-const impact = [
-  { value: "NPS 75", label: "medido durante el POC" },
-  { value: "83%",    label: "tasa de comprensión del flujo" },
-  { value: "26",     label: "usuarias testeadas" },
-];
-
-const learnings = [
-  "La desconfianza financiera no se resuelve con diseño intuitivo, se resuelve con diseño transparente. Los usuarios necesitan entender qué pasa con su dinero en cada paso.",
-  "Validar con el usuario menos técnico del target es la prueba más honesta de un producto financiero. Si ese usuario lo entiende, el resto también.",
-  "Un POC bien ejecutado reduce el riesgo de inversión con evidencia real. El entregable no era un prototipo, era una decisión informada para el cliente.",
-];
+// ── Icons per card (text comes from i18n, same order) ─────────────
+const processIcons = [IconUserCheck, IconBulb, IconAccessibility];
+const solutionIcons = [IconCurrency, IconUserCheck, IconId];
 
 // ── Component ─────────────────────────────────────────────────────
 export default function BilleteraFintechCaseStudy() {
+  const { t } = useLanguage();
+  const c = t.cases.billetera;
+  const common = t.caseCommon;
   return (
     <>
       <Navbar />
@@ -162,7 +103,7 @@ export default function BilleteraFintechCaseStudy() {
         <section className="bg-[#1a1433] overflow-hidden relative h-[260px] sm:h-[380px] md:h-[560px]">
             <Image
               src={IMG_HERO}
-              alt="Billetera Fintech — app multi-países"
+              alt={c.heroAlt}
               fill
               className="object-contain object-top"
               priority
@@ -176,28 +117,28 @@ export default function BilleteraFintechCaseStudy() {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">{common.breadcrumbProjects}</Link>
               <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
-              <span className="text-[#eff2fe]/35">Fintech</span>
+              <span className="text-[#eff2fe]/35">{c.breadcrumb}</span>
             </nav>
 
             {/* Title block */}
             <div className="flex flex-col gap-4">
-              <SectionLabel>Fintech</SectionLabel>
+              <SectionLabel>{c.label}</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Billetera digital para revendedoras
+                {c.title}
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Una empresa B2B de servicios financieros quería validar si personas con baja alfabetización digital adoptarían una billetera digital para gestionar los ingresos de su emprendimiento. El proyecto fue un discovery y POC de 2 meses. Trabajé junto al PO.
+                {c.intro1}
               </p>
             </div>
 
             {/* Metadata pills */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {meta.map((m) => (
+              {c.meta.map((m) => (
                 <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
@@ -216,12 +157,12 @@ export default function BilleteraFintechCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El desafío
+              {common.challenge}
             </h2>
 
             {/* Problema — one card per bullet */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {problem.map((item, i) => (
+              {c.problem.map((item, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
                 </div>
@@ -231,13 +172,13 @@ export default function BilleteraFintechCaseStudy() {
             {/* Hipótesis + Validación — inline */}
             <div className="flex flex-col gap-6 mt-4">
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
-                <strong>Si el producto les da visibilidad real sobre su dinero con un lenguaje claro y sin tecnicismos, personas que nunca usaron servicios financieros digitales lo van a adoptar.</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.hypothesis}</span>
+                <strong>{c.hypothesis}</strong>
               </p>
 
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Validación</span>
-                26 testeos de usabilidad con usuarias en distintos niveles de alfabetización digital. El objetivo no era solo medir usabilidad, era validar si el producto tenía valor real para ellas.
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.validation}</span>
+                {c.validation}
               </p>
             </div>
 
@@ -245,7 +186,7 @@ export default function BilleteraFintechCaseStudy() {
             <div className="relative w-full aspect-[1024/309] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_CHALLENGE}
-                alt="Billetera Fintech — el desafío"
+                alt={c.challengeImgAlt}
                 fill
                 className="object-cover [object-position:center_calc(50%-24px)]"
                 unoptimized
@@ -263,11 +204,13 @@ export default function BilleteraFintechCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El proceso
+              {common.process}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {process.map(({ Icon, title, desc }) => (
+              {c.process.map(({ title, desc }, i) => {
+                const Icon = processIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -285,7 +228,8 @@ export default function BilleteraFintechCaseStudy() {
                     <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
           </div>
@@ -299,11 +243,13 @@ export default function BilleteraFintechCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              La solución
+              {common.solution}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {solution.map(({ Icon, title, desc }) => (
+              {c.solution.map(({ title, desc }, i) => {
+                const Icon = solutionIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -321,14 +267,15 @@ export default function BilleteraFintechCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Image */}
             <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
                 src={IMG_SOLUTION}
-                alt="Billetera Fintech — pantallas de la solución"
+                alt={c.solutionImgAlt}
                 fill
                 className="object-cover object-top"
                 unoptimized
@@ -346,13 +293,13 @@ export default function BilleteraFintechCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Impacto
+              {common.impact}
             </h2>
 
             <div className="grid md:grid-cols-2 gap-4 items-start">
               {/* Left: stacked cards */}
               <div className="flex flex-col gap-2">
-                {impact.map((s) => (
+                {c.impact.map((s) => (
                   <div
                     key={s.label}
                     className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 flex flex-col gap-0.5"
@@ -371,7 +318,7 @@ export default function BilleteraFintechCaseStudy() {
               {/* Right: image */}
               <Image
                 src={IMG_IMPACT}
-                alt="Billetera Fintech — impacto"
+                alt={c.impactImgAlt}
                 width={600}
                 height={600}
                 className="w-auto max-h-[220px] object-contain self-end justify-self-start rounded-2xl"
@@ -380,7 +327,7 @@ export default function BilleteraFintechCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/70 text-[13px] md:text-[14px] leading-[1.75]">
-              El cliente decidió continuar y adaptar el producto a la identidad de la marca local.
+              {c.impactNote}
             </p>
 
           </div>
@@ -394,11 +341,11 @@ export default function BilleteraFintechCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Aprendizajes clave
+              {common.learnings}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {learnings.map((l, i) => (
+              {c.learnings.map((l, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-start border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
                 </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CarouselControls from "@/components/ui/CarouselControls";
 import { useCarousel } from "@/hooks/useCarousel";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ── Inline icons ──────────────────────────────────────────────────
 function EmailIcon() {
@@ -38,60 +39,12 @@ function StarIcon() {
   );
 }
 
-// ── Data ──────────────────────────────────────────────────────────
-const currentRoles = [
-  {
-    role: "Product Designer — Proyecto",
-    company: "CELCIT",
-    companyHref: null,
-    period: "Mayo 2026–hoy",
-    desc: "Rediseño end-to-end de la experiencia educativa digital del CELCIT (Centro Latinoamericano de Creación e Investigación Teatral). 11 flujos entre la landing y el portal educativo: inscripción, checkout, onboarding, visualización de curso, foro, notificaciones y perfil de avance. Foco en accesibilidad WCAG AA auditable.",
-  },
-  {
-    role: "Co-fundadora",
-    company: "Gamific",
-    companyHref: "https://gamific.ar",
-    period: "Enero 2025–hoy",
-    desc: "Espacio de aprendizaje especializado en gamificación ética y diseño de productos digitales. Lideré el crecimiento de la comunidad desde cero: +900 seguidores en LinkedIn en menos de un año, 7 eventos con referentes internacionales, 1 workshop gratuito y más de 20 certificaciones emitidas.",
-  },
-];
-
-const experience = [
-  {
-    role: "UX Lead",
-    company: "Steplix",
-    period: "Abril 2023–Abril 2026",
-    desc: "Construí el área de UX desde cero: definí la cultura, los procesos y el plan de crecimiento del equipo. Lideré un equipo de 3 designers mientras seguí activa como diseñadora. Establecí el roadmap estratégico integrando research, diseño y colaboración con producto, desarrollo y negocio. Participé en reuniones comerciales representando la visión de diseño en etapas de preventa.",
-  },
-  {
-    role: "Sr. UX Designer",
-    company: "Steplix",
-    period: "Mayo 2022–Abril 2023",
-    desc: "Lideré 3 proyectos end-to-end en productos B2B y B2C, desde el research hasta el handoff. Introduje plantillas de research y workshops de co-creación que el equipo adoptó como práctica estándar. Construí el design system del backoffice, reduciendo tiempos de entrega en iteraciones futuras. Un proyecto alcanzó +30% en valoraciones positivas en store tras implementar mejoras de usabilidad y behavioral design.",
-  },
-  {
-    role: "UX Designer — Freelance",
-    company: "Proyectos independientes",
-    period: "Oct 2021–Abril 2024",
-    desc: "Proyectos end-to-end en sectores de agroindustria, e-commerce y energía. Responsable de research, arquitectura de información, prototipado y handoff. Trabajo paralelo a rol en Steplix.",
-  },
-  {
-    role: "Profesora de UX",
-    company: "Coderhouse",
-    period: "Sept 2021–Enero 2022",
-    desc: "Planifiqué y dicté clases de UX en tres niveles (Básico, Avanzado y Research) para más de 400 estudiantes. Coordiné equipos de tutores y evalué trabajos finales con foco en pensamiento crítico y proceso colaborativo.",
-  },
-];
-
-const competencias = [
-  "Discovery y research",
-  "Behavioral design",
-  "Design systems",
-  "Facilitación y workshops",
-  "Liderazgo de equipos de diseño",
-  "Accesibilidad (WCAG AA)",
-  "Uso estratégico de IA en el proceso de diseño",
-];
+// ── Language-neutral data ─────────────────────────────────────────
+// El href de cada rol actual, por company (el resto del contenido vive en i18n)
+const COMPANY_HREFS: Record<string, string | null> = {
+  CELCIT: null,
+  Gamific: "https://gamific.ar",
+};
 
 const herramientas = [
   "Figma",
@@ -110,65 +63,10 @@ const herramientas = [
   "Gemini",
 ];
 
-// Month map for date sorting
-const MONTHS: Record<string, number> = {
-  enero: 1, febrero: 2, marzo: 3, abril: 4, mayo: 5, junio: 6,
-  julio: 7, agosto: 8, septiembre: 9, octubre: 10, noviembre: 11, diciembre: 12,
-};
-
-function parseDate(year: string): number {
-  const parts = year.trim().split(" ");
-  if (parts.length === 2) {
-    const month = MONTHS[parts[0].toLowerCase()] ?? 0;
-    const y = parseInt(parts[1], 10);
-    return y * 100 + month;
-  }
-  return parseInt(parts[0], 10) * 100;
-}
-
-// All non-academic courses merged, starred first, then descending by date
-const allCourses = [
-  // IxDF
-  { title: "Gamification – How to Create Engaging User Experiences", date: "abril 2025", institute: "IxDF", starred: true },
-  { title: "Agile Methods for UX Design",                            date: "febrero 2025", institute: "IxDF", starred: false },
-  { title: "AI for designers",                                       date: "enero 2024",  institute: "IxDF", starred: true },
-  { title: "Design for thought and emotion",                         date: "febrero 2024", institute: "IxDF", starred: false },
-  { title: "UX Management",                                          date: "agosto 2023", institute: "IxDF", starred: false },
-  { title: "Liderar equipos de UX",                                  date: "julio 2023",  institute: "Edison", starred: false },
-  { title: "Design for the 21st Century",                            date: "diciembre 2022", institute: "IxDF", starred: false },
-  { title: "Habilidades técnicas",                                   date: "enero 2023",  institute: "Edison", starred: false },
-  { title: "Journey Mapping",                                        date: "noviembre 2022", institute: "IxDF", starred: false },
-  { title: "Conducting Usability Testing",                           date: "octubre 2022", institute: "IxDF", starred: false },
-  { title: "User Experience",                                        date: "octubre 2022", institute: "IxDF", starred: false },
-  // Coderhouse
-  { title: "UX/UI Designer",                                         date: "febrero 2020", institute: "Coderhouse", starred: false },
-].sort((a, b) => {
-  if (a.starred !== b.starred) return a.starred ? -1 : 1;
-  return parseDate(b.date) - parseDate(a.date);
-});
-
-const volunteering = [
-  {
-    role: "Local Lead",
-    org: "IxDF Mar del Plata",
-    period: "Feb 2025–hoy",
-    desc: "Organizo y facilito eventos, talleres y espacios de networking para fortalecer la comunidad de diseño de Mar del Plata. Foco en aprendizaje colectivo y participación activa.",
-  },
-  {
-    role: "Mentora",
-    org: "+Mujeres UX Latam",
-    period: "2024–2025",
-    desc: "Acompaño a mujeres en tecnología en procesos de confianza, comunicación y negociación profesional.",
-  },
-];
-
-const languages = [
-  { lang: "Inglés", level: "B2" },
-  { lang: "Francés", level: "B1" },
-];
-
 // ── Course carousel ───────────────────────────────────────────────
 function CourseCarousel() {
+  const { t } = useLanguage();
+  const allCourses = t.cv.courses;
   const { scrollRef, spacerRef, activeIndex, scroll, scrollToIndex, handleScroll } =
     useCarousel(allCourses.length);
 
@@ -242,7 +140,9 @@ function CourseCarousel() {
         onNext={() => scroll("right")}
         onDotClick={scrollToIndex}
         theme="light"
-        dotLabel={(i) => `Ir al curso ${i + 1}`}
+        dotLabel={(i) => `${t.cv.goToCourse} ${i + 1}`}
+        prevLabel={t.cv.prevLabel}
+        nextLabel={t.cv.nextLabel}
       />
     </div>
   );
@@ -250,6 +150,8 @@ function CourseCarousel() {
 
 // ── Main component ────────────────────────────────────────────────
 export default function CVContent() {
+  const { t } = useLanguage();
+  const cv = t.cv;
   return (
     <>
       {/* ── 1. HERO ─ bg darkest ─────────────────────────────────── */}
@@ -260,11 +162,11 @@ export default function CVContent() {
             <ol className="flex items-center gap-2 text-[12px] md:text-[13px] font-semibold uppercase tracking-[0.3px]">
               <li>
                 <Link href="/" className="text-[#eff2fe]/50 hover:text-[#eff2fe] transition-colors">
-                  Inicio
+                  {cv.breadcrumbHome}
                 </Link>
               </li>
               <li className="text-[#eff2fe]/30">›</li>
-              <li className="text-[#efb803]" aria-current="page">Sobre mí</li>
+              <li className="text-[#efb803]" aria-current="page">{cv.breadcrumbCurrent}</li>
             </ol>
           </nav>
 
@@ -294,14 +196,14 @@ export default function CVContent() {
                     className="text-[#b4a7ff] text-[14px] lg:text-[18px] font-medium leading-relaxed"
                     style={{ fontFamily: "var(--font-hanken-grotesk)" }}
                   >
-                    Product Designer · De la estrategia al pixel · Gamificación
+                    {cv.tagline}
                   </p>
                 </div>
               </div>
             </div>
 
             <p className="text-[#eff2fe]/80 text-[14px] lg:text-[16px] leading-[1.75] max-w-2xl">
-              Llegué al producto digital desde el diseño industrial: aprendí a pensar en sistemas antes de pensar en pantallas. Me especializo en diseño conductual y gamificación ética (no como feature decorativo, sino como estrategia para cambiar comportamientos reales).
+              {cv.bio}
             </p>
 
             <div className="flex flex-wrap justify-center sm:justify-start gap-4 md:gap-6">
@@ -318,7 +220,7 @@ export default function CVContent() {
               </span>
               <span className="flex items-center gap-2 text-[#eff2fe]/70 text-[13px] md:text-[14px]">
                 <PinIcon />
-                Mar del Plata, Buenos Aires, Argentina
+                {cv.location}
               </span>
             </div>
           </div>
@@ -328,10 +230,10 @@ export default function CVContent() {
       {/* ── 2. ACTUALIDAD ─ bg mid dark ──────────────────────────── */}
       <section className="bg-[#2a2560] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
         <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
-          <SectionLabel>Actualidad</SectionLabel>
+          <SectionLabel>{cv.currentLabel}</SectionLabel>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {currentRoles.map((item) => (
+            {cv.currentRoles.map((item) => (
               <div
                 key={item.company}
                 className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-colors"
@@ -346,9 +248,9 @@ export default function CVContent() {
                   >
                     {item.role}
                   </h2>
-                  {item.companyHref ? (
+                  {COMPANY_HREFS[item.company] ? (
                     <a
-                      href={item.companyHref}
+                      href={COMPANY_HREFS[item.company]!}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#b4a7ff] text-[13px] md:text-[14px] font-semibold hover:text-white transition-colors"
@@ -374,22 +276,22 @@ export default function CVContent() {
       <section className="bg-white pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
         <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
           <p className="text-[#4036a4] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-            Experiencia previa
+            {cv.previousLabel}
           </p>
 
           <div className="flex flex-col gap-0">
-            {experience.map((item, i) => (
+            {cv.experience.map((item, i) => (
               <div key={i} className="flex gap-4 md:gap-8">
                 {/* Timeline */}
                 <div className="flex flex-col items-center shrink-0 pt-1">
                   <div className="w-3 h-3 rounded-full bg-[#4036a4] shrink-0 ring-4 ring-white" />
-                  {i < experience.length - 1 && (
+                  {i < cv.experience.length - 1 && (
                     <div className="w-[2px] flex-1 bg-[#e5e7eb] my-1" />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className={`flex flex-col gap-2 ${i < experience.length - 1 ? "pb-8 md:pb-10" : ""}`}>
+                <div className={`flex flex-col gap-2 ${i < cv.experience.length - 1 ? "pb-8 md:pb-10" : ""}`}>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                     <h3
                       className="text-[#1a1433] text-[16px] md:text-[18px] font-black leading-snug"
@@ -422,16 +324,16 @@ export default function CVContent() {
       >
         <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
           <p className="text-[#1a1433] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-            Habilidades
+            {cv.skillsLabel}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div className="flex flex-col gap-4">
               <p className="text-[#4036a4] text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.3px]">
-                Competencias
+                {cv.competenciasLabel}
               </p>
               <div className="flex flex-wrap gap-2">
-                {competencias.map((skill) => (
+                {cv.competencias.map((skill) => (
                   <span
                     key={skill}
                     className="bg-white border border-[rgba(64,54,164,0.2)] text-[#1a1433] text-[11px] md:text-[13px] font-semibold px-3 md:px-4 py-[6px] rounded-full"
@@ -445,7 +347,7 @@ export default function CVContent() {
 
             <div className="flex flex-col gap-4">
               <p className="text-[#4036a4] text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.3px]">
-                Herramientas
+                {cv.toolsLabel}
               </p>
               <div className="flex flex-wrap gap-2">
                 {herramientas.map((tool) => (
@@ -467,36 +369,31 @@ export default function CVContent() {
       <section className="bg-white pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
         <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
           <p className="text-[#4036a4] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-            Formación
+            {cv.educationLabel}
           </p>
 
           {/* Academic degrees */}
           <div className="flex flex-col gap-4">
             <p className="text-[#9ca3af] text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.3px]">
-              Académica
+              {cv.academicLabel}
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-[#ecebf6] rounded-2xl px-6 py-5 flex flex-col gap-1">
-                <p className="text-[#1a1433] text-[15px] md:text-[17px] font-black" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>
-                  Prof. en disciplinas industriales
-                </p>
-                <p className="text-[#4036a4] text-[13px] font-semibold">INSPT/UTN</p>
-                <p className="text-[#9ca3af] text-[12px]">2020</p>
-              </div>
-              <div className="bg-[#ecebf6] rounded-2xl px-6 py-5 flex flex-col gap-1">
-                <p className="text-[#1a1433] text-[15px] md:text-[17px] font-black" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>
-                  Diseñadora Industrial
-                </p>
-                <p className="text-[#4036a4] text-[13px] font-semibold">FAUD/UNMDP</p>
-                <p className="text-[#9ca3af] text-[12px]">2011</p>
-              </div>
+              {cv.degrees.map((d) => (
+                <div key={d.institute} className="bg-[#ecebf6] rounded-2xl px-6 py-5 flex flex-col gap-1">
+                  <p className="text-[#1a1433] text-[15px] md:text-[17px] font-black" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>
+                    {d.title}
+                  </p>
+                  <p className="text-[#4036a4] text-[13px] font-semibold">{d.institute}</p>
+                  <p className="text-[#9ca3af] text-[12px]">{d.year}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Courses carousel */}
           <div className="flex flex-col gap-4">
             <p className="text-[#9ca3af] text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.3px]">
-              Cursos · IxDF, Edison & Coderhouse
+              {cv.coursesLabel}
             </p>
             <CourseCarousel />
           </div>
@@ -506,10 +403,10 @@ export default function CVContent() {
       {/* ── 6. VOLUNTARIADOS ─ bg mid purple ─────────────────────── */}
       <section className="bg-[#352e76] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
         <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-10">
-          <SectionLabel>Voluntariados</SectionLabel>
+          <SectionLabel>{cv.volunteeringLabel}</SectionLabel>
 
           <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-            {volunteering.map((item) => (
+            {cv.volunteering.map((item) => (
               <div
                 key={item.org}
                 className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-4 transition-colors"
@@ -541,10 +438,10 @@ export default function CVContent() {
       <section className="bg-[#ecebf6] pt-14 pb-16 md:pt-[56px] md:pb-[80px] px-[var(--section-px)]">
         <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
           <p className="text-[#4036a4] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-            Idiomas
+            {cv.languagesLabel}
           </p>
           <div className="flex flex-wrap gap-4">
-            {languages.map((l) => (
+            {cv.languages.map((l) => (
               <div
                 key={l.lang}
                 className="bg-white border border-[rgba(64,54,164,0.2)] rounded-2xl px-8 py-5 flex flex-col gap-1"

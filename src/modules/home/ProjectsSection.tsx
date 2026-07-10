@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ── Figma asset URLs ──────────────────────────────────────────────
 const IMG_FEATURED    = "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png";
@@ -20,47 +21,27 @@ function Badge({ label }: { label: string }) {
   );
 }
 
-// ── Project cards data ────────────────────────────────────────────
-const cards = [
+// ── Project cards presentation data (text comes from i18n, same order) ──
+const cardMeta: { img: string | null; imgPos?: string; href: string }[] = [
   {
-    badges: ["ACCESIBILIDAD", "WCAG AA"],
-    title: "Accesibilidad integral para una plataforma de educación teatral latinoamericana",
-    desc: "Co-diseño de sistema de diseño accesible y rediseño del aula virtual del CELCIT, con WCAG 2.1 AA y DUA. 11 flujos distribuidos entre la landing y el portal educativo.",
-    stats: "11 flujos · WCAG 2.1 AA · CELCIT",
     img: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
     imgPos: "object-top scale-[1.6] group-hover:!scale-[1.68]",
     href: "/casos/celcit",
   },
   {
-    badges: ["WEB RESPONSIVE"],
-    title: "De 35 sitios dispersos a una experiencia unificada",
-    desc: "Un operador de 35 aeropuertos en Argentina con 35 sitios distintos: diferentes estilos, arquitecturas de información y lógicas de contenido. Los pasajeros no encontraban lo que necesitaban y el equipo no podía mantener tantos sitios.",
-    stats: "+5M usuarios anuales • +42% engagement • WCAG AA • 35→1 sitios",
     img: IMG_AEROPUERTOS,
     imgPos: "object-center scale-[1.2] group-hover:!scale-[1.28]",
     href: "/casos/aeropuertos-argentina",
   },
   {
-    badges: ["APP MÓVIL", "BACKOFFICE"],
-    title: "Ecosistema completo de alarmas IoT para el hogar",
-    desc: "Una empresa de seguridad llegó con un MVP heredado de otra startup. Rating de 1.9 en stores, sin sistema de diseño, inconsistencias por todos lados y un backoffice que no existía. Todo se gestionaba por teléfono.",
-    stats: "2x rating en stores • +10k descargas • -30% consultas técnicas • 92% task completion",
     img: IMG_ALARM,
     href: "/casos/alarm",
   },
   {
-    badges: ["FINTECH", "PWA"],
-    title: "Billetera digital para revendedoras",
-    desc: "Una empresa B2B de servicios financieros quería validar si personas con baja alfabetización digital adoptarían una billetera digital para gestionar los ingresos de su emprendimiento. El proyecto fue un discovery y POC de 2 meses. Trabajé junto al PO.",
-    stats: "NPS 75 • 83% comprensión del flujo • 26 usuarias testeadas",
     img: IMG_WALLET,
     href: "/casos/billetera-fintech",
   },
   {
-    badges: ["BACKOFFICE", "WHITELABEL"],
-    title: "Ecosistema whitelabel de eSIM",
-    desc: "Una empresa de telecomunicaciones necesitaba competir en el mercado global de eSIM con una solución que operadores de cualquier tamaño pudieran lanzar con su propia marca, sin infraestructura técnica propia.",
-    stats: "13 operadores • 3 países • Miles de activaciones mensuales",
     img: IMG_TELECOM,
     href: "/casos/esim-whitelabel",
   },
@@ -68,6 +49,9 @@ const cards = [
 
 // ── Main component ────────────────────────────────────────────────
 export default function ProjectsSection() {
+  const { t } = useLanguage();
+  const p = t.home.projects;
+  const cards = p.cards.map((card, i) => ({ ...card, ...cardMeta[i] }));
   const scrollRef = useRef<HTMLDivElement>(null);
   const spacerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -147,7 +131,7 @@ export default function ProjectsSection() {
 
         {/* Label */}
         <p className="text-[#efb803] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-          Proyectos destacados
+          {p.label}
         </p>
 
         {/* ── Featured card ─────────────────────────────────────── */}
@@ -171,10 +155,10 @@ export default function ProjectsSection() {
             {/* Badges: top-right via absolute on mobile, flex flow on desktop */}
             <div className="absolute top-4 right-4 md:relative md:top-auto md:right-auto flex flex-wrap justify-end gap-2 z-10">
               <span className="bg-[#f3f4f6] border border-[#1a1433] text-[#1a1433] text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.35px] px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap">
-                App Móvil
+                {p.featured.badgeType}
               </span>
               <span className="bg-[#4036a4] border border-[#4036a4] text-white text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.35px] px-3 md:px-4 py-1.5 md:py-2 rounded-full whitespace-nowrap">
-                Proyecto Destacado
+                {p.featured.badgeFeatured}
               </span>
             </div>
           </div>
@@ -186,14 +170,14 @@ export default function ProjectsSection() {
                 className="font-black text-[#101828] text-[24px] md:text-[32px] leading-[1.2] md:leading-[40px]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Gamificación para hábitos energéticos responsables
+                {p.featured.title}
               </h2>
               <p className="text-[#364153] text-[12px] md:text-[14px] font-medium leading-[1.6]">
-                Una empresa vende minigranjas solares en Colombia. El problema: instalan los paneles, pero sin cambio de hábitos el ahorro prometido no se materializa.
+                {p.featured.desc}
               </p>
               <div className="border-t border-[rgba(64,54,164,0.2)] pt-3 md:pt-4">
                 <p className="font-bold text-[#101828] text-[12px] md:text-[14px] leading-snug">
-                  -32% consumo energético • 89% retención • 3 comunidades
+                  {p.featured.stats}
                 </p>
               </div>
             </div>
@@ -202,7 +186,7 @@ export default function ProjectsSection() {
               className="inline-flex items-center gap-[12px] bg-[#1a1433] border-2 border-[#4036a4] text-white text-[12px] md:text-[14px] font-black pl-[14px] md:pl-[18px] pr-[10px] md:pr-[14px] py-[7px] md:py-[8px] rounded-[10px] group-hover:bg-[#2d2560] transition-colors w-fit"
               style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.084px" }}
             >
-              Ver caso
+              {p.viewCase}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
               </svg>
@@ -283,7 +267,7 @@ export default function ProjectsSection() {
                       className="inline-flex items-center gap-[12px] bg-[#1a1433] border-2 border-[#4036a4] text-white text-[12px] md:text-[14px] font-black pl-[14px] md:pl-[18px] pr-[10px] md:pr-[14px] py-[7px] md:py-[8px] rounded-[10px] group-hover:bg-[#2d2560] transition-colors w-fit"
                       style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.084px" }}
                     >
-                      Ver caso
+                      {p.viewCase}
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
@@ -301,7 +285,7 @@ export default function ProjectsSection() {
             {/* Prev */}
             <button
               onClick={() => scroll("left")}
-              aria-label="Anterior"
+              aria-label={p.prev}
               disabled={activeIndex === 0}
               className="bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed text-white rounded-full w-9 h-9 flex items-center justify-center transition-colors shrink-0"
             >
@@ -316,7 +300,7 @@ export default function ProjectsSection() {
                 <button
                   key={i}
                   onClick={() => scrollToIndex(i)}
-                  aria-label={`Ir al proyecto ${i + 1}`}
+                  aria-label={`${p.goToProject} ${i + 1}`}
                   className={`rounded-full transition-all duration-300 ${
                     i === activeIndex
                       ? "bg-white w-6 h-2"
@@ -329,7 +313,7 @@ export default function ProjectsSection() {
             {/* Next */}
             <button
               onClick={() => scroll("right")}
-              aria-label="Siguiente"
+              aria-label={p.next}
               disabled={activeIndex === cards.length - 1}
               className="bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed text-white rounded-full w-9 h-9 flex items-center justify-center transition-colors shrink-0"
             >

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import LangSync from "@/components/shared/LangSync";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,7 +48,10 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${hankenGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <LangSync />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

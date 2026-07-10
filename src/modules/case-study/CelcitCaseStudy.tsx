@@ -1,4 +1,9 @@
+"use client";
+
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -142,69 +147,15 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-const meta = [
-  { label: "Rol",          value: "Product designer con foco en accesibilidad" },
-  { label: "Herramientas", value: "Figma + Claude + WCAG 2.1" },
-  { label: "Rubro",        value: "Edtech" },
-  { label: "Producto",     value: "Landing + checkout de pago + plataforma e-learning" },
-];
-
-const problem = [
-  "Los usuarios tenían dificultades para inscribirse y navegar de forma autónoma.",
-  "Videos sin subtítulos, PDFs inaccesibles, contraste insuficiente y menú de navegación oculto.",
-  "Se contaba con una base funcional que excluía a las personas que más necesitan acceso flexible al aprendizaje.",
-];
-
-const hypothesis = "Si aplicamos WCAG 2.1 AA y DUA desde los tokens de diseño, podemos eliminar las barreras sistemáticamente y beneficiar a todos los usuarios, no solo a personas con discapacidad.";
-
-const validation = "Auditoría técnica del aula virtual. Análisis por dimensiones: diseño de interacción, contenido audiovisual, evaluación y carga cognitiva. Pruebas de first click con usuarios con y sin necesidades de accesibilidad.";
-
-const process = [
-  {
-    Icon: IconSearch,
-    title: "Diagnóstico y relevamiento",
-    desc: "Auditamos el aula virtual en tres dimensiones: diseño de interacción, contenido audiovisual y evaluación. Para cada pantalla documentamos la barrera, el criterio WCAG/DUA que incumplía y una propuesta concreta de mejora.",
-    placeholder: null as string | null,
-  },
-  {
-    Icon: IconLayout,
-    title: "Sistema de diseño accesible",
-    desc: "En paralelo construí el sistema de diseño en Figma: tokens de color verificados contra ratio 4.5:1, tipografía, espaciado y componentes con estados de foco visible y etiquetado semántico para lectores de pantalla.",
-    placeholder: null as string | null,
-  },
-  {
-    Icon: IconPencil,
-    title: "Propuesta de rediseño",
-    desc: "Con el diagnóstico como base, desarrollamos el aula accesible estructurada en cinco principios: navegación predecible, accesibilidad cognitiva, accesibilidad sensorial, interfaz operable y evaluación accesible.",
-    placeholder: null as string | null,
-  },
-];
-
-const findings = [
-  { Icon: IconMenu,      title: "Menú oculto en engranaje",   desc: "El engranaje es un símbolo de configuración técnica, no de navegación académica. Para personas con discapacidad cognitiva el menú era invisible. Incumple WCAG 4.1.2." },
-  { Icon: IconHeading,   title: "Sin jerarquía semántica",    desc: "Ausencia de H1 a H6: el contenido era una masa de texto sin estructura navegable para lectores de pantalla." },
-  { Icon: IconEye,       title: "Contraste insuficiente",     desc: "Botones principales por debajo del ratio 4.5:1 exigido por WCAG 2.0. Afecta a personas con baja visión y daltonismo." },
-  { Icon: IconAlert,     title: "Carga cognitiva elevada",    desc: "Tarjetas de curso con información densa, sin espacio en blanco y con botones de formas y colores inconsistentes." },
-  { Icon: IconVideo,     title: "Videos sin subtítulos",      desc: "El subtitulado automático falla con terminología teatral específica. Excluye a personas con discapacidad auditiva." },
-  { Icon: IconClipboard, title: "Evaluación inaccesible",     desc: 'Todas las preguntas juntas, opciones abreviadas "F o V", sin apoyo visual ni posibilidad de procesar de a una por vez.' },
-];
-
-const solution = [
-  { Icon: IconSidebar, title: "Navegación predecible",    desc: "Barra lateral persistente y siempre visible. Misma estructura de navegación en todos los cursos para generar previsibilidad." },
-  { Icon: IconBook,    title: "Accesibilidad cognitiva",  desc: "Botón de Lectura Fácil como alternativa de representación (DUA). Diseño por bloques: una unidad de información por vez." },
-  { Icon: IconEar,     title: "Accesibilidad sensorial",  desc: "Audiotexto nativo, subtítulos pregrabados obligatorios, espacio reservado para interpretación en LSA en todos los videos." },
-  { Icon: IconTouch,   title: "Interfaz operable",        desc: "Área táctil mínima 44px, iconografía consistente en toda la plataforma, foco visible por teclado, contraste verificado mayor a 4.5:1." },
-];
-
-
-const learnings = [
-  "Diseñar para los extremos beneficia al centro: las mejoras para personas con discapacidad son las mismas que mejoran la experiencia de alguien con mala señal, una persona mayor o un estudiante de otro país de Latinoamérica.",
-  "La accesibilidad cognitiva es la dimensión más subestimada y la que impacta a más personas.",
-  "Un sistema de diseño accesible necesita decisiones documentadas, no solo componentes correctos. El equipo que implementa tiene que entender el porqué de cada regla.",
-  "Co-diseñar con una especialista en accesibilidad cambia radicalmente la profundidad del diagnóstico. Conocimiento técnico de WCAG y conocimiento de sistemas de diseño se necesitan mutuamente.",
-];
+// ── Icons per card (text comes from i18n, same order) ─────────────
+const processIcons = [IconSearch, IconLayout, IconPencil];
+const findingIcons = [IconMenu, IconHeading, IconEye, IconAlert, IconVideo, IconClipboard];
+const solutionIcons = [IconSidebar, IconBook, IconEar, IconTouch];
 
 export default function CelcitCaseStudy() {
+  const { t } = useLanguage();
+  const c = t.cases.celcit;
+  const common = t.caseCommon;
   return (
     <>
       <Navbar />
@@ -215,7 +166,7 @@ export default function CelcitCaseStudy() {
           <div className="w-full h-[240px] sm:h-[340px] md:h-[520px] overflow-hidden">
             <img
               src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png"
-              alt="CELCIT — plataforma e-learning accesible"
+              alt={c.heroAlt}
               className="w-full h-full object-cover object-top"
             />
           </div>
@@ -225,9 +176,9 @@ export default function CelcitCaseStudy() {
         <section className="bg-[#2a2560] pt-10 pb-12 md:pt-[56px] md:pb-[72px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-8">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">{common.breadcrumbProjects}</Link>
               <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
-              <span className="text-[#eff2fe]/35">Plataforma e-learning</span>
+              <span className="text-[#eff2fe]/35">{c.breadcrumb}</span>
             </nav>
             <div className="flex flex-col gap-4">
 
@@ -235,32 +186,32 @@ export default function CelcitCaseStudy() {
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Accesibilidad integral para una plataforma de educación teatral
+                {c.title}
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Las barreras no están en las personas, están en los entornos que diseñamos. Proyecto freelance de 4 meses para el CELCIT, Centro Latinoamericano de Investigación Teatral. Co-diseñé un sistema de diseño accesible y el rediseño del aula virtual, basado en{" "}
-                <strong className="text-[#eff2fe]">WCAG 2.1 AA y Diseño Universal para el Aprendizaje.</strong>
+                {c.intro1Pre}
+                <strong className="text-[#eff2fe]">{c.intro1Bold}</strong>
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {meta.map((m) => (
+              {c.meta.map((m) => (
                 <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
                 </div>
               ))}
             </div>
-            <p className="text-[#eff2fe]/50 text-[13px] leading-[1.6]">Trabajé junto a una especialista en accesibilidad, y al PO, desarrollador fullstack.</p>
+            <p className="text-[#eff2fe]/50 text-[13px] leading-[1.6]">{c.team}</p>
           </div>
         </section>
 
         {/* ── 2. EL DESAFÍO ─────────────────────────────────────── */}
         <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>El desafío</h2>
+            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{common.challenge}</h2>
             {/* Problema — one card per item */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {problem.map((item, i) => (
+              {c.problem.map((item, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
                 </div>
@@ -270,18 +221,18 @@ export default function CelcitCaseStudy() {
             {/* Hipótesis + Validación — inline */}
             <div className="flex flex-col gap-6 mt-4">
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
-                <strong>{hypothesis}</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.hypothesis}</span>
+                <strong>{c.hypothesis}</strong>
               </p>
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Validación</span>
-                {validation}
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.validation}</span>
+                {c.validation}
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden flex justify-center">
               <img
                 src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/celcit2.png"
-                alt="Diagnóstico anotado del aula virtual original"
+                alt={c.challengeImgAlt}
                 className="w-full h-auto"
               />
             </div>
@@ -291,9 +242,11 @@ export default function CelcitCaseStudy() {
         {/* ── 3. EL PROCESO ─────────────────────────────────────── */}
         <section className="bg-[#1a1433] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>El proceso</h2>
+            <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{common.process}</h2>
             <div className="flex flex-col gap-6">
-              {process.map(({ Icon, title, desc, placeholder }) => (
+              {c.process.map(({ title, desc }, i) => {
+                const Icon = processIcons[i];
+                return (
                 <div key={title} className="flex flex-col gap-4">
                   <div className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors">
                     <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.4)] flex items-center justify-center text-[#b4a7ff] shrink-0">
@@ -304,13 +257,9 @@ export default function CelcitCaseStudy() {
                       <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                     </div>
                   </div>
-                  {placeholder && (
-                    <div className="rounded-2xl overflow-hidden">
-                      <ImgPlaceholder label={placeholder} />
-                    </div>
-                  )}
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -318,9 +267,11 @@ export default function CelcitCaseStudy() {
         {/* ── 4. HALLAZGOS CLAVE ───────────────────────────────── */}
         <section className="bg-[#ecebf6] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Hallazgos clave</h2>
+            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{common.keyFindings}</h2>
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {findings.map(({ Icon, title, desc }) => (
+              {c.findings.map(({ title, desc }, i) => {
+                const Icon = findingIcons[i];
+                return (
                 <div key={title} className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)]">
                   <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <Icon className="w-6 h-6" />
@@ -330,7 +281,8 @@ export default function CelcitCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -338,16 +290,18 @@ export default function CelcitCaseStudy() {
         {/* ── 5. LA SOLUCIÓN ───────────────────────────────────── */}
         <section className="bg-[#1a1433] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>La solución</h2>
+            <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{common.solution}</h2>
             <div className="rounded-2xl overflow-hidden">
               <img
                 src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt1.png"
-                alt="Vista general del prototipo accesible"
+                alt={c.solutionImgAlt}
                 className="w-full h-auto"
               />
             </div>
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {solution.map(({ Icon, title, desc }) => (
+              {c.solution.map(({ title, desc }, i) => {
+                const Icon = solutionIcons[i];
+                return (
                 <div key={title} className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)]">
                   <div className="w-12 h-12 rounded-xl bg-[rgba(64,54,164,0.1)] flex items-center justify-center text-[#4036a4] shrink-0">
                     <Icon className="w-6 h-6" />
@@ -357,7 +311,8 @@ export default function CelcitCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -366,15 +321,15 @@ export default function CelcitCaseStudy() {
         <section className="bg-[#352e76] pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
             <div className="flex items-center gap-4">
-              <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Impacto</h2>
+              <h2 className="text-white font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{common.impact}</h2>
               <span className="inline-flex items-center gap-1.5 bg-[#FFA901]/20 text-[#FFA901] text-[11px] font-semibold uppercase tracking-[0.3px] px-3 py-1.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFA901] animate-pulse shrink-0" />
-                En curso
+                {common.inProgress}
               </span>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col gap-3">
-              <p className="text-white font-black text-[18px] md:text-[22px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Entregables</p>
-              <p className="text-[#eff2fe]/70 text-[14px] md:text-[15px] leading-[1.75]">Wireframes validados con usuarios reales, sistema de diseño con tokens documentados y pruebas de first click. La implementación está en curso.</p>
+              <p className="text-white font-black text-[18px] md:text-[22px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{c.deliverablesTitle}</p>
+              <p className="text-[#eff2fe]/70 text-[14px] md:text-[15px] leading-[1.75]">{c.deliverablesDesc}</p>
             </div>
           </div>
         </section>
@@ -382,9 +337,9 @@ export default function CelcitCaseStudy() {
         {/* ── 7. APRENDIZAJES ──────────────────────────────────── */}
         <section className="bg-white pt-16 pb-16 md:pt-[72px] md:pb-[80px] px-[var(--section-px)]">
           <div className="max-w-[1600px] mx-auto flex flex-col gap-6">
-            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>Aprendizajes clave</h2>
+            <h2 className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight" style={{ fontFamily: "var(--font-hanken-grotesk)" }}>{common.learnings}</h2>
             <ul className="grid sm:grid-cols-2 gap-3">
-              {learnings.map((l, i) => (
+              {c.learnings.map((l, i) => (
                 <li key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
                 </li>
