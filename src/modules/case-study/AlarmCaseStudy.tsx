@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -89,97 +92,16 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// ── Data ──────────────────────────────────────────────────────────
-const meta = [
-  { label: "Rol",          value: "Product Designer" },
-  { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Tipo",         value: "App móvil + Backoffice desktop" },
-  { label: "Rubro",        value: "Seguridad del hogar" },
-];
-
-const heroStats = [
-  { value: "2x",     label: "Rating en stores" },
-  { value: "+10k",   label: "Descargas orgánicas" },
-  { value: "30–40%", label: "Reducción en consultas técnicas" },
-  { value: "92%",    label: "Task completion en instalación" },
-];
-
-const problem = [
-  "La app de alarma requería conocimiento técnico para configurarla. Las familias querían control y tranquilidad, no complejidad.",
-  "Más del 90% de los usuarios solo usaba la app para activar y desactivar la alarma. El resto de las funcionalidades era invisible para ellos.",
-  "El setup era tan complejo que generaba fricción incluso para los técnicos instaladores.",
-];
-
-const processStage1 = [
-  {
-    Icon: IconBulb,
-    title: "Auditoría y estabilización",
-    desc: "Arranqué auditando componentes y arquitectura. Sin sistema de diseño, las inconsistencias eran estructurales. Estabilizar la base fue el primer trabajo antes de tocar cualquier flujo.",
-  },
-  {
-    Icon: IconUsers,
-    title: "Research con usuarios reales",
-    desc: "Tests en hogares reales y entrevistas con técnicos instaladores. El hallazgo que definió todo: los técnicos y los usuarios de a pie tenían universos mentales completamente distintos. Lo que los técnicos entendían con facilidad, los usuarios no tocaban.",
-  },
-  {
-    Icon: IconHome,
-    title: "Jerarquización y simplificación",
-    desc: "Trabajé en la jerarquía de la información y en traducir conceptos técnicos a lenguaje cotidiano. Los acuerdos con el PO en esta etapa dieron las bases para lo que vino después.",
-  },
-];
-
-const processStage2 = [
-  {
-    Icon: IconBolt,
-    title: "Nuevas funcionalidades sobre base estable",
-    desc: "Con el sistema estabilizado, el foco cambió. Acompañé al equipo y al PO en el desarrollo de nuevas funcionalidades. Ya no había deuda que resolver, había producto que hacer crecer.",
-  },
-  {
-    Icon: IconDashboard,
-    title: "Backoffice que escaló",
-    desc: "Lo que empezó como un ABM simple de comunicadores terminó siendo una herramienta de gestión casi completa de atención al cliente.",
-  },
-];
-
-const solution = [
-  {
-    Icon: IconSensor,
-    title: "Control de sensores",
-    desc: "Estado de cada sensor en tiempo real. Acciones claras, sin terminología técnica.",
-  },
-  {
-    Icon: IconBolt,
-    title: "Automatización de nodos eléctricos",
-    desc: "Reglas simples para controlar dispositivos conectados. La complejidad quedó del lado del sistema.",
-  },
-  {
-    Icon: IconShield,
-    title: "Control de alarma",
-    desc: "El flujo más crítico tenía que ser el más sólido. Sin pasos innecesarios, sin ambigüedad.",
-  },
-  {
-    Icon: IconDashboard,
-    title: "Backoffice para técnicos",
-    desc: "Gestión completa de instalaciones, configuraciones y monitoreo de múltiples hogares desde un solo lugar. Lo que antes requería llamadas telefónicas ahora vive en el panel.",
-  },
-];
-
-const impact = [
-  { value: "2x",    label: "Rating en stores (de 1.9 a ~3.8)" },
-  { value: "+10k",  label: "Descargas orgánicas" },
-  { value: "-30%",  label: "Reducción en consultas técnicas" },
-  { value: "92%",   label: "Task completion en instalación" },
-];
-
-const learnings = [
-  "Diseñar para familias significa diseñar para el integrante menos técnico del hogar. Si ese usuario no puede completar el flujo solo, el producto falló.",
-  "La simplicidad en seguridad no es solo usabilidad, es confianza. Un usuario que no entiende lo que está pasando con su alarma no se siente seguro, aunque el sistema funcione perfectamente.",
-  "Los técnicos instaladores son usuarios tan críticos como los usuarios finales. Ignorarlos en el proceso de diseño es diseñar la mitad del producto. Incluirlos desde el research cambió las decisiones de arquitectura y hizo posible el backoffice.",
-  "Un producto estable y escalable cambia lo que un equipo puede hacer. La primera etapa fue resolver deuda. La segunda fue crecer sobre esa base. La diferencia entre las dos fue lo que me enseñó a liderar.",
-];
+// ── Icons per card (text comes from i18n, same order) ─────────────
+const stage1Icons = [IconBulb, IconUsers, IconHome];
+const stage2Icons = [IconBolt, IconDashboard];
+const solutionIcons = [IconSensor, IconBolt, IconShield, IconDashboard];
 
 // ── Component ─────────────────────────────────────────────────────
 export default function AlarmCaseStudy() {
+  const { t } = useLanguage();
+  const c = t.cases.alarm;
+  const common = t.caseCommon;
   return (
     <>
       <Navbar />
@@ -190,7 +112,7 @@ export default function AlarmCaseStudy() {
           <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
             <Image
               src={IMG_HERO}
-              alt="Alarm — ecosistema IoT para el hogar"
+              alt={c.heroAlt}
               fill
               className="object-cover object-top"
               priority
@@ -205,29 +127,29 @@ export default function AlarmCaseStudy() {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">{common.breadcrumbProjects}</Link>
               <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
-              <span className="text-[#eff2fe]/35">Smart Home</span>
+              <span className="text-[#eff2fe]/35">{c.breadcrumb}</span>
             </nav>
 
             {/* Title block */}
             <div className="flex flex-col gap-4">
-              <SectionLabel>Smart Home</SectionLabel>
+              <SectionLabel>{c.label}</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Ecosistema completo de alarmas IoT para el hogar
+                {c.title}
               </h1>
               <p className="text-[#eff2fe] text-[14px] lg:text-[16px] leading-[1.75]">
-                Una empresa de seguridad llegó con un MVP heredado de otra startup. Rating de 1.9 en stores, sin sistema de diseño, inconsistencias por todos lados y un backoffice que no existía. Todo se gestionaba por teléfono.<br /><br />
-                Trabajé en este proyecto en dos etapas. <strong>Entré como Senior UX Designer y me ascendieron a líder técnica del equipo UX durante el proyecto.</strong> Eso cambió mi rol, pero también cambió el producto.
+                {c.intro1}<br /><br />
+                {c.intro2Pre}<strong>{c.intro2Bold}</strong>{c.intro2Post}
               </p>
             </div>
 
             {/* Metadata pills */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {meta.map((m) => (
+              {c.meta.map((m) => (
                 <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
@@ -236,7 +158,7 @@ export default function AlarmCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-              Equipo formado por un UX/UI Designer, PO, Scrum Master, Tech Lead, Frontend, Backend y QA propio y de la empresa.
+              {c.team}
             </p>
 
           </div>
@@ -250,12 +172,12 @@ export default function AlarmCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El desafío
+              {common.challenge}
             </h2>
 
             {/* Problema — one card per bullet */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {problem.map((item, i) => (
+              {c.problem.map((item, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
                 </div>
@@ -265,13 +187,13 @@ export default function AlarmCaseStudy() {
             {/* Hipótesis + Research — inline */}
             <div className="flex flex-col gap-6 mt-4">
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
-                <strong>Si simplificamos el producto para el usuario menos técnico sin quitarle poder al técnico, podemos mejorar la experiencia de ambos sin duplicar el sistema.</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.hypothesis}</span>
+                <strong>{c.hypothesis}</strong>
               </p>
 
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Research</span>
-                Tests de usabilidad en hogares reales, benchmark de 8 apps de seguridad del mercado argentino y latinoamericano, y entrevistas con técnicos instaladores. El hallazgo clave: el mapa conceptual de la app era tan técnico que los usuarios no interactuaban con nada más allá de encender y apagar. <strong>Eso definió todo lo que vino después.</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.research}</span>
+                {c.researchPre}<strong>{c.researchBold}</strong>
               </p>
             </div>
 
@@ -286,16 +208,18 @@ export default function AlarmCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El proceso
+              {common.process}
             </h2>
 
             {/* Etapa 1 */}
             <div className="flex flex-col gap-5">
               <p>
-                <span className="inline-block bg-white/10 text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5">Etapa 1 · Senior UX Designer</span>
+                <span className="inline-block bg-white/10 text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5">{c.stage1Label}</span>
               </p>
               <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-                {processStage1.map(({ Icon, title, desc }) => (
+                {c.processStage1.map(({ title, desc }, i) => {
+                  const Icon = stage1Icons[i];
+                  return (
                   <div
                     key={title}
                     className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -313,17 +237,20 @@ export default function AlarmCaseStudy() {
                       <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
             {/* Etapa 2 */}
             <div className="flex flex-col gap-5">
               <p>
-                <span className="inline-block bg-white/10 text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5">Etapa 2 · Líder técnica del equipo UX</span>
+                <span className="inline-block bg-white/10 text-[#b4a7ff] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5">{c.stage2Label}</span>
               </p>
               <div className="grid md:grid-cols-2 gap-5 md:gap-6">
-                {processStage2.map(({ Icon, title, desc }) => (
+                {c.processStage2.map(({ title, desc }, i) => {
+                  const Icon = stage2Icons[i];
+                  return (
                   <div
                     key={title}
                     className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -341,7 +268,8 @@ export default function AlarmCaseStudy() {
                       <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -349,7 +277,7 @@ export default function AlarmCaseStudy() {
             {IMG_CHALLENGE && (
               <Image
                 src={IMG_CHALLENGE}
-                alt="Alarm — el proceso"
+                alt={c.processImgAlt}
                 width={1024}
                 height={349}
                 className="w-full h-auto rounded-2xl"
@@ -368,11 +296,13 @@ export default function AlarmCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              La solución
+              {common.solution}
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {solution.map(({ Icon, title, desc }) => (
+              {c.solution.map(({ title, desc }, i) => {
+                const Icon = solutionIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -390,14 +320,15 @@ export default function AlarmCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Image */}
             <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden bg-[#dddbe4]">
               <Image
                 src={IMG_SOLUTION}
-                alt="Alarm — pantallas de la solución"
+                alt={c.solutionImgAlt}
                 fill
                 className="object-cover object-center"
                 unoptimized
@@ -415,11 +346,11 @@ export default function AlarmCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Impacto
+              {common.impact}
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-              {impact.map((s) => (
+              {c.impact.map((s) => (
                 <div
                   key={s.label}
                   className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
@@ -436,7 +367,7 @@ export default function AlarmCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/70 text-[13px] md:text-[14px] leading-[1.75]">
-              El 2x en rating refleja el estado del producto cuando llegó: 1.9 era una señal clara de que algo en la experiencia estaba fallando. La reducción del 30% en consultas técnicas cerró el loop del backoffice.
+              {c.impactNote}
             </p>
 
           </div>
@@ -450,11 +381,11 @@ export default function AlarmCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Aprendizajes clave
+              {common.learnings}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {learnings.map((l, i) => (
+              {c.learnings.map((l, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-start border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{l}</p>
                 </div>

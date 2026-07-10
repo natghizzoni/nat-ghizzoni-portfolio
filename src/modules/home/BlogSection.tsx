@@ -2,53 +2,36 @@
 
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-// ── Articles data ─────────────────────────────────────────────────
-const articles = [
+// ── Articles presentation data (text comes from i18n, same order) ─
+const articleMeta = [
   {
-    tag: "Diseño",
-    title: "Del objeto al comportamiento: lo que Dieter Rams me enseñó sobre gamificación",
-    desc: "Reflexión sobre cómo los principios del buen diseño de Dieter Rams se aplican a la gamificación y el diseño de comportamientos.",
     year: "2024",
     readTime: "8 min",
     href: "https://medium.com/@nat.ghizzoni/del-objeto-al-comportamiento-lo-que-dieter-rams-me-enseñó-sobre-gamificación-8b41f9245e6b",
   },
   {
-    tag: "Product Strategy",
-    title: "Cuando el DAU se vuelve el amo del producto (y de tu cabeza)",
-    desc: "Una reflexión crítica sobre cómo la obsesión por las métricas de usuarios activos puede distorsionar las decisiones de producto y afectar nuestra perspectiva.",
     year: "2024",
     readTime: "7 min",
     href: "https://medium.com/@nat.ghizzoni/cuando-el-dau-se-vuelve-el-amo-del-producto-y-de-tu-cabeza-1790841c3e83",
   },
   {
-    tag: "UX Design",
-    title: "La trampa de la empatía",
-    desc: "Durante mucho tiempo, en el mundo del diseño digital, romantizamos la empatía. Se volvió nuestro mantra y slogan. La palabra favorita en workshops, portfolios y conferencias.",
     year: "2024",
     readTime: "6 min",
     href: "https://medium.com/@nat.ghizzoni/la-trampa-de-la-empatía-4dac05321988",
   },
   {
-    tag: "E-Commerce",
-    title: "Gamificación en e-commerce: lo que Shein nos enseña",
-    desc: "Análisis de las estrategias de gamificación que hacen de Shein una experiencia adictiva y qué podemos aprender de ello.",
     year: "2024",
     readTime: "9 min",
     href: "https://medium.com/@nat.ghizzoni/gamificación-en-e-commerce-lo-que-shein-nos-enseña-e94489205925",
   },
   {
-    tag: "Ética en Diseño",
-    title: "Diseñar para el deseo, no para la dependencia",
-    desc: "La línea entre crear productos deseables y diseñar para la adicción: un llamado a la ética en el diseño de experiencias digitales.",
     year: "2023",
     readTime: "8 min",
     href: "https://medium.com/@nat.ghizzoni/diseñar-para-el-deseo-no-para-la-dependencia-f8cb6f096bb3",
   },
   {
-    tag: "Gamificación",
-    title: "Diseñar para lo que nos mueve: recompensas SAPs en experiencias digitales",
-    desc: "Cómo las recompensas de Estatus, Acceso y Poder (SAPs) impulsan el comportamiento humano en productos digitales.",
     year: "2023",
     readTime: "10 min",
     href: "https://medium.com/@nat.ghizzoni/dise%C3%B1ar-para-lo-que-nos-mueve-recompensas-saps-en-experiencias-digitales-2dfdb229533e",
@@ -88,6 +71,9 @@ function MediumIcon() {
 
 // ── Main component ────────────────────────────────────────────────
 export default function BlogSection() {
+  const { t } = useLanguage();
+  const b = t.home.blog;
+  const articles = b.articles.map((article, i) => ({ ...article, ...articleMeta[i] }));
   const scrollRef = useRef<HTMLDivElement>(null);
   const spacerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -156,14 +142,14 @@ export default function BlogSection() {
         {/* Header */}
         <div className="flex flex-col gap-4 md:gap-[24px]">
           <p className="text-[#efb803] text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-            Artículos
+            {b.label}
           </p>
           <h2
             className="text-white text-[24px] md:text-[32px] leading-tight md:leading-[44px]"
             style={{ fontFamily: "var(--font-hanken-grotesk)" }}
           >
-            <span className="font-bold">Reflexiones sobre </span>
-            <span className="font-normal text-white/80">diseño, producto y liderazgo en Medium</span>
+            <span className="font-bold">{b.titleBold}</span>
+            <span className="font-normal text-white/80">{b.titleLight}</span>
           </h2>
         </div>
 
@@ -236,7 +222,7 @@ export default function BlogSection() {
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={() => scroll("left")}
-              aria-label="Anterior"
+              aria-label={b.prev}
               disabled={activeIndex === 0}
               className="bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed text-white rounded-full w-9 h-9 flex items-center justify-center transition-colors shrink-0"
             >
@@ -250,7 +236,7 @@ export default function BlogSection() {
                 <button
                   key={i}
                   onClick={() => scrollToIndex(i)}
-                  aria-label={`Ir al artículo ${i + 1}`}
+                  aria-label={`${b.goToArticle} ${i + 1}`}
                   className={`rounded-full transition-all duration-300 ${
                     i === activeIndex ? "bg-white w-6 h-2" : "bg-white/30 hover:bg-white/50 w-2 h-2"
                   }`}
@@ -260,7 +246,7 @@ export default function BlogSection() {
 
             <button
               onClick={() => scroll("right")}
-              aria-label="Siguiente"
+              aria-label={b.next}
               disabled={activeIndex === articles.length - 1}
               className="bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed text-white rounded-full w-9 h-9 flex items-center justify-center transition-colors shrink-0"
             >
@@ -281,7 +267,7 @@ export default function BlogSection() {
             style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.6px" }}
           >
             <MediumIcon />
-            Ir a Medium
+            {b.goToMedium}
           </Link>
         </div>
 

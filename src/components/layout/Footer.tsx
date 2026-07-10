@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ── Inline icons ─────────────────────────────────────────────────
 function MediumIcon() {
@@ -27,6 +28,8 @@ function DownloadIcon() {
 }
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const f = t.footer;
   return (
     <footer
       className="bg-[#1a1433] pt-10 pb-12 md:pt-[40px] md:pb-[81px] px-[var(--section-px)]"
@@ -43,10 +46,10 @@ export default function Footer() {
               className="font-black text-[#b4a7ff] text-[28px] md:text-[40px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "-1px" }}
             >
-              Trabajemos juntos
+              {f.title}
             </h2>
             <p className="text-[#f5f5f5] text-[12px] md:text-[14px] leading-[24px] max-w-xl">
-              Si buscás alguien que combine <strong className="font-normal">visión estratégica</strong>, <strong className="font-normal">diseño centrado en personas</strong> e <strong className="font-normal">impacto</strong> en el negocio, charlemos.
+              {f.desc}
             </p>
             <div className="flex items-center gap-4 md:gap-[24px] flex-wrap">
               <Link
@@ -75,7 +78,7 @@ export default function Footer() {
           {/* Right: nav + CV button */}
           <div className="flex flex-col gap-4 md:gap-[16px] md:items-end md:py-[16px]">
             <p className="text-[#b4a7ff] text-[11px] md:text-[12px] font-medium uppercase tracking-[0.3px]">
-              Secciones
+              {f.sections}
             </p>
             <div className="flex items-center gap-4 md:gap-[16px]">
               <Link
@@ -83,14 +86,14 @@ export default function Footer() {
                 className="text-[#eff2fe] hover:text-[#b4a7ff] transition-colors"
                 style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "14px", letterSpacing: "0.4px" }}
               >
-                Proyectos
+                {f.projects}
               </Link>
               <Link
                 href="/cv"
                 className="text-[#eff2fe] hover:text-[#b4a7ff] transition-colors"
                 style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "14px", letterSpacing: "0.4px" }}
               >
-                Sobre mí
+                {f.about}
               </Link>
             </div>
             <Link
@@ -99,19 +102,19 @@ export default function Footer() {
               style={{ fontFamily: "var(--font-hanken-grotesk)", fontWeight: 900, fontSize: "12px", letterSpacing: "0.4px" }}
             >
               <DownloadIcon />
-              Descargar CV
+              {f.downloadCV}
             </Link>
           </div>
         </div>
 
         {/* Bottom: copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4 text-[#c0c0c0] text-[11px] md:text-[14px] text-center border-t border-[rgba(64,54,164,0.15)] pt-6 md:pt-0 md:border-t-0">
-          <span>Diseñado y desarrollado por Natalia Ghizzoni · Powered by IA · 2026</span>
+          <span>{f.copyright}</span>
           <Link
             href="/privacidad"
             className="underline hover:text-white transition-colors whitespace-nowrap"
           >
-            Política de privacidad
+            {f.privacy}
           </Link>
         </div>
 

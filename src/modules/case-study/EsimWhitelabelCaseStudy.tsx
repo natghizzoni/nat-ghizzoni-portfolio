@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -96,89 +99,15 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// ── Data ──────────────────────────────────────────────────────────
-const meta = [
-  { label: "Rol",          value: "Product Designer" },
-  { label: "Rubro", value: "Telecomunicaciones" },
-  { label: "Tipo",         value: "Ecosistema multiplataforma" },
-  { label: "Producto",     value: "Discovery + Delivery continuo" },
-];
-
-const heroStats = [
-  { value: "13",    label: "Operadores activos" },
-  { value: "3",     label: "Países" },
-  { value: "Miles", label: "Activaciones mensuales" },
-  { value: "4",     label: "Productos integrados" },
-];
-
-const problem = [
-  "Los operadores querían vender eSIMs pero no contaban con infraestructura técnica ni conocimiento del estándar.",
-  "La activación eSIM involucra múltiples microservicios propensos a errores en cadena: pasarela de pago, validación de identidad, instalación del perfil.",
-  "Cada operador necesitaba una solución con su propia marca sin perder coherencia ni calidad.",
-];
-
-const process = [
-  {
-    Icon: IconComponents,
-    title: "Sistema de componentes whitelabel",
-    desc: "Diseñé una arquitectura de tokens que permite personalización visual completa por operador sin rediseñar desde cero. Colores, tipografía, espaciado y estilos de marca se configuran a nivel de token. Cada operador siente que el producto es suyo y el sistema mantiene coherencia sin importar cuántas variantes existan.",
-  },
-  {
-    Icon: IconPuzzle,
-    title: "Traducción de blueprints técnicos",
-    desc: "Los requerimientos llegaban en lenguaje de backend. Mi trabajo era leerlos, entender la lógica de los microservicios y traducirla en flujos comprensibles para el usuario final. Eso requería negociar con el equipo técnico cuando la lógica del sistema no coincidía con la lógica del usuario.",
-  },
-  {
-    Icon: IconBulb,
-    title: "La decisión de la biometría",
-    desc: "El sistema requería que el usuario completara sus datos antes de hacer la verificación biométrica. Detectamos la oportunidad de hacerlo al revés, redujimos el flujo a: ingresar el mail, verificar identidad con selfie y confirmar datos. Menos fricción, menos tiempo, menos errores.",
-  },
-  {
-    Icon: IconFileDescription,
-    title: "Documentación como parte del producto",
-    desc: "En un ecosistema whitelabel la documentación no es opcional, es lo que permite escalar sin perder coherencia. Sin ella, cada nuevo operador requeriría intervención directa para implementar.",
-  },
-];
-
-const solution = [
-  {
-    Icon: IconGlobe,
-    title: "Portal de ventas",
-    desc: "La herramienta con la que el operador gestiona y vende eSIMs de forma directa. Catálogo de planes, gestión de ventas y administración multioperador desde un solo lugar.",
-  },
-  {
-    Icon: IconPhone,
-    title: "App whitelabel",
-    desc: "La experiencia del usuario final. Cada operador recibe su versión con su marca. Activación por QR, gestión de planes y soporte integrado. El flujo de activación fue el más crítico: si falla ahí, falla todo.",
-  },
-  {
-    Icon: IconDashboard,
-    title: "Backoffice de gestión",
-    desc: "Panel interno con dashboard de activaciones, gestión de usuarios con roles y reportes. Diseñado para el equipo operativo de cada operador, no para el usuario final.",
-  },
-  {
-    Icon: IconCode,
-    title: "SDK para tiendas",
-    desc: "Componente integrable que permite a cualquier tienda online vender eSIMs sin desarrollar infraestructura propia. El operador amplía su canal de distribución sin trabajo adicional de su lado.",
-  },
-];
-
-const impact = [
-  { value: "+5",         label: "Operadores activos en Latinoamérica" },
-  { value: "3",          label: "Países" },
-  { value: "+10.000",          label: "Activaciones mensuales" },
-  { value: "+2 años",    label: "Liderando el diseño del ecosistema" },
-];
-
-const learnings = [
-  "Diseñar para un ecosistema whitelabel no es diseñar una app, es diseñar un sistema que otros van a operar. La decisión más importante no es visual, es arquitectónica: qué se puede personalizar y qué no.",
-  "Los requerimientos en lenguaje de backend no son un obstáculo, son el material de trabajo. Entender la lógica de los microservicios cambió la calidad de las decisiones de diseño. No podés diseñar bien lo que no entendés técnicamente.",
-  "Invertir el orden del flujo de biometría redujo la fricción, el tiempo y los errores sin cambiar la lógica del sistema. La mejor solución no siempre requiere más desarrollo, a veces requiere preguntar si el orden tiene sentido para el usuario.",
-  "La documentación no es el final del proceso, es parte del producto. En un ecosistema que escala con múltiples operadores, sin documentación cada integración nueva requiere intervención directa.",
-];
+// ── Icons per card (text comes from i18n, same order) ─────────────
+const processIcons = [IconComponents, IconPuzzle, IconBulb, IconFileDescription];
+const solutionIcons = [IconGlobe, IconPhone, IconDashboard, IconCode];
 
 // ── Component ─────────────────────────────────────────────────────
 export default function EsimWhitelabelCaseStudy() {
+  const { t } = useLanguage();
+  const c = t.cases.esim;
+  const common = t.caseCommon;
   return (
     <>
       <Navbar />
@@ -189,7 +118,7 @@ export default function EsimWhitelabelCaseStudy() {
           <div className="relative w-full h-[333px]">
             <Image
               src={IMG_HERO}
-              alt="Ecosistema whitelabel de eSIM"
+              alt={c.heroAlt}
               fill
               className="object-contain object-center"
               priority
@@ -204,29 +133,29 @@ export default function EsimWhitelabelCaseStudy() {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">{common.breadcrumbProjects}</Link>
               <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
-              <span className="text-[#eff2fe]/35">eSIM</span>
+              <span className="text-[#eff2fe]/35">{c.breadcrumb}</span>
             </nav>
 
             {/* Title block */}
             <div className="flex flex-col gap-4">
-              <SectionLabel>Telecomunicaciones</SectionLabel>
+              <SectionLabel>{c.label}</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Ecosistema whitelabel de eSIM
+                {c.title}
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Una empresa de infraestructura de telecomunicaciones necesitaba competir en el mercado global de eSIM con una solución que operadores de cualquier tamaño pudieran lanzar con su propia marca, sin infraestructura técnica propia. Estuve en el proyecto durante 3 años, en periodos de delivery continuo. Los orígenes del ecosistema partieron de la investigación y bocetos que lideré como respuesta a{" "}
-                <strong className="text-[#eff2fe]">requerimientos que llegaban como blueprints en lenguaje backend. Mi trabajo: traducirlos en experiencias.</strong>
+                {c.intro1Pre}
+                <strong className="text-[#eff2fe]">{c.intro1Bold}</strong>
               </p>
             </div>
 
             {/* Metadata pills */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {meta.map((m) => (
+              {c.meta.map((m) => (
                 <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
@@ -236,7 +165,7 @@ export default function EsimWhitelabelCaseStudy() {
 
             {/* Team context */}
             <p className="text-[#eff2fe]/50 text-[13px] leading-[1.6]">
-              Lideré el diseño durante los primeros 2 años, período en el que se construyeron los orígenes y la base del ecosistema. Trabajé junto a un líder técnico, QA, frontend y backend.
+              {c.team}
             </p>
 
           </div>
@@ -250,12 +179,12 @@ export default function EsimWhitelabelCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El desafío
+              {common.challenge}
             </h2>
 
             {/* Problema — one card per bullet */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {problem.map((item, i) => (
+              {c.problem.map((item, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
                 </div>
@@ -265,13 +194,13 @@ export default function EsimWhitelabelCaseStudy() {
             {/* Hipótesis + Validación — inline */}
             <div className="flex flex-col gap-6 mt-4">
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
-                <strong>Si abstraemos la complejidad técnica del estándar eSIM en un ecosistema whitelabel, los operadores pueden lanzar su producto sin equipo técnico propio y sin comprometer la experiencia del usuario final.</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.hypothesis}</span>
+                <strong>{c.hypothesis}</strong>
               </p>
 
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Validación</span>
-                Benchmark continuo con operadores y productos existentes del mercado global de eSIM. Los requerimientos llegaban como blueprints en lenguaje backend. La validación era técnica y comercial: <strong>cada decisión de diseño se alineaba con el equipo de ingeniería y con el área comercial de la empresa.</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.validation}</span>
+                {c.validationPre}<strong>{c.validationBold}</strong>
               </p>
             </div>
 
@@ -279,7 +208,7 @@ export default function EsimWhitelabelCaseStudy() {
             <div className="overflow-hidden rounded-2xl aspect-[16/9] relative max-h-[300px]">
               <Image
                 src="https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid4.png"
-                alt="El desafío — contexto visual"
+                alt={c.challengeImgAlt}
                 fill
                 className="object-cover object-center"
                 unoptimized
@@ -297,11 +226,13 @@ export default function EsimWhitelabelCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El proceso
+              {common.process}
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {process.map(({ Icon, title, desc }) => (
+              {c.process.map(({ title, desc }, i) => {
+                const Icon = processIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -319,7 +250,8 @@ export default function EsimWhitelabelCaseStudy() {
                     <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
           </div>
@@ -333,20 +265,22 @@ export default function EsimWhitelabelCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              La solución
+              {common.solution}
             </h2>
 
             {/* Architecture diagram */}
             <div className="w-full overflow-hidden rounded-2xl">
               <img
                 src="/valid-architecture.svg?v=3"
-                alt="Arquitectura del ecosistema whitelabel de eSIM"
+                alt={c.architectureAlt}
                 className="w-full h-auto"
               />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {solution.map(({ Icon, title, desc }) => (
+              {c.solution.map(({ title, desc }, i) => {
+                const Icon = solutionIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -364,14 +298,15 @@ export default function EsimWhitelabelCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Image — wide: single panoramic, narrow: two stacked */}
             <div className="hidden sm:block overflow-hidden">
               <Image
                 src={IMG_SOLUTION}
-                alt="Ecosistema whitelabel — portal, app, backoffice y SDK"
+                alt={c.solutionImgAlt}
                 width={1024}
                 height={600}
                 className="w-full h-auto rounded-2xl min-w-[600px]"
@@ -410,11 +345,11 @@ export default function EsimWhitelabelCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Impacto
+              {common.impact}
             </h2>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-              {impact.map((s) => (
+              {c.impact.map((s) => (
                 <div
                   key={s.label}
                   className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
@@ -431,7 +366,7 @@ export default function EsimWhitelabelCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/40 text-[13px] leading-[1.6] border-t border-white/10 pt-5">
-              El ecosistema que construí siguió escalando después de mi participación. Los incrementos posteriores se construyeron sobre la arquitectura de tokens y el sistema de componentes que definí en los primeros dos años.
+              {c.impactNote}
             </p>
 
           </div>
@@ -445,11 +380,11 @@ export default function EsimWhitelabelCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Aprendizajes clave
+              {common.learnings}
             </h2>
 
             <ul className="grid sm:grid-cols-2 gap-3">
-              {learnings.map((l, i) => (
+              {c.learnings.map((l, i) => (
                 <li
                   key={i}
                   className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 border-l-[3px] border-l-[#4036a4]"

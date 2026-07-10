@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -89,83 +92,15 @@ function IconBulb({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-// ── Data ──────────────────────────────────────────────────────────
-const meta = [
-  { label: "Rol",          value: "Product Designer" },
-{ label: "Duración",     value: "4 meses" },
-  { label: "Herramientas", value: "Figma, Maze" },
-  { label: "Producto",     value: "App híbrida" },
-];
-
-const heroStats = [
-  { value: "4 meses", label: "Duración" },
-  { value: "3",       label: "Comunidades" },
-  { value: "89%",     label: "Retención" },
-  { value: "-27%",    label: "Consumo" },
-];
-
-const problem = [
-  "Los usuarios instalaban los paneles pero no cambiaban sus hábitos de consumo.",
-  "Dashboard de energía técnico y abstracto, pocos lo entendían y casi nadie actuaba en base a ellos.",
-  "Las comunidades no conocían el impacto colectivo de su consumo.",
-];
-
-const process = [
-  {
-    Icon: IconChartBar,
-    title: "Research cuantitativo",
-    desc: "Los datos del ecualizador de Quantic Foundry revelaron dos perfiles dominantes con motivaciones opuestas. Eso definió el diseño: no podíamos forzar un solo recorrido.",
-  },
-  {
-    Icon: IconUser,
-    title: "Player personas",
-    desc: "El Cazarrecompensas entra por estímulo: recompensa, curiosidad, novedad. El Arquitecto se queda porque entiende, domina y conecta con el propósito. El sistema tenía que funcionar para ambos sin sacrificar a ninguno.",
-  },
-  {
-    Icon: IconRoute,
-    title: "Behavioral plan",
-    desc: "Diseñé la arquitectura motivacional en capas: mecánicas, dinámicas y estética. Dopamina como puerta de entrada y desafíos semanales, y no diarios: no perseguíamos DAU, perseguíamos cambio de hábito real fuera de la app.",
-  },
-];
-
-const solution = [
-  {
-    Icon: IconCalendarStats,
-    title: "Desafíos personalizados",
-    desc: "Retos semanales, individuales y colectivos, adaptados al perfil de consumo de cada hogar y comunidad.",
-  },
-  {
-    Icon: IconBellRinging,
-    title: "Feedback en tiempo real",
-    desc: "Notificaciones en el momento exacto del logro registrado en el medidor energético. La dopamina funciona cuando el refuerzo es inmediato y específico.",
-  },
-  {
-    Icon: IconMedal,
-    title: "Sistema de logros",
-    desc: "Insignias que documentan el progreso en el tiempo. Diseñadas para el Arquitecto, el perfil que se motiva por dominio y propósito, no por competencia.",
-  },
-  {
-    Icon: IconZap,
-    title: "Simulador energético",
-    desc: "Herramienta para estimar el impacto del consumo en ahorro real. Fue nuestra propuesta y resonó con el cliente porque estaban trabajando en la desagregación de hogares. El usuario estima horas de uso activo y visualiza el impacto, aprendizaje sin fricción técnica.",
-  },
-];
-
-const impact = [
-  { value: "3",       label: "Comunidades piloto activas" },
-  { value: "89%",     label: "Retención a 30 días" },
-  { value: "-27%",    label: "Reducción de consumo promedio" },
-];
-
-const learnings = [
-  "El comportamiento gamificado solo funciona si los datos son confiables. El sistema de notificaciones dependía de lecturas en tiempo real de los medidores y cualquier latencia rompe la lógica de refuerzo.",
-  "La gamificación sola no alcanza: el mayor driver de engagement fue el contexto social. Las misiones colectivas y la visibilidad del impacto comunitario sostuvieron la retención donde los desafíos individuales se habrían agotado.",
-  "Simplificar datos técnicos de energía fue más difícil que diseñar la gamificación. El lenguaje de kilowatts y tarifas es opaco para la mayoría de los usuarios. Traducirlo a impacto concreto y comprensible fue el trabajo de diseño más subestimado del proyecto.",
-  "La adopción inicial fue más lenta de lo esperado. La retención fue una sorpresa positiva pero llegar ahí requirió más tiempo de onboarding del que habíamos planificado.",
-];
+// ── Icons per card (text comes from i18n, same order) ─────────────
+const processIcons = [IconChartBar, IconUser, IconRoute];
+const solutionIcons = [IconCalendarStats, IconBellRinging, IconMedal, IconZap];
 
 // ── Component ─────────────────────────────────────────────────────
 export default function SoleniumCaseStudy() {
+  const { t } = useLanguage();
+  const c = t.cases.solenium;
+  const common = t.caseCommon;
   return (
     <>
       <Navbar />
@@ -176,7 +111,7 @@ export default function SoleniumCaseStudy() {
           <div className="relative w-full h-[240px] sm:h-[340px] md:h-[520px]">
             <Image
               src={IMG_PHONES}
-              alt="Solenium app — tres pantallas principales"
+              alt={c.heroAlt}
               fill
               className="object-cover object-top"
               priority
@@ -191,31 +126,31 @@ export default function SoleniumCaseStudy() {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[12px] md:text-[14px] font-semibold uppercase tracking-[0.3px]">
-              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">Proyectos</Link>
+              <Link href="/#proyectos" className="text-[#efb803] hover:text-[#efb803]/80 transition-colors">{common.breadcrumbProjects}</Link>
               <span aria-hidden="true" className="text-[#eff2fe]/30">/</span>
-              <span className="text-[#eff2fe]/35">Energía Solar</span>
+              <span className="text-[#eff2fe]/35">{c.breadcrumb}</span>
             </nav>
 
             {/* Title block */}
             <div className="flex flex-col gap-4">
-              <SectionLabel>Energía Solar</SectionLabel>
+              <SectionLabel>{c.label}</SectionLabel>
               <h1
                 className="text-white font-black text-[32px] md:text-[52px] lg:text-[60px] leading-[1.05] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-hanken-grotesk)" }}
               >
-                Gamificación para hábitos energéticos responsables
+                {c.title}
               </h1>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Una empresa vende minigranjas solares en Colombia. <span className="font-bold text-[#eff2fe]">El problema: instalan los paneles, pero sin cambio de hábitos el ahorro prometido no se materializa.</span> El proyecto llegó a través de Gamific. Empezó como consultoría de gamificación y evolucionó hacia trabajo de producto.
+                {c.intro1Pre}<span className="font-bold text-[#eff2fe]">{c.intro1Bold}</span>{c.intro1Post}
               </p>
               <p className="text-[#eff2fe]/70 text-[14px] lg:text-[16px] leading-[1.75]">
-                Trabajé en conjunto a una analista funcional, un diseñador UI, un tech lead/PO y los equipos de frontend y backend de la empresa.
+                {c.intro2}
               </p>
             </div>
 
             {/* Metadata pills */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {meta.map((m) => (
+              {c.meta.map((m) => (
                 <div key={m.label} className="bg-[#1a1433] border border-[rgba(87,75,224,0.3)] rounded-xl px-4 py-2.5 flex flex-col gap-0.5">
                   <span className="text-[#b4a7ff] text-[10px] font-semibold uppercase tracking-[0.3px]">{m.label}</span>
                   <span className="text-white text-[13px] font-medium">{m.value}</span>
@@ -234,12 +169,12 @@ export default function SoleniumCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El desafío
+              {common.challenge}
             </h2>
 
             {/* Problema — one card per bullet */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {problem.map((item, i) => (
+              {c.problem.map((item, i) => (
                 <div key={i} className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]">
                   <p className="text-[#1a1433] text-[12px] md:text-[13px] font-medium leading-[1.65]">{item}</p>
                 </div>
@@ -250,14 +185,14 @@ export default function SoleniumCaseStudy() {
             <div className="flex flex-col gap-6 mt-4">
               {/* Hipótesis */}
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Hipótesis</span>
-                <strong>Si diseñamos un sistema motivacional que haga visible el impacto individual y colectivo del ahorro, podemos cambiar comportamientos reales.</strong>
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.hypothesis}</span>
+                <strong>{c.hypothesis}</strong>
               </p>
 
               {/* Research */}
               <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.75]">
-                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">Research</span>
-                Encuestamos a 96 usuarios actuales usando el framework de Bartle para perfilar el aspecto lúdico de la muestra. Los resultados mostraron una distribución tan variada que el modelo no alcanzaba para segmentar con precisión. Cambiamos al framework de Quantic Foundry, que ofrece un ecualizador motivacional más granular. <strong>Ese cambio definió todo lo que vino después:</strong> las player personas, las mecánicas elegidas y la arquitectura del sistema. Complementamos con benchmark de apps de energía y fitness con gamificación, test de usabilidad y monitoreo de métricas.
+                <span className="inline-block bg-[#4036a4]/10 text-[#4036a4] text-[11px] font-semibold uppercase tracking-[0.3px] rounded-full px-2.5 py-0.5 mr-2 align-middle">{common.research}</span>
+                {c.researchPre}<strong>{c.researchBold}</strong>{c.researchPost}
               </p>
             </div>
 
@@ -265,7 +200,7 @@ export default function SoleniumCaseStudy() {
             <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_HOME_SCREEN}
-                alt="Pantalla home con consumo y 'Tu vs Comunidad'"
+                alt={c.challengeImgAlt}
                 fill
                 className="object-cover object-center"
                 unoptimized
@@ -283,11 +218,13 @@ export default function SoleniumCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              El proceso
+              {common.process}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-              {process.map(({ Icon, title, desc }) => (
+              {c.process.map(({ title, desc }, i) => {
+                const Icon = processIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white/5 border border-white/10 hover:border-[rgba(87,75,224,0.5)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors"
@@ -305,7 +242,8 @@ export default function SoleniumCaseStudy() {
                     <p className="text-[#eff2fe]/65 text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
           </div>
@@ -319,11 +257,13 @@ export default function SoleniumCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              La solución
+              {common.solution}
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-5 md:gap-6">
-              {solution.map(({ Icon, title, desc }) => (
+              {c.solution.map(({ title, desc }, i) => {
+                const Icon = solutionIcons[i];
+                return (
                 <div
                   key={title}
                   className="bg-white border border-[rgba(64,54,164,0.15)] hover:border-[rgba(64,54,164,0.35)] rounded-2xl p-6 md:p-8 flex flex-col gap-5 transition-colors shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.05)]"
@@ -341,14 +281,15 @@ export default function SoleniumCaseStudy() {
                     <p className="text-[#4a5565] text-[13px] md:text-[14px] leading-[1.7]">{desc}</p>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Image */}
             <div className="relative w-full aspect-[1024/349] rounded-2xl overflow-hidden">
               <Image
                 src={IMG_INSIGNIAS}
-                alt="Pantalla de insignias"
+                alt={c.solutionImgAlt}
                 fill
                 className="object-cover object-center"
                 unoptimized
@@ -366,11 +307,11 @@ export default function SoleniumCaseStudy() {
               className="text-white font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Impacto
+              {common.impact}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
-              {impact.map((s) => (
+              {c.impact.map((s) => (
                 <div
                   key={s.label}
                   className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-2 items-center justify-center text-center"
@@ -387,7 +328,7 @@ export default function SoleniumCaseStudy() {
             </div>
 
             <p className="text-[#eff2fe]/50 text-[12px] md:text-[13px] leading-[1.75]">
-              Medido en medidores reales durante los primeros 4 meses del piloto, comparado contra el mismo período del año anterior. La retención fue una sorpresa aunque la adopción inicial fue más lenta de lo esperado.
+              {c.impactNote}
             </p>
 
           </div>
@@ -401,11 +342,11 @@ export default function SoleniumCaseStudy() {
               className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
               style={{ fontFamily: "var(--font-hanken-grotesk)" }}
             >
-              Aprendizajes clave
+              {common.learnings}
             </h2>
 
             <ul className="grid md:grid-cols-2 gap-4 md:gap-5">
-              {learnings.map((l, i) => (
+              {c.learnings.map((l, i) => (
                 <li
                   key={i}
                   className="bg-white border border-[rgba(64,54,164,0.15)] rounded-xl px-6 py-4 flex items-center border-l-[3px] border-l-[#4036a4]"

@@ -22,25 +22,45 @@ function LinkedInIcon() {
   );
 }
 
-function GlobeIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" />
-      <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-  );
-}
+function LanguagePillToggle() {
+  const { language, setLanguage } = useLanguage();
 
-function ChevronDownIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
+    <div
+      className="flex items-center h-9"
+      style={{
+        background: "rgba(87,75,224,0.25)",
+        border: "1px solid rgba(107,97,200,0.5)",
+        borderRadius: "10px",
+        padding: "3px",
+      }}
+    >
+      {(["es", "en"] as const).map((lang) => (
+        <button
+          key={lang}
+          onClick={() => setLanguage(lang)}
+          className="px-3 h-full flex items-center justify-center text-[#eff2fe] uppercase transition-colors"
+          style={{
+            fontFamily: "var(--font-hanken-grotesk)",
+            fontWeight: 900,
+            fontSize: "14px",
+            letterSpacing: "0.4px",
+            background: language === lang ? "rgba(87,75,224,0.85)" : "transparent",
+            opacity: language === lang ? 1 : 0.55,
+            borderRadius: "7px",
+          }}
+          aria-label={`Switch to ${lang === "es" ? "Español" : "English"}`}
+          aria-pressed={language === lang}
+        >
+          {lang}
+        </button>
+      ))}
+    </div>
   );
 }
 
 export default function Navbar() {
-  const { language, toggle } = useLanguage();
+  const { t } = useLanguage();
   const pathname = usePathname();
   const isCV = pathname === "/cv";
   const [menuOpen, setMenuOpen] = useState(false);
@@ -91,7 +111,7 @@ export default function Navbar() {
             style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
             aria-current={isCV ? "page" : undefined}
           >
-            Sobre mi
+            {t.nav.about}
           </Link>
 
           {/* Medium */}
@@ -119,22 +139,7 @@ export default function Navbar() {
           </Link>
 
           {/* Language toggle */}
-          <button
-            onClick={toggle}
-            className="flex items-center gap-2 bg-[rgba(87,75,224,0.5)] hover:bg-[rgba(87,75,224,0.7)] text-[#eff2fe] h-9 pl-3 pr-2 rounded-[10px] transition-colors"
-            style={{
-              fontFamily: "var(--font-hanken-grotesk)",
-              fontWeight: 900,
-              fontSize: "14px",
-              letterSpacing: "0.4px",
-              border: "0.833px solid rgba(239,184,3,0.2)",
-            }}
-            aria-label={`Switch to ${language === "es" ? "English" : "Español"}`}
-          >
-            <GlobeIcon />
-            <span className="uppercase">{language}</span>
-            <ChevronDownIcon />
-          </button>
+          <LanguagePillToggle />
         </div>
 
         {/* Mobile hamburger */}
@@ -164,7 +169,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             aria-current={isCV ? "page" : undefined}
           >
-            Sobre mi
+            {t.nav.about}
           </Link>
           <Link
             href="https://medium.com/@nat.ghizzoni"
@@ -184,14 +189,7 @@ export default function Navbar() {
           >
             <LinkedInIcon /> LinkedIn
           </Link>
-          <button
-            onClick={toggle}
-            className="self-start flex items-center gap-1.5 text-[14px] font-black text-[#eff2fe]"
-            style={{ fontFamily: "var(--font-hanken-grotesk)", letterSpacing: "0.4px" }}
-          >
-            <GlobeIcon />
-            {language === "es" ? "Switch to EN" : "Cambiar a ES"}
-          </button>
+          <LanguagePillToggle />
         </div>
       )}
     </header>

@@ -6,7 +6,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     title: "Gamificación para hábitos energéticos responsables",
     subtitle: "Energía solar",
     context:
-      "Una startup de energía solar quería que sus usuarios no solo instalaran paneles, sino que también cambiaran sus hábitos de consumo. El problema: los datos de consumo son aburridos y nadie los mira.",
+      "Una empresa vende minigranjas solares en Colombia. El problema: instalan los paneles, pero sin cambio de hábitos el ahorro prometido no se materializa. El proyecto llegó a través de Gamific. Empezó como consultoría de gamificación y evolucionó hacia trabajo de producto.",
     role: "UX / Product Designer",
     technologies: ["Figma", "Maze", "Hotjar", "Lottie"],
     process: ["Investigación", "Ideación", "Prototipo", "Testeo", "Iteración"],

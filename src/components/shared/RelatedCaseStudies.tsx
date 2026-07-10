@@ -3,48 +3,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const ALL_CASES = [
-  {
-    slug: "celcit",
-    label: "Educación / Accesibilidad",
-    title: "Accesibilidad integral para una plataforma de educación teatral",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
-  },
-  {
-    slug: "solenium",
-    label: "Energía Solar",
-    title: "Gamificación para hábitos energéticos responsables",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png",
-  },
-  {
-    slug: "aeropuertos-argentina",
-    label: "Aeropuertos",
-    title: "De 35 sitios dispersos a una experiencia unificada",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-1.png?updatedAt=1778018681652",
-  },
-  {
-    slug: "alarm",
-    label: "Smart Home",
-    title: "Ecosistema completo de alarmas IoT para el hogar",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png",
-  },
-  {
-    slug: "billetera-fintech",
-    label: "Fintech",
-    title: "Billetera Fintech accesible a 3 países",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png",
-  },
-  {
-    slug: "esim-whitelabel",
-    label: "Telecomunicaciones",
-    title: "Ecosistema whitelabel de eSIM",
-    image: "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid1.png",
-  },
-];
+// Images by slug — text comes from i18n
+const CASE_IMAGES: Record<string, string> = {
+  "celcit":                "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/cecilt3.png",
+  "solenium":              "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/gami-1.png",
+  "aeropuertos-argentina": "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/aerop-1.png?updatedAt=1778018681652",
+  "alarm":                 "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/alarm-1.png",
+  "billetera-fintech":     "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/billetera-hero.png",
+  "esim-whitelabel":       "https://ik.imagekit.io/9822293kkm/Portfolio/case-studies/valid1.png",
+};
 
 export default function RelatedCaseStudies({ currentSlug }: { currentSlug: string }) {
-  const related = ALL_CASES.filter((cs) => cs.slug !== currentSlug);
+  const { t } = useLanguage();
+  const r = t.related;
+  const related = r.cases
+    .filter((cs) => cs.slug !== currentSlug)
+    .map((cs) => ({ ...cs, image: CASE_IMAGES[cs.slug] }));
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(true);
@@ -70,13 +46,13 @@ export default function RelatedCaseStudies({ currentSlug }: { currentSlug: strin
             className="text-[#1a1433] font-black text-[24px] md:text-[32px] leading-tight"
             style={{ fontFamily: "var(--font-hanken-grotesk)" }}
           >
-            Otros proyectos
+            {r.title}
           </h2>
           <div className="flex gap-2">
             <button
               onClick={() => scroll("left")}
               disabled={!canLeft}
-              aria-label="Anterior"
+              aria-label={r.prev}
               className="w-10 h-10 rounded-full border border-[rgba(64,54,164,0.25)] flex items-center justify-center text-[#4036a4] hover:bg-[rgba(64,54,164,0.08)] disabled:opacity-30 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
@@ -86,7 +62,7 @@ export default function RelatedCaseStudies({ currentSlug }: { currentSlug: strin
             <button
               onClick={() => scroll("right")}
               disabled={!canRight}
-              aria-label="Siguiente"
+              aria-label={r.next}
               className="w-10 h-10 rounded-full border border-[rgba(64,54,164,0.25)] flex items-center justify-center text-[#4036a4] hover:bg-[rgba(64,54,164,0.08)] disabled:opacity-30 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
@@ -129,7 +105,7 @@ export default function RelatedCaseStudies({ currentSlug }: { currentSlug: strin
                   {cs.title}
                 </p>
                 <span className="inline-flex items-center gap-2 text-[#4036a4] text-[13px] font-semibold self-start">
-                  Ver caso
+                  {r.viewCase}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

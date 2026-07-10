@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 // ── ImageKit CDN logos ────────────────────────────────────────────
 const LOGOS = [
@@ -17,6 +18,7 @@ const LOGOS = [
 const BG = "#dddbe4";
 
 export default function LogosSection() {
+  const { t } = useLanguage();
   // Duplicate for seamless marquee loop
   const track = [...LOGOS, ...LOGOS];
 
@@ -27,7 +29,7 @@ export default function LogosSection() {
     >
       {/* Label */}
       <p className="text-center text-[#1a1433] text-[11px] md:text-[14px] font-semibold uppercase tracking-[0.3px] mb-6 md:mb-10 px-[var(--section-px)]">
-        Empresas y organizaciones con las que trabajé
+        {t.home.logos.label}
       </p>
 
       {/* Marquee track */}
